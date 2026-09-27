@@ -1,4 +1,4 @@
-# SoloPrimus · 独臻
+# SoloPrimus · 元臻
 
 Independent research for solo investors and creators: investing, AI, and self-media.
 
@@ -18,7 +18,7 @@ Open `http://localhost:8765`. The deployed document root must be this repository
 - `dashboard.html`: category filters and two original educational reading samples.
 - `pricing.html`: planned membership rates and a clearly disclosed pre-launch state.
 
-The existing routes, section anchors, and planned $19/month and $190/year pricing are retained. The approved mountain-and-path logo replaces the original arrow. The wordmark is SoloPrimus; the Chinese name 独臻 expresses independent inquiry and the pursuit of excellence. Payment checkout, account registration, and member authorization are not implemented. Membership must not be advertised as available until a backend, payment integration, and legal policies are ready.
+The existing routes, section anchors, and planned $19/month and $190/year pricing are retained. The approved mountain-and-path logo replaces the original arrow. The wordmark is SoloPrimus; the Chinese name 元臻 combines origins and new beginnings with continual progress toward excellence. Payment checkout, account registration, and member authorization are not implemented. Membership must not be advertised as available until a backend, payment integration, and legal policies are ready.
 
 ## Design and assets
 
