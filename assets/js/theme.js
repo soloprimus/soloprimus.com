@@ -1,1 +1,0 @@
-try { var preference = localStorage.getItem('soloprimus-theme'); document.documentElement.dataset.theme = preference || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); } catch (_) {}

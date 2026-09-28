@@ -1,50 +1,72 @@
-# SoloPrimus · 元臻
+# SOLO PRIMUS · 凌霄
 
-Independent research for solo investors and creators: investing, AI, and self-media.
+Personal website of Solo Primus (凌霄): essays on investing, applied AI, and creative work.
+English is served at `/`, Chinese at `/zh/`.
+
+Solo Primus is an assistant professor with a PhD in economics and a background in electronic information engineering. The site is organized around three kinds of leverage one person can use: capital (investing), code (applied AI), and media (creative work).
+
+## Publish a new essay
+
+1. Add a Markdown file to `content/essays/`, named `<slug>.zh.md` or `<slug>.en.md`. Use lowercase letters, digits, and hyphens in the slug. An English and a Chinese file with the same slug are linked as translations of each other.
+2. Start it with front matter:
+
+   ```md
+   ---
+   title: 投资一定要有升维思维
+   summary: One or two sentences shown in lists, search results, and share cards.
+   topic: investing        # investing | ai | creator
+   date: 2026-09-08
+   featured: 1             # optional; lower numbers appear first in “Start here”
+   note: Optional disclaimer shown under the essay.
+   title_en: Optional English title, used to list a Chinese-only essay on the English site
+   summary_en: Optional English summary for the same purpose
+   ---
+   ```
+
+3. Build:
+
+   ```sh
+   node scripts/og.mjs      # share images in assets/og/ (needs Chrome or Edge; set CHROME_PATH if not found)
+   node scripts/build.mjs   # regenerates every page, feed.xml, and sitemap.xml
+   ```
+
+4. Commit everything, including the generated HTML, and push `main`.
+
+Supported Markdown: `##`/`###` headings (three or more `##` headings add an “On this page” list), paragraphs, `**bold**`, `*italic*`, `==key sentence==` (brand highlight), `[links](https://…)`, `> quotes`, `-` and `1.` lists, and `---` rules.
+
+Node 18 or later is required. There are no npm dependencies.
+
+## Layout
+
+- `content/site.mjs`: pen names, links, and all interface copy in English and Chinese. Change a pen name here and rebuild.
+- `content/essays/`: the essays.
+- `scripts/build.mjs`, `scripts/markdown.mjs`: the static site generator.
+- `scripts/og.mjs`: share images and `assets/apple-touch-icon.png`.
+- `assets/css/site.css`, `assets/js/site.js`: styles, theme toggle, mobile menu, and essay filters.
+- `assets/css/fonts.css`, `assets/fonts/`: self-hosted fonts.
+- Generated output (listed in `scripts/generated-files.json`, don't edit by hand): `index.html`, `about/`, `essays/`, `zh/`, `404.html`, `feed.xml`, `zh/feed.xml`, `sitemap.xml`.
+- `_redirects` sends the old `/dashboard` and `/pricing` URLs to `/essays/`. `_headers` sets long cache lifetimes for fonts and fingerprinted CSS and JS.
+
+## Design
+
+Typography follows jamesclear.com: a classic serif for reading (Minion Pro there, Crimson Pro here) and a geometric sans for headings and navigation (Europa there, Figtree here). Chinese pages set reading text in 思源宋体 (Noto Serif SC) and headings in the system 黑体 (PingFang SC or Microsoft YaHei). Emphasis inside Chinese reading text uses 黑体, and key sentences use a copper highlight.
+
+The palette keeps the copper accent of the mountain mark on warm white, with a matching dark theme. The home page explains each topic with a small static diagram (a thesis card, a workflow time chart, a publishing loop) instead of decorative animation. The mountain sculpture rises once when the page opens and then stays still, so no pause control is needed; it doesn't move at all when the system asks for reduced motion.
+
+`assets/images/mountain-sculpture.webp` was generated for this project from the approved mountain-and-path logo. `assets/images/mountain-mark.svg` is the vector mark.
 
 ## Run locally
 
-This is a static website. No dependency installation or build step is required.
-
 ```sh
-python -m http.server 8765
+python -m http.server 8790
 ```
 
-Open `http://localhost:8765`. The deployed document root must be this repository root.
-
-## Pages
-
-- `index.html`: brand and research overview, animated hero and conceptual canvas illustrations.
-- `dashboard.html`: category filters and two original educational articles, freely accessible.
-- `pricing.html`: legacy redirect to the free research library; no plans or payment interface.
-
-All published articles, research, and resources are free. No account or payment is required. Resources not yet written are clearly marked as in preparation and will also be free on release. The approved mountain-and-path logo is retained. The wordmark is SoloPrimus; the Chinese name is 元臻.
-
-## Design and assets
-
-The redesign uses Taste Skill and draws visual inspiration from the light surfaces, generous typography, warm accents, and looping graphics at https://llmquant.com/. Its code, visual asset, and brand copy are original to SoloPrimus; no reference-site logos or artwork are used.
-
-`assets/images/mountain-mark.svg` is the production vector rendition of the client-approved mountain and S-shaped path. Header and footer use the same two filled paths; `assets/favicon.svg` opens the narrow channel slightly for small sizes and adapts its color to the browser theme.
-
-`assets/images/mountain-sculpture.webp` is the dimensional hero, generated for this project with OpenAI's built-in image generation tool from the approved logo. Its transparent platinum faces and copper edges are animated with a slow rise and a clipped studio highlight. Motion pauses together with the page's control, outside the viewport, in hidden tabs, and under the system reduced-motion preference. The research graphics remain original conceptual canvas animations, not live market data, forecasts, or performance history.
-
-PT Serif is used for English and Spanish editorial headings and reading copy; Montserrat is used for navigation and controls, following the reference site's font pairing. Japanese and Korean use writing-system-specific type stacks and spacing. All Latin fonts are self-hosted; licenses are included in `assets/fonts`. The original Manrope font remains available to the base design. Social icons are from Bootstrap Icons, with their license in `assets/icons`.
-
-## Behavior
-
-- Responsive layouts, a keyboard-operable mobile menu, native reading dialogs, and FAQ disclosures.
-- Light and dark color themes. The selected preference is stored locally.
-- English is the default. The selector order is English, Chinese, Japanese, Korean, Spanish. The English, Japanese, Korean, and Spanish brand copy is independently adapted to each language rather than translating the Chinese name's etymology. All three pages, reading dialogs, metadata, and accessible labels are localized. Language choice persists locally; `?lang=en`, `zh-CN`, `ja`, `ko`, or `es` can explicitly select a language. Static HTML remains readable in English without JavaScript.
-- All membership and payment-plan interfaces and copy have been removed in every language. GitHub links to `https://github.com/soloprimus`; Discord is a disabled coming-soon entry.
-- The Substack panel links to the supplied profile `https://substack.com/@soloprimus`. It does not collect email addresses or claim to submit subscriptions. A publication embed URL has not been supplied.
-- Footer icons appear in this order: Facebook, GitHub, X, Discord, LinkedIn. X links to `https://x.com/veryzs`. Facebook, Discord, and LinkedIn are visibly disabled pending real destinations.
-- Translations are bundled in `assets/js/locales.js`; styles for language-specific typography and the selector are in `assets/css/locales.css`. No external translation service is contacted.
-- A motion pause control and support for the operating system's reduced-motion preference.
-- Canvas work is limited to visible sections and pauses in background tabs.
-- No third-party scripts, analytics, trackers, or runtime API keys.
+Open `http://localhost:8790`. Links use root-relative paths, so serve the repository root.
 
 ## Deployment
 
-The user authorized publishing the free-access revision on 2026-09-28. `assets/css/editorial.css` contains its typography and Substack/social layout; the approved mountain sculpture and animation are retained. The Substack panel is a follow link, independent of site access.
+Static files only. Publish the repository root with no build command; the generated pages are committed.
 
-Push `main` to the hosting platform connected to this repository. No build command is necessary; publish the root directory. This repository does not configure an external hosting account, domain DNS, TLS, or payment credentials.
+## Licenses
+
+Figtree, Crimson Pro, and Noto Serif SC are self-hosted under the SIL Open Font License 1.1 (`assets/fonts/*/OFL.txt`). The Substack and X icons come from Bootstrap Icons, MIT License (`assets/icons/LICENSE.txt`).
