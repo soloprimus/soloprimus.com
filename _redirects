@@ -1,5 +1,9 @@
-# Old URLs from the previous single-page research library.
+# Old URLs that moved.
 /dashboard       /essays/  301
 /dashboard.html  /essays/  301
 /pricing         /essays/  301
 /pricing.html    /essays/  301
+/zh/essays/what-customers-really-pay-for   /zh/essays/the-nature-of-consumption/         301
+/zh/essays/what-customers-really-pay-for/  /zh/essays/the-nature-of-consumption/         301
+/zh/essays/how-a-sense-of-value-grows      /zh/essays/how-understanding-of-value-grows/  301
+/zh/essays/how-a-sense-of-value-grows/     /zh/essays/how-understanding-of-value-grows/  301

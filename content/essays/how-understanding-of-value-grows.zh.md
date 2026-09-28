@@ -4,8 +4,8 @@ summary: 有些判断，要放进生活里用过，才知道自己懂了多少�
 topic: investing
 date: 2026-09-05
 featured: 4
-title_en: How a sense of value grows
-summary_en: Some judgments only become real once you use them in your own life. A choice between two rentals shows how experience adds the costs you left out.
+title_en: How a person’s understanding of value grows
+summary_en: Some judgments show how much you understand only after you have used them in your own life. A single choice of apartment shows how experience fills in the costs you left out.
 note: 本文为个人研究与思考，不构成任何投资建议。
 ---
 

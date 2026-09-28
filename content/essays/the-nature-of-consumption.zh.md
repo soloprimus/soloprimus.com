@@ -1,11 +1,11 @@
 ---
 title: 消费的本质
-summary: 同一瓶酒，换一张价签，味道就变了。对做服务的人来说，交付之前的一切，都是客户判断你的证据。
+summary: 同一瓶酒，换一张标签，味道就变了。对做服务的人来说，交付之前的一切，都是客户判断你的证据。
 topic: creator
 date: 2026-09-23
 featured: 2
-title_en: What customers really pay for
-summary_en: The same wine tastes better at a higher price. For anyone selling a service, everything before delivery is the evidence a client uses to judge you.
+title_en: The nature of consumption
+summary_en: Change the label on the same bottle of wine, and it tastes different. For anyone who sells a service, everything before delivery is the evidence a client uses to judge you.
 ---
 
 2008年，加州理工和斯坦福的几位研究者做过一个实验。他们请了二十来个受试者躺进核磁共振仪，用细管往嘴里滴葡萄酒，告诉他们这是几款价格不同的酒，其实其中有一款酒出现了两次，一次说是10美元，一次说是90美元。结果受试者普遍觉得90美元那杯更好喝。这部分不算意外，谁都有被价格牌影响的时候。意外的是扫描结果：喝“90美元”那杯时，他们大脑里跟愉悦感直接相关的那块区域，活跃程度确实更高。也就是说，他们不是嘴上客气，也不是怕显得自己不懂酒，是真的更享受了。

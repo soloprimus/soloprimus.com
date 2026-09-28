@@ -4,8 +4,8 @@ summary: 2007 年买中石油和 2014 年买茅台的人，下单时回答的不
 topic: investing
 date: 2026-09-08
 featured: 1
-title_en: Investing takes thinking one level up
-summary_en: Buying PetroChina in 2007 and Moutai in 2014 answered different questions. Thinking one level up means asking about time, odds, structure, where returns come from, and your own situation.
+title_en: Investing requires thinking one level up
+summary_en: The people who bought PetroChina in 2007 and Moutai in 2014 were not answering the same question when they placed their orders. Look one level higher at a time: time, probability, structure, where returns come from, and yourself.
 ---
 
 2007年11月5日，中石油A股上市，开盘48.62元。那天证券营业部门口是排队的，媒体的说法是“亚洲最赚钱的公司”，买它等于分享国家的能源命脉。结果一年之后它跌到9块7，之后的十几年，大部分时间在7块到10块之间待着。从上市第一天买进去、一直没舍得卖的那批人，最后是靠段子出名的。

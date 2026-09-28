@@ -5,7 +5,7 @@ topic: investing
 date: 2026-09-05
 featured: 3
 title_en: Respect the bubble
-summary_en: Knowing a sector is overvalued is not the same as knowing when it will fall. An industry with deep funding can adapt, and short sellers pay for the wait.
+summary_en: Between judging that valuations are too high and judging when prices will fall lie shifts in capital, interests, and expectations. An industry that adjusts on its own makes short sellers pay for the wait.
 note: 本文为个人研究与思考，提到的公司仅用于说明问题，不构成任何投资建议。
 ---
 
