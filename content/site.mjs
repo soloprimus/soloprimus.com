@@ -8,7 +8,7 @@ export const SITE = {
   penName: { en: 'Solo Primus', caps: 'SOLO PRIMUS', zh: '凌霄' },
   links: {
     substack: 'https://substack.com/@soloprimus',
-    x: 'https://x.com/veryzs',
+    x: 'https://x.com/veryzg',
   },
   langs: {
     en: { prefix: '', htmlLang: 'en', hreflang: 'en', ogLocale: 'en_US' },
