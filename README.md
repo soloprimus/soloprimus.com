@@ -14,7 +14,7 @@ The feeds already belong to this website. Use these exact URLs in a reader or in
 
 `node scripts/build.mjs` generates both feeds from `content/essays/`, including full article text, publication dates, and stable article URLs. Publish the generated XML with each update. No third-party RSS service or Substack feed URL is required. `_headers` serves both feeds as `application/rss+xml` with a five-minute cache.
 
-All account URLs live in `SITE.links` in `content/site.mjs`. `SITE.socialPlatforms.en` and `.zh` control the footer lists. A `null` URL displays “Coming soon” / “即将开放” as non-clickable text. Replace it with the real HTTPS account URL and rebuild to activate the link wherever it appears. For WeChat, use a working official-account landing page or article URL; do not invent an account URL. A QR code can be added when the real account is available.
+All account URLs live in `SITE.links` in `content/site.mjs`. `SITE.socialPlatforms.en` and `.zh` control the footer lists. Every social entry uses a locally bundled platform logo, with its name in the tooltip and accessible label. A `null` URL renders a non-clickable icon with a small status dot and “Coming soon” / “即将开放” in its tooltip. Replace it with the real HTTPS account URL and rebuild to activate the link wherever it appears. For WeChat, use a working official-account landing page or article URL; do not invent an account URL. A QR code can be added when the real account is available.
 
 English homepage actions: Substack and X. Chinese homepage actions: Douyin and WeChat Official Account. The current X URL is preserved from the latest site configuration (`https://x.com/veryzg`).
 
@@ -82,4 +82,4 @@ Static files only. Publish the repository root with no build command; the genera
 
 ## Licenses
 
-Figtree, Crimson Pro, and Noto Serif SC are self-hosted under the SIL Open Font License 1.1 (`assets/fonts/*/OFL.txt`). The Substack and X icons come from Bootstrap Icons, MIT License (`assets/icons/LICENSE.txt`).
+Figtree, Crimson Pro, and Noto Serif SC are self-hosted under the SIL Open Font License 1.1 (`assets/fonts/*/OFL.txt`). Social logos are bundled in `assets/icons/social.json` from Simple Icons (CC0 1.0), with WeChat Channels from Remix Icon (Apache 2.0) and Toutiao from ByteDance IconPark (Apache 2.0), via the Iconify collection. Source URLs are included for each logo; the corresponding licenses are in `assets/icons/LICENSE-*.txt`. Logos remain trademarks of their respective owners. The existing Bootstrap Icons license is retained in `assets/icons/LICENSE.txt`.

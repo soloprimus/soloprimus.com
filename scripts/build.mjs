@@ -41,9 +41,19 @@ const ICON = {
   sun: '<svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>',
   moon: '<svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.2 14.6A8.3 8.3 0 0 1 9.4 3.8a8.3 8.3 0 1 0 10.8 10.8Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>',
   rss: '<svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M2 2.5a11.5 11.5 0 0 1 11.5 11.5h-2A9.5 9.5 0 0 0 2 4.5v-2Zm0 4.4A7.1 7.1 0 0 1 9.1 14h-2A5.1 5.1 0 0 0 2 8.9v-2Zm1.6 4.3a1.4 1.4 0 1 1 0 2.8 1.4 1.4 0 0 1 0-2.8Z"/></svg>',
-  substack: '<svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M15 3.604H1v1.891h14v-1.89ZM1 7.208V16l7-3.926L15 16V7.208zM15 0H1v1.89h14z"/></svg>',
-  x: '<svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/></svg>',
 };
+// Local brand assets: no third-party requests or icon font required.
+const SOCIAL_ICONS = JSON.parse(readFileSync(join(ROOT, 'assets/icons/social.json'), 'utf8'));
+let iconInstance = 0;
+function socialIcon(key) {
+  const icon = SOCIAL_ICONS[key];
+  if (!icon) throw new Error(`Missing social icon: ${key}`);
+  // Some upstream logos use masks. Give each instance unique SVG IDs.
+  const prefix = `social-${++iconInstance}-`;
+  const body = icon.body.replace(/\bid="([^"]+)"/g, (_, id) => `id="${prefix}${id}"`)
+    .replace(/url\(#([^)]+)\)/g, (_, id) => `url(#${prefix}${id})`);
+  return `<svg viewBox="0 0 ${icon.width} ${icon.height}" aria-hidden="true" focusable="false">${body}</svg>`;
+}
 
 // ---------------------------------------------------------------- content
 function loadEssays() {
@@ -153,13 +163,16 @@ ${footer(lang, langHref)}
 `;
 }
 
-function channelLink(lang, key, label, className = 'text-link', icon = '') {
+function channelLink(lang, key, label) {
   const href = SITE.links[key];
+  const name = href ? label : `${label} · ${T[lang].follow.pending}`;
+  const attrs = `class="social-icon social-icon--${key}${href ? '' : ' social-placeholder'}" data-platform="${key}" aria-label="${escAttr(name)}" title="${escAttr(name)}"`;
+  const content = `${socialIcon(key)}<span class="social-tooltip" aria-hidden="true">${esc(name)}</span>`;
   if (href) {
     if (!/^https:\/\//.test(href)) throw new Error(`SITE.links.${key} must be an https URL or null`);
-    return `<a class="${className}" href="${escAttr(href)}" rel="noopener">${icon}<span>${esc(label)}</span></a>`;
+    return `<a ${attrs} href="${escAttr(href)}" rel="noopener">${content}</a>`;
   }
-  return `<span class="${className} social-placeholder" aria-disabled="true"><span>${esc(label)}</span><small class="channel-status">${esc(T[lang].follow.pending)}</small></span>`;
+  return `<span ${attrs} role="img" aria-disabled="true">${content}</span>`;
 }
 
 function followBand(lang) {
@@ -173,8 +186,8 @@ function followBand(lang) {
     </div>
     <div class="follow-actions">
       ${lang === 'zh'
-        ? channelLink(lang, 'wechat', f.wechat, 'btn btn-quiet') + '\n      ' + channelLink(lang, 'douyin', f.douyin, 'btn btn-quiet')
-        : channelLink(lang, 'substack', f.substack, 'btn', ICON.substack) + '\n      ' + channelLink(lang, 'x', f.x, 'btn btn-quiet', ICON.x)}
+        ? channelLink(lang, 'wechat', f.wechat) + '\n      ' + channelLink(lang, 'douyin', f.douyin)
+        : channelLink(lang, 'substack', f.substack) + '\n      ' + channelLink(lang, 'x', f.x)}
       <a class="btn btn-quiet" href="${P.feed(lang)}">${ICON.rss}<span>${esc(f.rss)}</span></a>
     </div>
   </div>
@@ -194,8 +207,6 @@ function footer(lang, langHref) {
       <a href="${P.essays(lang)}">${esc(t.nav.essays)}</a>
       <a href="${P.about(lang)}">${esc(t.nav.about)}</a>
       <a href="${P.feed(lang)}">${esc(t.footer.rss)}</a>
-      <a href="${SITE.links.substack}" rel="noopener">Substack</a>
-      <a href="${SITE.links.x}" rel="noopener">X</a>
       <a href="${langHref}" hreflang="${SITE.langs[o].hreflang}" lang="${SITE.langs[o].htmlLang}">${esc(t.otherLang.label)}</a>
     </nav>
     <p class="footer-note">${esc(t.footer.disclaimer)}</p>
@@ -298,7 +309,7 @@ ${h.pillars.map(([k, v]) => `      <li><b>${esc(k)}</b><span>${esc(v)}</span></l
       <a class="btn" href="${P.essays(lang)}"><span>${esc(h.primary)}</span><span aria-hidden="true">→</span></a>
       ${lang === 'zh'
         ? channelLink(lang, 'douyin', t.follow.douyin) + '\n      ' + channelLink(lang, 'wechat', t.follow.wechat)
-        : `<a class="text-link" href="${SITE.links.substack}" rel="noopener">${esc(h.secondary)} <span aria-hidden="true">↗</span></a>\n      <a class="text-link" href="${SITE.links.x}" rel="noopener">${esc(t.follow.x)} <span aria-hidden="true">↗</span></a>`}
+        : channelLink(lang, 'substack', h.secondary) + '\n      ' + channelLink(lang, 'x', t.follow.x)}
     </div>
   </div>
   <div class="hero-art">
@@ -442,7 +453,7 @@ ${e.note ? `    <p class="article-note">${esc(e.note)}</p>\n` : ''}    <aside cl
       <div>
         <h2 id="author-title">${esc(A.authorTitle)}</h2>
         <p>${esc(A.authorBio)}</p>
-        <p class="author-actions"><a href="${P.about(lang)}">${esc(A.authorMore)}</a><a href="${SITE.links.substack}" rel="noopener">Substack ↗</a><a href="${P.feed(lang)}">RSS</a></p>
+        <div class="author-actions"><a href="${P.about(lang)}">${esc(A.authorMore)}</a>${channelLink(lang, 'substack', T[lang].follow.substack)}<a href="${P.feed(lang)}">RSS</a></div>
       </div>
     </aside>
   </article>
@@ -511,8 +522,8 @@ ${h.principles.map((p) => `      <li>${esc(p)}</li>`).join('\n')}
 ${A.disclosures.map((p) => `    <p>${esc(p)}</p>`).join('\n')}
     <h2>${esc(A.elsewhereTitle)}</h2>
     <ul class="elsewhere">
-      <li><a href="${SITE.links.substack}" rel="noopener">${ICON.substack}<span>Substack</span></a></li>
-      <li><a href="${SITE.links.x}" rel="noopener">${ICON.x}<span>X</span></a></li>
+      <li>${channelLink(lang, 'substack', T[lang].follow.substack)}</li>
+      <li>${channelLink(lang, 'x', T[lang].follow.x)}</li>
       <li><a href="${P.feed(lang)}">${ICON.rss}<span>RSS</span></a></li>
     </ul>
   </div>

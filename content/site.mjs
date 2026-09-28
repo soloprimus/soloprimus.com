@@ -26,8 +26,8 @@ export const SITE = {
     xiaohongshu: null,
   },
   socialPlatforms: {
-    en: [['github', 'GitHub'], ['youtube', 'YouTube'], ['linkedin', 'LinkedIn'], ['instagram', 'Instagram'], ['facebook', 'Facebook'], ['threads', 'Threads'], ['discord', 'Discord'], ['tiktok', 'TikTok']],
-    zh: [['wechat', '微信公众号'], ['douyin', '抖音'], ['channels', '微信视频号'], ['toutiao', '今日头条'], ['bilibili', '哔哩哔哩'], ['xiaohongshu', '小红书']],
+    en: [['substack', 'Substack'], ['x', 'X'], ['github', 'GitHub'], ['youtube', 'YouTube'], ['linkedin', 'LinkedIn'], ['instagram', 'Instagram'], ['facebook', 'Facebook'], ['threads', 'Threads'], ['discord', 'Discord'], ['tiktok', 'TikTok']],
+    zh: [['wechat', '微信公众号'], ['douyin', '抖音'], ['channels', '微信视频号'], ['toutiao', '今日头条'], ['bilibili', '哔哩哔哩'], ['xiaohongshu', '小红书'], ['substack', 'Substack'], ['x', 'X']],
   },
   langs: {
     en: { prefix: '', htmlLang: 'en', hreflang: 'en', ogLocale: 'en_US' },
