@@ -74,9 +74,9 @@ const PERSON = {
   name: NAME.en,
   alternateName: [NAME.caps, NAME.zh],
   url: abs(P.about('en')),
-  jobTitle: 'Assistant Professor',
-  description: 'Assistant professor with a PhD in economics and a background in electronic information engineering, writing about investing, applied AI, and creative work.',
-  knowsAbout: ['Economics', 'Investing', 'Artificial intelligence', 'Creative work'],
+  jobTitle: 'Professor',
+  description: 'Professor with a PhD in economics and a seasoned investor, writing about investing, AI, and self-improvement.',
+  knowsAbout: ['Economics', 'Investing', 'Artificial intelligence', 'Self-improvement'],
   sameAs: [SITE.links.x, SITE.links.substack],
 };
 const WEBSITE = { '@type': 'WebSite', '@id': `${SITE.url}/#website`, url: abs('/'), name: NAME.en, alternateName: `${NAME.zh} ${NAME.caps}`, inLanguage: ['en', 'zh-CN'], publisher: { '@id': PERSON['@id'] } };
@@ -270,12 +270,14 @@ function homePage(lang, essays) {
   const h = t.home;
   const own = [...essays[lang]].sort((a, b) => a.featured - b.featured || b.date - a.date);
   const cross = lang === 'en' ? essays.zh.filter((z) => !z.alt).sort((a, b) => a.featured - b.featured || b.date - a.date) : [];
-  const diagrams = { investing: thesisDiagram(h.thesis), ai: workflowDiagram(h.workflow), creator: loopDiagram(h.loop) };
+  const diagrams = { investing: thesisDiagram(h.thesis), ai: workflowDiagram(h.workflow), growth: loopDiagram(h.loop) };
   const main = `<section class="wrap hero">
   <div class="hero-copy">
     <p class="eyebrow">${esc(h.eyebrow)}</p>
     <h1>${h.h1.map((line) => `<span>${esc(line)}</span>`).join(' ')}</h1>
-    <p class="lead">${esc(h.lead)}</p>
+    <ul class="hero-pillars">
+${h.pillars.map(([k, v]) => `      <li><b>${esc(k)}</b><span>${esc(v)}</span></li>`).join('\n')}
+    </ul>
     <div class="hero-actions">
       <a class="btn" href="${P.essays(lang)}"><span>${esc(h.primary)}</span><span aria-hidden="true">→</span></a>
       <a class="text-link" href="${SITE.links.substack}" rel="noopener">${esc(h.secondary)} <span aria-hidden="true">↗</span></a>
@@ -285,7 +287,7 @@ function homePage(lang, essays) {
     <div class="hero-art-inner"><img src="/assets/images/mountain-sculpture.webp" width="1536" height="1024" alt="${escAttr(h.heroAlt)}" fetchpriority="high" decoding="async"></div>
   </div>
   <dl class="facts">
-${h.facts.map(([k, v]) => `    <div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join('\n')}
+${h.facts.map(([from, to]) => `    <div><dt>${esc(from)}<span class="facts-arrow" aria-hidden="true">→</span><span class="sr-only">${esc(h.factsTo)}</span></dt><dd>${esc(to)}</dd></div>`).join('\n')}
   </dl>
 </section>
 
@@ -300,7 +302,7 @@ ${h.facts.map(([k, v]) => `    <div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`)
 ${SITE.topics.map((topic) => {
     const c = h.cards[topic];
     return `      <article class="lever">
-        <p class="lever-kicker">${esc(t.levers[topic])} · ${esc(t.topics[topic])}</p>
+        <p class="lever-kicker">${esc(t.topics[topic])}</p>
         <h3>${esc(c.title)}</h3>
         <p class="lever-text">${esc(c.text)}</p>
         ${diagrams[topic]}
@@ -403,7 +405,7 @@ function essayPage(e, essays) {
   const main = `<div class="wrap article-layout">
   <article class="article">
     <header class="article-head">
-      <a class="topic-tag" href="${P.essays(lang)}#${e.topic}">${esc(t.levers[e.topic])} · ${esc(t.topics[e.topic])}</a>
+      <a class="topic-tag" href="${P.essays(lang)}#${e.topic}">${esc(t.topics[e.topic])}</a>
       <h1>${esc(e.title)}</h1>
       <p class="article-dek">${esc(e.summary)}</p>
       <p class="byline"><span>${esc(A.by)} <a href="${P.about(lang)}">${lang === 'zh' ? `${NAME.zh}` : NAME.en}</a></span><span aria-hidden="true">·</span><time datetime="${iso(e.date)}">${esc(t.date(e.date))}</time><span aria-hidden="true">·</span><span>${esc(t.minRead(e.minutes))}</span>${altPath ? `<span aria-hidden="true">·</span><a href="${altPath}" hreflang="${SITE.langs[other(lang)].hreflang}">${esc(A.alternate)}</a>` : ''}</p>
@@ -474,11 +476,14 @@ function aboutPage(lang) {
 </section>
 <div class="wrap">
   <div class="about-body prose">
+    <div class="about-story">
+${A.story.map((p) => (Array.isArray(p)
+    ? `      <p><strong>${esc(p[0])}</strong> ${esc(p[1])}</p>`
+    : `      <p>${p.split('\n').map(esc).join('<br>')}</p>`)).join('\n')}
+      <p class="about-motto">${esc(A.motto)}</p>
+      <p class="about-motto-note">${esc(A.mottoNote)}</p>
+    </div>
 ${A.sections.map((s) => `    <h2>${esc(s.h)}</h2>\n${s.p.map((p) => `    <p>${esc(p)}</p>`).join('\n')}`).join('\n')}
-    <h2>${esc(A.writeTitle)}</h2>
-    <ul class="about-levers">
-${SITE.topics.map((topic) => `      <li><b>${esc(t.levers[topic])}</b><span><a href="${P.essays(lang)}#${topic}">${esc(t.topics[topic])}</a>${lang === 'zh' ? '：' : ': '}${esc(h.cards[topic].text)}</span></li>`).join('\n')}
-    </ul>
     <h2>${esc(A.howTitle)}</h2>
     <ul class="principles">
 ${h.principles.map((p) => `      <li>${esc(p)}</li>`).join('\n')}

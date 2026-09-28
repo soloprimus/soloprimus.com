@@ -1,9 +1,9 @@
 # SOLO PRIMUS · 凌霄
 
-Personal website of Solo Primus (凌霄): essays on investing, applied AI, and creative work.
+Personal website of Solo Primus (凌霄): essays on investing, AI, and self-improvement.
 English is served at `/`, Chinese at `/zh/`.
 
-Solo Primus is an assistant professor with a PhD in economics and a background in electronic information engineering. The site is organized around three kinds of leverage one person can use: capital (investing), code (applied AI), and media (creative work).
+Solo Primus is a professor with a PhD in economics and a seasoned investor. The slogan is “One person. Three levers. Unlimited upside.” (一个人，三种杠杆，上不封顶。), and the site is organized around three topics: investing, AI, and self-improvement.
 
 ## Publish a new essay
 
@@ -14,7 +14,7 @@ Solo Primus is an assistant professor with a PhD in economics and a background i
    ---
    title: 投资一定要有升维思维
    summary: One or two sentences shown in lists, search results, and share cards.
-   topic: investing        # investing | ai | creator
+   topic: investing        # investing | ai | growth (self-improvement)
    date: 2026-09-08
    featured: 1             # optional; lower numbers appear first in “Start here”
    note: Optional disclaimer shown under the essay.
@@ -51,7 +51,7 @@ Node 18 or later is required. There are no npm dependencies.
 
 Typography follows jamesclear.com: a classic serif for reading (Minion Pro there, Crimson Pro here) and a geometric sans for headings and navigation (Europa there, Figtree here). Chinese pages set reading text in 思源宋体 (Noto Serif SC) and headings in the system 黑体 (PingFang SC or Microsoft YaHei). Emphasis inside Chinese reading text uses 黑体, and key sentences use a copper highlight.
 
-The palette keeps the copper accent of the mountain mark on warm white, with a matching dark theme. The home page explains each topic with a small static diagram (a thesis card, a workflow time chart, a publishing loop) instead of decorative animation. The mountain sculpture rises once when the page opens and then stays still, so no pause control is needed; it doesn't move at all when the system asks for reduced motion.
+The palette keeps the copper accent of the mountain mark on warm white, with a matching dark theme. The home page explains each topic with a small static diagram (a thesis card, a workflow time chart, a growth loop) instead of decorative animation. The mountain sculpture rises once when the page opens and then stays still, so no pause control is needed; it doesn't move at all when the system asks for reduced motion.
 
 `assets/images/mountain-sculpture.webp` was generated for this project from the approved mountain-and-path logo. `assets/images/mountain-mark.svg` is the vector mark.
 

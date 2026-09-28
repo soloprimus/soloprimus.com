@@ -76,7 +76,7 @@ function jobs() {
     const [, slug, lang] = f.match(/^(.+)\.(en|zh)\.md$/);
     const { data } = parseFrontMatter(readFileSync(join(dir, f), 'utf8'));
     const t = T[lang];
-    list.push({ file: `${lang}-${slug}.png`, html: card({ lang, kicker: `${t.levers[data.topic]} · ${t.topics[data.topic]}`, title: data.title, sub: '' }) });
+    list.push({ file: `${lang}-${slug}.png`, html: card({ lang, kicker: t.topics[data.topic], title: data.title, sub: '' }) });
   }
   list.push({ file: '../apple-touch-icon.png', html: touchIcon(), size: '180,180' });
   return list;

@@ -1,7 +1,7 @@
 ---
 title: 消费的本质
 summary: 同一瓶酒，换一张标签，味道就变了。对做服务的人来说，交付之前的一切，都是客户判断你的证据。
-topic: creator
+topic: growth
 date: 2026-09-23
 featured: 2
 title_en: The nature of consumption

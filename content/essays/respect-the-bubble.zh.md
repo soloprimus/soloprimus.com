@@ -1,7 +1,7 @@
 ---
 title: 尊重泡沫
 summary: 判断估值过高，和判断何时下跌之间，隔着资金、利益和预期的变化。一个会主动调整的产业，会让空头为等待付出代价。
-topic: investing
+topic: ai
 date: 2026-09-05
 featured: 3
 title_en: Respect the bubble

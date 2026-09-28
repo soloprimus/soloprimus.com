@@ -212,6 +212,18 @@ html:lang(zh-CN) .section-head h2 { font-size: clamp(1.65rem, 1.3rem + 1.4vw, 2.
 .hero h1 span { display: block; }
 html:lang(zh-CN) .hero h1 { font-size: clamp(2.05rem, 1.4rem + 2.6vw, 3.2rem); line-height: 1.3; letter-spacing: .01em; }
 .hero .lead { margin-bottom: 32px; }
+
+/* The three topics, one line each, right under the slogan. */
+.hero-pillars { list-style: none; margin: 0 0 34px; padding: 0; max-width: 38em; border-top: 1px solid var(--line); }
+.hero-pillars li {
+  display: grid; grid-template-columns: 9.5em minmax(0, 1fr); gap: 4px 16px; align-items: center;
+  padding: 12px 0; border-bottom: 1px solid var(--line);
+  font-size: clamp(1.12rem, 1.02rem + .35vw, 1.3rem); line-height: 1.45; color: var(--ink-2);
+}
+.hero-pillars b { font: 700 12.5px/1.6 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--accent-ink); }
+html:lang(zh-CN) .hero-pillars li { grid-template-columns: 5.5em minmax(0, 1fr); font-size: clamp(1.05rem, 1rem + .3vw, 1.2rem); line-height: 1.75; }
+html:lang(zh-CN) .hero-pillars b { font-size: 15px; letter-spacing: .08em; }
+@media (max-width: 560px) { .hero-pillars li { grid-template-columns: 1fr; } }
 .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 26px; }
 
 /* Credentials, readable at a glance. */
@@ -221,10 +233,12 @@ html:lang(zh-CN) .hero h1 { font-size: clamp(2.05rem, 1.4rem + 2.6vw, 3.2rem); l
 }
 .facts div { padding: 18px 20px 18px 0; }
 .facts div + div { padding-left: 20px; border-left: 1px solid var(--line); }
-.facts dt { margin-bottom: 6px; font: 700 11.5px/1.3 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
-.facts dd { margin: 0; font: 600 17px/1.35 var(--sans); color: var(--ink); }
-html:lang(zh-CN) .facts dt { font-size: 13px; letter-spacing: .1em; }
-html:lang(zh-CN) .facts dd { font-size: 17px; }
+/* Each cell reads as a change: where the reader starts (muted) and where they end up (bold). */
+.facts dt { display: flex; align-items: baseline; gap: 8px; margin-bottom: 8px; font: 700 11.5px/1.3 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.facts-arrow { color: var(--accent); font-weight: 700; letter-spacing: 0; }
+.facts dd { margin: 0; font: 700 clamp(18px, 1rem + .45vw, 22px)/1.25 var(--sans); letter-spacing: -.005em; color: var(--ink); }
+html:lang(zh-CN) .facts dt { font-size: 14px; letter-spacing: .06em; font-weight: 600; }
+html:lang(zh-CN) .facts dd { font-size: clamp(19px, 1.05rem + .45vw, 23px); letter-spacing: .02em; }
 
 .hero-art { position: relative; min-width: 0; }
 .hero-art-inner { position: relative; width: 118%; margin-inline: -9%; isolation: isolate; }
@@ -264,7 +278,7 @@ html:lang(zh-CN) .facts dd { font-size: 17px; }
   .facts div { padding-block: 14px; }
   .facts div:nth-child(3) { padding-left: 0; border-left: 0; }
   .facts div:nth-child(n + 3) { border-top: 1px solid var(--line); }
-  .facts dd { font-size: 16px; }
+  .facts dd { font-size: 18px; }
 }
 
 /* ---------------------------------------------------------------- levers */
@@ -484,10 +498,13 @@ html:lang(zh-CN) .read-next-title { font-size: 14px; letter-spacing: .1em; }
 /* ---------------------------------------------------------------- about & 404 */
 .about-body { max-width: var(--measure); margin-top: 0; padding-bottom: clamp(56px, 8vw, 104px); }
 .about-body > h2:first-child { margin-top: .6em; }
-.about-levers { list-style: none; padding: 0; border-top: 1px solid var(--line-2); }
-.about-levers li { display: grid; grid-template-columns: 88px minmax(0, 1fr); gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); }
-.about-levers li + li { margin-top: 0; }
-.about-levers b { font: 700 13px/2 var(--sans); letter-spacing: .12em; text-transform: uppercase; color: var(--accent-ink); }
+.about-story { padding-bottom: 12px; }
+.about-story > * + * { margin-top: 1.15em; }
+.about-story .about-motto {
+  margin-top: 1.8em; padding-top: 1.1em; border-top: 1px solid var(--line-2);
+  font: 700 clamp(1.45rem, 1.2rem + 1vw, 1.9rem)/1.35 var(--sans); color: var(--ink); text-wrap: balance;
+}
+.about-story .about-motto-note { margin-top: .5em; color: var(--muted); }
 .about-body .principles li + li { margin-top: 0; }
 .elsewhere { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
 .elsewhere li + li { margin-top: 0; }

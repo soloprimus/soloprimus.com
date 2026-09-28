@@ -1,7 +1,7 @@
 ---
 title: 一个人对价值的理解，是怎样长出来的
 summary: 有些判断，要放进生活里用过，才知道自己懂了多少。一次租房，就能看出经历如何补上被漏算的成本。
-topic: investing
+topic: growth
 date: 2026-09-05
 featured: 4
 title_en: How a person’s understanding of value grows
