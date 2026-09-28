@@ -3,37 +3,37 @@
 <channel>
 <title>凌霄 SOLO PRIMUS</title>
 <link>https://soloprimus.com/zh/</link>
-<description>凌霄（SOLO PRIMUS），教授，经济学博士，资深投资人，写投资、AI 与自我提升。</description>
+<description>凌霄的个人写作网站。以经济学研究、投资实践与工程背景为起点，探讨如何看清价值、善用 AI，在实践中持续精进。所有文章免费阅读。</description>
 <language>zh-CN</language>
 <atom:link href="https://soloprimus.com/zh/feed.xml" rel="self" type="application/rss+xml"/>
 <lastBuildDate>Sun, 27 Sep 2026 00:00:00 GMT</lastBuildDate>
 <item>
-<title>建立一个可以被质疑的投资论点</title>
+<title>买入之前，把投资判断写清楚</title>
 <link>https://soloprimus.com/zh/essays/build-a-thesis-you-can-challenge/</link>
 <guid isPermaLink="true">https://soloprimus.com/zh/essays/build-a-thesis-you-can-challenge/</guid>
 <pubDate>Sun, 27 Sep 2026 00:00:00 GMT</pubDate>
-<description>先弄清一家企业如何创造价值，再找出可能改变你判断的证据。</description>
-<content:encoded><![CDATA[<p>在问价格会走向哪里之前，先问自己持有的是什么，以及它的价值为什么可能改变。一个有用的投资论点，从生意本身出发，而不是从目标价出发。</p>
-<h2 id="section-1">从生意的引擎说起。</h2>
-<p>说清楚谁在向公司付钱、付钱买的是什么，以及收入要变成现金需要满足哪些条件。把销量增长与价格变化、产品结构变化区分开。</p>
-<h2 id="section-2">写下反方论证。</h2>
-<p>找出最有力的解释，说明你的论点为什么可能是错的：竞争对手可能降价，客户可能流失，增长也可能需要比预期更多的资本。</p>
-<h2 id="section-3">指明接下来要看的证据。</h2>
-<p>记下你预计会变化的经营指标、预计何时能看到这种变化，以及什么结果会让你重新考虑。关键在于形成一个可以回头检验的决定，而不是一个必须捍卫的预测。</p>]]></content:encoded>
+<description>一份有用的投资记录，既要说明为什么看好，也要写清哪些变化会让自己重新考虑。</description>
+<content:encoded><![CDATA[<p>准备买入一家公司的股票时，可以先把目标价放一放，写清楚两个问题：自己究竟在买一门什么生意，又凭什么认为它的价值会发生变化。把依据落到纸上，日后才分得清，当初看对了什么、遗漏了什么。</p>
+<h2 id="section-1">先把这门生意说清楚</h2>
+<p>客户为什么付钱，公司凭什么留住客户，收入经过哪些环节才能变成现金？谈到增长，也要分清是卖得更多、卖得更贵，还是产品结构发生了变化。解释越具体，后续越容易找到可跟踪的经营指标。</p>
+<h2 id="section-2">给反对意见留一个位置</h2>
+<p>认真写下最有力的反对理由。竞争对手降价会带来什么影响？重要客户会不会离开？维持增长，是否需要投入比预想更多的资本？这些问题的用处，是帮助自己看清判断依赖了哪些条件。</p>
+<h2 id="section-3">约定下一次如何复盘</h2>
+<p>记下接下来关注什么指标、何时回看，以及出现什么结果时需要重新考虑。新的经营数据出来后，就能对照原来的记录，判断预期是否兑现、逻辑是否仍然成立。一份投资记录的价值，在于让判断可以被检查和修正。</p>]]></content:encoded>
 </item>
 <item>
-<title>给 AI 一份工作，而不是一张愿望清单</title>
+<title>用一项具体任务，检验 AI 的价值</title>
 <link>https://soloprimus.com/zh/essays/give-ai-a-job/</link>
 <guid isPermaLink="true">https://soloprimus.com/zh/essays/give-ai-a-job/</guid>
 <pubDate>Sun, 27 Sep 2026 00:00:00 GMT</pubDate>
-<description>用一项真实任务来评估工具，并把核对和修正输出所花的时间也算进去。</description>
-<content:encoded><![CDATA[<p>新模型很有意思；而在工作中可以反复实现的改进，才有用。评估时，从一项你已经在做的任务开始，并清楚定义什么是好结果。</p>
-<h2 id="section-1">选一项边界清楚的任务。</h2>
-<p>可以试试整理资料笔记、审阅草稿或给文档分类。在弄清一项服务的访问权限和数据管控方式之前，不要把敏感信息交给它。</p>
-<h2 id="section-2">衡量整个工作流程。</h2>
-<p>把写指令、核对输出和纠正错误的时间都算进去。初稿生成得快，如果需要大量返工，也未必能节省时间。</p>
-<h2 id="section-3">保留人工检查环节。</h2>
-<p>事先决定哪些说法需要注明来源，哪些操作需要你批准。保存一小组样例，这样在工具更新后，可以用同一套流程重新测试。</p>]]></content:encoded>
+<description>从手头的真实工作出发，把说明任务、核查结果与返工的时间一起算进去，才知道工具是否有用。</description>
+<content:encoded><![CDATA[<p>新模型的演示很容易让人心动。它能不能帮到自己，还是要回到手头的工作：选一项经常要做的任务，先写清楚怎样才算完成，再让 AI 试一遍。这样得到的，才是与自己有关的使用经验。</p>
+<h2 id="section-1">先从一件小事开始</h2>
+<p>整理一份资料、检查一篇草稿，或者给一批文档分类，都可以作为起点。任务尽量具体，输入材料与验收要求尽量清楚。涉及敏感信息时，先了解服务的访问权限和数据处理方式，再决定能否使用。</p>
+<h2 id="section-2">把核查与返工一起计时</h2>
+<p>从说明任务开始计时，直到结果真正可以使用为止。生成初稿只是其中一环，核对事实、补充遗漏、纠正错误都需要时间。如果后续返工很多，最初省下的几分钟可能很快就用完了。</p>
+<h2 id="section-3">留下可以重复检验的样例</h2>
+<p>事先划清人工检查的范围：哪些说法必须核对来源，哪些操作需要自己确认。再保留一组典型材料和合格结果。工具更新后，用同样的任务重新试一次，才更容易看出它在哪些地方进步了，哪些地方仍然需要人来把关。</p>]]></content:encoded>
 </item>
 <item>
 <title>消费的本质</title>

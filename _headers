@@ -12,3 +12,11 @@
 
 /assets/og/*
   Cache-Control: public, max-age=2592000
+
+/feed.xml
+  Content-Type: application/rss+xml; charset=utf-8
+  Cache-Control: public, max-age=300
+
+/zh/feed.xml
+  Content-Type: application/rss+xml; charset=utf-8
+  Cache-Control: public, max-age=300

@@ -3,7 +3,20 @@
 Personal website of Solo Primus (凌霄): essays on investing, AI, and self-improvement.
 English is served at `/`, Chinese at `/zh/`.
 
-Solo Primus is a professor with a PhD in economics and a seasoned investor. The slogan is “One person. Three levers. Unlimited upside.” (一个人，三种杠杆，上不封顶。), and the site is organized around three topics: investing, AI, and self-improvement.
+Solo Primus is a professor with a PhD in economics and a seasoned investor. The English slogan is “One person. Three levers. Unlimited upside.” The Chinese site uses its own editorial voice: “独立思考，拓展人生的可能。” Both are organized around investing, AI, and self-improvement.
+
+## RSS and follow links
+
+The feeds already belong to this website. Use these exact URLs in a reader or in the RSS links:
+
+- English: `https://soloprimus.com/feed.xml`
+- Chinese: `https://soloprimus.com/zh/feed.xml`
+
+`node scripts/build.mjs` generates both feeds from `content/essays/`, including full article text, publication dates, and stable article URLs. Publish the generated XML with each update. No third-party RSS service or Substack feed URL is required. `_headers` serves both feeds as `application/rss+xml` with a five-minute cache.
+
+All account URLs live in `SITE.links` in `content/site.mjs`. `SITE.socialPlatforms.en` and `.zh` control the footer lists. A `null` URL displays “Coming soon” / “即将开放” as non-clickable text. Replace it with the real HTTPS account URL and rebuild to activate the link wherever it appears. For WeChat, use a working official-account landing page or article URL; do not invent an account URL. A QR code can be added when the real account is available.
+
+English homepage actions: Substack and X. Chinese homepage actions: Douyin and WeChat Official Account. The current X URL is preserved from the latest site configuration (`https://x.com/veryzg`).
 
 ## Publish a new essay
 

@@ -31,7 +31,7 @@ const V = { css: fileHash('assets/css/site.css'), fonts: fileHash('assets/css/fo
 
 const ogImage = (name) => {
   const file = `/assets/og/${name}.png`;
-  return existsSync(join(ROOT, file)) ? abs(file) : null;
+  return existsSync(join(ROOT, file)) ? `${abs(file)}?v=${fileHash(file.slice(1))}` : null;
 };
 
 // ---------------------------------------------------------------- icons
@@ -153,6 +153,15 @@ ${footer(lang, langHref)}
 `;
 }
 
+function channelLink(lang, key, label, className = 'text-link', icon = '') {
+  const href = SITE.links[key];
+  if (href) {
+    if (!/^https:\/\//.test(href)) throw new Error(`SITE.links.${key} must be an https URL or null`);
+    return `<a class="${className}" href="${escAttr(href)}" rel="noopener">${icon}<span>${esc(label)}</span></a>`;
+  }
+  return `<span class="${className} social-placeholder" aria-disabled="true"><span>${esc(label)}</span><small class="channel-status">${esc(T[lang].follow.pending)}</small></span>`;
+}
+
 function followBand(lang) {
   const f = T[lang].follow;
   return `<section class="follow" id="follow" aria-labelledby="follow-title">
@@ -163,9 +172,10 @@ function followBand(lang) {
       <p>${esc(f.text)}</p>
     </div>
     <div class="follow-actions">
-      <a class="btn" href="${SITE.links.substack}" rel="noopener">${ICON.substack}<span>${esc(f.substack)}</span></a>
+      ${lang === 'zh'
+        ? channelLink(lang, 'wechat', f.wechat, 'btn btn-quiet') + '\n      ' + channelLink(lang, 'douyin', f.douyin, 'btn btn-quiet')
+        : channelLink(lang, 'substack', f.substack, 'btn', ICON.substack) + '\n      ' + channelLink(lang, 'x', f.x, 'btn btn-quiet', ICON.x)}
       <a class="btn btn-quiet" href="${P.feed(lang)}">${ICON.rss}<span>${esc(f.rss)}</span></a>
-      <a class="btn btn-quiet" href="${SITE.links.x}" rel="noopener">${ICON.x}<span>${esc(f.x)}</span></a>
     </div>
   </div>
 </section>`;
@@ -190,6 +200,12 @@ function footer(lang, langHref) {
     </nav>
     <p class="footer-note">${esc(t.footer.disclaimer)}</p>
   </div>
+  <nav class="wrap footer-social" aria-labelledby="social-title">
+    <h2 id="social-title">${esc(t.follow.more)}</h2>
+    <ul class="social-list">
+${SITE.socialPlatforms[lang].map(([key, label]) => `      <li>${channelLink(lang, key, lang === 'zh' ? `关注${label}` : label)}</li>`).join('\n')}
+    </ul>
+  </nav>
   <div class="wrap footer-bottom"><span>© ${new Date().getUTCFullYear()} ${NAME.en}${lang === 'zh' ? ` · ${NAME.zh}` : ''}</span></div>
 </footer>`;
 }
@@ -280,7 +296,9 @@ ${h.pillars.map(([k, v]) => `      <li><b>${esc(k)}</b><span>${esc(v)}</span></l
     </ul>
     <div class="hero-actions">
       <a class="btn" href="${P.essays(lang)}"><span>${esc(h.primary)}</span><span aria-hidden="true">→</span></a>
-      <a class="text-link" href="${SITE.links.substack}" rel="noopener">${esc(h.secondary)} <span aria-hidden="true">↗</span></a>
+      ${lang === 'zh'
+        ? channelLink(lang, 'douyin', t.follow.douyin) + '\n      ' + channelLink(lang, 'wechat', t.follow.wechat)
+        : `<a class="text-link" href="${SITE.links.substack}" rel="noopener">${esc(h.secondary)} <span aria-hidden="true">↗</span></a>\n      <a class="text-link" href="${SITE.links.x}" rel="noopener">${esc(t.follow.x)} <span aria-hidden="true">↗</span></a>`}
     </div>
   </div>
   <div class="hero-art">

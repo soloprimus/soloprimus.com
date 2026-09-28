@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Renders 1200×630 social preview images into assets/og/ with headless Chrome,
 // plus assets/apple-touch-icon.png. Run after adding an essay, then run build.mjs.
-// Usage: node scripts/og.mjs          (set CHROME_PATH if Chrome is not found)
+// Usage: node scripts/og.mjs [zh-default.png ...] (set CHROME_PATH if Chrome is not found)
 
 import { spawn } from 'node:child_process';
 import { existsSync, mkdirSync, readFileSync, readdirSync } from 'node:fs';
@@ -104,10 +104,16 @@ function shoot(url, out, size) {
 }
 
 mkdirSync(OUT, { recursive: true });
+const requested = process.argv.slice(2);
+const allJobs = jobs();
+for (const file of requested) {
+  if (!allJobs.some((job) => job.file === file)) throw new Error(`Unknown share image: ${file}`);
+}
+const selectedJobs = requested.length ? allJobs.filter((job) => requested.includes(job.file)) : allJobs;
 server.listen(0, '127.0.0.1', async () => {
   const { port } = server.address();
   try {
-    for (const job of jobs()) {
+    for (const job of selectedJobs) {
       const path = `/__og__/${job.file.replace(/[^\w.-]/g, '_')}.html`;
       pages.set(path, job.html);
       const out = join(OUT, job.file);
