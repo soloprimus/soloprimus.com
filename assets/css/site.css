@@ -255,14 +255,40 @@ a.social-icon:hover, a.social-icon:focus-visible { color: var(--accent-ink); bor
   border: 2px solid var(--paper); border-radius: 50%; background: var(--muted); box-sizing: content-box;
 }
 .social-tooltip {
-  position: absolute; z-index: 4; left: 50%; bottom: calc(100% + 9px); transform: translateX(-50%);
+  display: none; position: absolute; z-index: 4; left: 50%; bottom: calc(100% + 9px); transform: translateX(-50%);
   width: max-content; max-width: 220px; padding: 7px 10px; border: 1px solid var(--line-2); border-radius: 4px;
   background: var(--paper); color: var(--ink); font: 500 12px/1.5 var(--sans); text-align: center;
-  pointer-events: none; visibility: hidden; opacity: 0; transition: opacity .18s ease;
+  pointer-events: none;
 }
-.social-icon:hover .social-tooltip, .social-icon:focus-visible .social-tooltip { visibility: visible; opacity: 1; }
+.social-icon:hover .social-tooltip, .social-icon:focus-visible .social-tooltip { display: block; }
 .social-list li:first-child .social-tooltip { left: 0; transform: none; }
-@media (hover: none) { .social-tooltip { display: none; } }
+@media (hover: none), (max-width: 640px) { .social-icon .social-tooltip { display: none; } }
+
+/* Social QR images retain their original colors and proportions for scanning. */
+html.qr-open { overflow: hidden; }
+.qr-dialog {
+  width: min(440px, calc(100% - 32px)); max-height: calc(100dvh - 32px); margin: auto;
+  padding: clamp(20px, 4vw, 28px); overflow-y: auto; overscroll-behavior: contain;
+  border: 1px solid var(--line-2); border-radius: 6px; background: var(--paper); color: var(--ink);
+}
+.qr-dialog::backdrop { background: rgb(0 0 0 / .6); }
+.qr-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 12px; }
+.qr-header h2 { font: 700 22px/1.35 var(--sans); }
+.qr-header form { margin: 0; }
+.qr-close {
+  min-width: 44px; min-height: 44px; padding: 10px; border: 1px solid var(--line-2); border-radius: 4px;
+  font: 600 14px/1.2 var(--sans); color: var(--ink-2); background: transparent; cursor: pointer;
+}
+.qr-close:hover { color: var(--accent-ink); border-color: var(--accent); background: var(--accent-soft); }
+.qr-help { margin-bottom: 20px; font: 400 15px/1.65 var(--sans); color: var(--muted); }
+.qr-image { width: 100%; max-width: 320px; margin-inline: auto; background: #fff; }
+.qr-image img { width: 100%; height: auto; }
+.qr-image img[hidden] { display: none; }
+.qr-account { margin-top: 16px; font: 400 14px/1.5 var(--sans); text-align: center; color: var(--muted); }
+.qr-account b { margin-left: 6px; color: var(--ink); }
+.qr-error { padding-block: 20px; font: 400 15px/1.65 var(--sans); color: var(--ink-2); }
+.qr-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 16px; margin-top: 22px; }
+.qr-actions .text-link { font: 600 14px/1.4 var(--sans); }
 
 /* Credentials, readable at a glance. */
 .facts {

@@ -1,4 +1,4 @@
-/* SOLO PRIMUS · 凌霄: theme toggle, mobile menu, and essay filters. No dependencies. */
+/* SOLO PRIMUS · 凌霄: theme toggle, mobile menu, social QR codes, and essay filters. No dependencies. */
 (() => {
   'use strict';
   const root = document.documentElement;
@@ -37,6 +37,36 @@
   });
   document.addEventListener('click', (event) => {
     if (nav?.classList.contains('is-open') && !event.target.closest('.site-header')) setMenu(false);
+  });
+
+  // Native dialogs provide keyboard focus containment and Escape-to-close.
+  document.querySelectorAll('[data-qr-dialog]').forEach((link) => {
+    const dialog = document.getElementById(link.dataset.qrDialog);
+    if (!dialog || typeof dialog.showModal !== 'function') return;
+    link.addEventListener('click', (event) => {
+      // Preserve the direct-image link for modified clicks and browsers without dialog support.
+      if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      if (!dialog.open) dialog.showModal();
+      root.classList.add('qr-open');
+    });
+  });
+  document.querySelectorAll('.qr-dialog').forEach((dialog) => {
+    dialog.addEventListener('close', () => {
+      if (!document.querySelector('.qr-dialog[open]')) root.classList.remove('qr-open');
+    });
+    dialog.addEventListener('click', (event) => {
+      if (event.target !== dialog) return;
+      const box = dialog.getBoundingClientRect();
+      if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) dialog.close();
+    });
+    const image = dialog.querySelector('img');
+    const showError = () => {
+      image.hidden = true;
+      dialog.querySelector('.qr-error').hidden = false;
+    };
+    image.addEventListener('error', showError);
+    if (image.complete && image.naturalWidth === 0) showError();
   });
 
   // Essay filters on the essays page. Without JavaScript every essay stays visible.

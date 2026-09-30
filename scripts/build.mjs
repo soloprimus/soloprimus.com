@@ -44,6 +44,14 @@ const ICON = {
 };
 // Local brand assets: no third-party requests or icon font required.
 const SOCIAL_ICONS = JSON.parse(readFileSync(join(ROOT, 'assets/icons/social.json'), 'utf8'));
+const AVAILABLE_QR = {};
+for (const [key, qr] of Object.entries(SITE.qrCodes)) {
+  if (!SOCIAL_ICONS[key] || !/^\/assets\/images\/social\/[a-z0-9_-]+\.(png|jpe?g|webp)$/.test(qr.src)
+    || !Number.isInteger(qr.width) || qr.width < 1 || !Number.isInteger(qr.height) || qr.height < 1) {
+    throw new Error(`Invalid QR image configuration for ${key}`);
+  }
+  if (existsSync(join(ROOT, qr.src.slice(1)))) AVAILABLE_QR[key] = qr;
+}
 let iconInstance = 0;
 function socialIcon(key) {
   const icon = SOCIAL_ICONS[key];
@@ -87,7 +95,7 @@ const PERSON = {
   jobTitle: 'Assistant Professor',
   description: 'I’m Dr. Solo Primus, Assistant Professor.',
   knowsAbout: ['Economics', 'Investing', 'Artificial intelligence', 'Self-improvement'],
-  sameAs: [SITE.links.x, SITE.links.substack],
+  sameAs: [SITE.links.x, SITE.links.substack, SITE.links.github, SITE.links.youtube].filter(Boolean),
 };
 const WEBSITE = { '@type': 'WebSite', '@id': `${SITE.url}/#website`, url: abs('/'), name: NAME.en, alternateName: `${NAME.zh} ${NAME.caps}`, inLanguage: ['en', 'zh-CN'], publisher: { '@id': PERSON['@id'] } };
 
@@ -158,6 +166,7 @@ ${main}
 </main>
 ${followBand(lang)}
 ${footer(lang, langHref)}
+${qrDialogs(lang)}
 </body>
 </html>
 `;
@@ -165,14 +174,39 @@ ${footer(lang, langHref)}
 
 function channelLink(lang, key, label) {
   const href = SITE.links[key];
-  const name = href ? label : `${label} · ${T[lang].follow.pending}`;
-  const attrs = `class="social-icon social-icon--${key}${href ? '' : ' social-placeholder'}" data-platform="${key}" aria-label="${escAttr(name)}" title="${escAttr(name)}"`;
+  const qr = AVAILABLE_QR[key];
+  const name = qr ? `${label} · ${T[lang].follow.viewQr}` : href ? label : `${label} · ${T[lang].follow.pending}`;
+  const attrs = `class="social-icon social-icon--${key}${href || qr ? '' : ' social-placeholder'}" data-platform="${key}" aria-label="${escAttr(name)}" title="${escAttr(name)}"`;
   const content = `${socialIcon(key)}<span class="social-tooltip" aria-hidden="true">${esc(name)}</span>`;
+  if (qr) {
+    // The original image also works as a direct link when JavaScript is unavailable.
+    return `<a ${attrs} href="${escAttr(qr.src)}" data-qr-dialog="social-qr-${key}" aria-haspopup="dialog" aria-controls="social-qr-${key}">${content}</a>`;
+  }
   if (href) {
     if (!/^https:\/\//.test(href)) throw new Error(`SITE.links.${key} must be an https URL or null`);
     return `<a ${attrs} href="${escAttr(href)}" rel="noopener">${content}</a>`;
   }
   return `<span ${attrs} role="img" aria-disabled="true">${content}</span>`;
+}
+
+function qrDialogs(lang) {
+  const f = T[lang].follow;
+  return SITE.socialPlatforms[lang].filter(([key]) => AVAILABLE_QR[key]).map(([key]) => {
+    const qr = AVAILABLE_QR[key];
+    const label = qr.label[lang];
+    const id = `social-qr-${key}`;
+    return `<dialog class="qr-dialog" id="${id}" aria-labelledby="${id}-title" aria-describedby="${id}-help">
+  <div class="qr-header">
+    <h2 id="${id}-title">${esc(label)}</h2>
+    <form method="dialog"><button class="qr-close" type="submit" autofocus>${esc(f.qrClose)}</button></form>
+  </div>
+  <p class="qr-help" id="${id}-help">${esc(f.qrHelp)}</p>
+  <div class="qr-image"><img src="${escAttr(qr.src)}" width="${qr.width}" height="${qr.height}" alt="${escAttr(`${NAME.en} · ${label} · ${f.viewQr}`)}" loading="lazy" decoding="async"></div>
+  <p class="qr-error" role="status" hidden>${esc(f.qrError)}</p>
+${qr.account ? `  <p class="qr-account">${esc(f.qrAccount)} <b>${esc(qr.account)}</b></p>` : ''}
+  <div class="qr-actions"><a class="btn btn-quiet" href="${escAttr(qr.src)}" download>${esc(f.qrSave)}</a><a class="text-link" href="${escAttr(qr.src)}">${esc(f.qrOpen)}</a></div>
+</dialog>`;
+  }).join('\n');
 }
 
 function followBand(lang) {
@@ -237,29 +271,10 @@ function essayRow(e, lang, heading = 'h3') {
 </li>`;
 }
 
-function thesisDiagram(d) {
+function frameworkDiagram(d) {
   return `<figure class="diagram diagram-thesis">
   <p class="diagram-label">${esc(d.label)}</p>
   <div class="diagram-body"><ol class="thesis-rows">${d.rows.map(([k, v]) => `<li><b>${esc(k)}</b><span>${esc(v)}</span></li>`).join('')}</ol></div>
-  <figcaption class="diagram-caption">${esc(d.caption)}</figcaption>
-</figure>`;
-}
-
-function workflowDiagram(d) {
-  const mins = [5, 2, 8, 10];
-  const hand = 30;
-  const total = mins.reduce((a, b) => a + b, 0);
-  const pct = (m) => `${((m / hand) * 100).toFixed(2)}%`;
-  const label = `${d.withAi}: ${d.steps.map((s, i) => `${s} ${mins[i]}`).join(', ')} (${total} ${d.unit}); ${d.byHand}: ${hand} ${d.unit}`;
-  return `<figure class="diagram diagram-workflow">
-  <p class="diagram-label">${esc(d.label)}</p>
-  <div class="diagram-body">
-    <div class="bars" role="img" aria-label="${escAttr(label)}">
-      <div class="bar-row"><span class="bar-name">${esc(d.withAi)}</span><span class="bar-track">${mins.map((m, i) => `<i class="seg seg-${i + 1}" style="--w:${pct(m)}"></i>`).join('')}</span><span class="bar-total">${total} ${esc(d.unit)}</span></div>
-      <div class="bar-row"><span class="bar-name">${esc(d.byHand)}</span><span class="bar-track"><i class="seg seg-hand" style="--w:100%"></i></span><span class="bar-total">${hand} ${esc(d.unit)}</span></div>
-    </div>
-    <ul class="legend" aria-hidden="true">${d.steps.map((s, i) => `<li><i class="seg-${i + 1}"></i>${esc(s)} ${mins[i]}</li>`).join('')}</ul>
-  </div>
   <figcaption class="diagram-caption">${esc(d.caption)}</figcaption>
 </figure>`;
 }
@@ -297,7 +312,7 @@ function homePage(lang, essays) {
   const h = t.home;
   const own = [...essays[lang]].sort((a, b) => a.featured - b.featured || b.date - a.date);
   const cross = lang === 'en' ? essays.zh.filter((z) => !z.alt).sort((a, b) => a.featured - b.featured || b.date - a.date) : [];
-  const diagrams = { investing: thesisDiagram(h.thesis), ai: workflowDiagram(h.workflow), growth: loopDiagram(h.loop) };
+  const diagrams = { investing: frameworkDiagram(h.thesis), ai: frameworkDiagram(h.aiFramework), growth: loopDiagram(h.loop) };
   const main = `<section class="wrap hero">
   <div class="hero-copy">
     <p class="eyebrow">${esc(h.eyebrow)}</p>

@@ -14,9 +14,11 @@ The feeds already belong to this website. Use these exact URLs in a reader or in
 
 `node scripts/build.mjs` generates both feeds from `content/essays/`, including full article text, publication dates, and stable article URLs. Publish the generated XML with each update. No third-party RSS service or Substack feed URL is required. `_headers` serves both feeds as `application/rss+xml` with a five-minute cache.
 
-All account URLs live in `SITE.links` in `content/site.mjs`. `SITE.socialPlatforms.en` and `.zh` control the footer lists. Every social entry uses a locally bundled platform logo, with its name in the tooltip and accessible label. A `null` URL renders a non-clickable icon with a small status dot and “Coming soon” / “即将开放” in its tooltip. Replace it with the real HTTPS account URL and rebuild to activate the link wherever it appears. For WeChat, use a working official-account landing page or article URL; do not invent an account URL. A QR code can be added when the real account is available.
+All account URLs live in `SITE.links` in `content/site.mjs`. `SITE.socialPlatforms.en` and `.zh` control the footer lists. Every social entry uses a locally bundled platform logo, with its name in the tooltip and accessible label. A `null` URL without an available QR image renders a non-clickable icon with a small status dot and “Coming soon” / “即将开放” in its tooltip. Replace it with the real HTTPS account URL and rebuild to activate the link wherever it appears. For WeChat, use a working official-account landing page or article URL; do not invent an account URL.
 
-English homepage actions: Substack and X. Chinese homepage actions: Douyin and WeChat Official Account. The current X URL is preserved from the latest site configuration (`https://x.com/veryzg`).
+`SITE.qrCodes` configures the supplied original QR images for WeChat, Douyin, and Xiaohongshu, bundled in `assets/images/social/`. An icon activates when its configured image exists at build time. Clicking it opens a keyboard-accessible dialog with the original image, account information where supplied, and a download link. Without JavaScript it opens the original image directly. Preserve the original pixels and colors rather than regenerating or retouching QR codes.
+
+English homepage actions: Substack and X. Chinese homepage actions: Douyin and WeChat Official Account. The supplied account links are X (`https://x.com/thesoloprimus`), Substack (`https://substack.com/@soloprimus`), GitHub (`https://github.com/soloprimus`), and YouTube (`https://www.youtube.com/@SoloPrimus`).
 
 ## Publish a new essay
 
@@ -64,7 +66,7 @@ Node 18 or later is required. There are no npm dependencies.
 
 Typography follows jamesclear.com: a classic serif for reading (Minion Pro there, Crimson Pro here) and a geometric sans for headings and navigation (Europa there, Figtree here). Chinese pages set reading text in 思源宋体 (Noto Serif SC) and headings in the system 黑体 (PingFang SC or Microsoft YaHei). The Chinese homepage slogan uses 思源宋体 in three lines, with a copper final line; its share card follows the same treatment. Emphasis inside Chinese reading text uses 黑体, and key sentences use a copper highlight.
 
-The palette keeps the copper accent of the mountain mark on warm white, with a matching dark theme. The home page explains each topic with a small static diagram (a thesis card, a workflow time chart, a growth loop) instead of decorative animation. The mountain sculpture rises once when the page opens and then stays still, so no pause control is needed; it doesn't move at all when the system asks for reduced motion.
+The palette keeps the copper accent of the mountain mark on warm white, with a matching dark theme. The home page explains each topic with a small static diagram: an investment thesis card, an AI framework connecting technology, industry, and applications, and a practice loop grounded in human nature and biology. The mountain sculpture rises once when the page opens and then stays still, so no pause control is needed; it doesn't move at all when the system asks for reduced motion.
 
 `assets/images/mountain-sculpture.webp` was generated for this project from the approved mountain-and-path logo. `assets/images/mountain-mark.svg` is the vector mark.
 
