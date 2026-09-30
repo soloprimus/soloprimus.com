@@ -84,8 +84,8 @@ const PERSON = {
   name: NAME.en,
   alternateName: [NAME.caps, NAME.zh],
   url: abs(P.about('en')),
-  jobTitle: 'Professor',
-  description: 'Professor with a PhD in economics and a seasoned investor, writing about investing, AI, and self-improvement.',
+  jobTitle: 'Assistant Professor',
+  description: 'I’m Dr. Solo Primus, Assistant Professor.',
   knowsAbout: ['Economics', 'Investing', 'Artificial intelligence', 'Self-improvement'],
   sameAs: [SITE.links.x, SITE.links.substack],
 };
@@ -302,9 +302,9 @@ function homePage(lang, essays) {
   <div class="hero-copy">
     <p class="eyebrow">${esc(h.eyebrow)}</p>
     <h1>${h.h1.map((line) => `<span>${esc(line)}</span>`).join(' ')}</h1>
-    <ul class="hero-pillars">
+    ${h.lead ? `<p class="lead">${esc(h.lead)}</p>` : `<ul class="hero-pillars">
 ${h.pillars.map(([k, v]) => `      <li><b>${esc(k)}</b><span>${esc(v)}</span></li>`).join('\n')}
-    </ul>
+    </ul>`}
     <div class="hero-actions">
       <a class="btn" href="${P.essays(lang)}"><span>${esc(h.primary)}</span><span aria-hidden="true">→</span></a>
       ${lang === 'zh'

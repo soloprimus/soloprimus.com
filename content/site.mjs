@@ -52,7 +52,7 @@ export const T = {
 
     home: {
       title: 'Solo Primus · One person. Three levers. Unlimited upside.',
-      description: 'Solo Primus is a professor with a PhD in economics and a seasoned investor, writing about investing, AI, and self-improvement.',
+      description: 'I’m Dr. Solo Primus, Assistant Professor. I write about investing, AI, and self-improvement.',
       eyebrow: 'Investing · AI · Self-improvement',
       h1: ['One person. Three levers.', 'Unlimited upside.'],
       pillars: [
@@ -98,10 +98,9 @@ export const T = {
       alsoTitle: 'Also in Chinese',
       alsoNote: 'Longer essays, currently available in Chinese.',
       allEssays: 'All essays',
-      introTitle: 'Hi, I’m Solo Primus.',
+      introTitle: 'I’m Dr. Solo Primus, Assistant Professor.',
       intro: [
-        'I’m a professor and a seasoned investor. I earned a PhD in economics, have a background in electronic information engineering, and have published a number of academic papers.',
-        'Solo Primus is my pen name, and 凌霄 is my Chinese one. Both stand for one belief: an independent person who keeps learning and refining their work can reach a very high level.',
+        'Solo Primus is my English pen name; I write as 凌霄 (Lingxiao) in Chinese. The mountain and winding path in my mark reflect how I approach life: choose my own direction, draw on tools and ideas that help me go further, and keep learning along the way. Each step matters, and there is always more to discover.',
       ],
       introMore: 'More about me',
       principlesTitle: 'How I think',
@@ -147,7 +146,7 @@ export const T = {
       topicsTitle: 'Topics',
       readNext: 'Keep reading',
       authorTitle: 'About the author',
-      authorBio: 'I’m Solo Primus (凌霄), a professor with a PhD in economics and a seasoned investor. I write about investing, AI, and self-improvement.',
+      authorBio: 'I’m Dr. Solo Primus, Assistant Professor. I write about investing, AI, and self-improvement.',
       authorMore: 'More about me',
       alternate: 'Read in Chinese',
       allEssays: 'All essays',
@@ -155,14 +154,14 @@ export const T = {
 
     about: {
       title: 'About Solo Primus',
-      description: 'Solo Primus (凌霄) is a professor with a PhD in economics and a seasoned investor.',
+      description: 'I’m Dr. Solo Primus, Assistant Professor.',
       eyebrow: 'About',
       h1: 'About Solo Primus',
-      lead: 'Professor · PhD in economics · Seasoned investor. I write about investing, AI, and self-improvement.',
+      lead: 'I’m Dr. Solo Primus, Assistant Professor. I write about investing, AI, and self-improvement.',
       story: [
         'This is an age of noise.\nMarkets move your money with emotion. Technology pushes you along with anxiety. Other people define your success by their own standards.',
         'I believe one person can still live with clarity: think independently, keep improving, and climb, step by step, to higher ground.',
-        'I’m Solo Primus: a professor with a PhD in economics, and a seasoned investor. Here, I write about three things.',
+        'I’m Dr. Solo Primus, Assistant Professor. Here, I write about three things.',
         ['Investing.', 'Start from first principles, see through the noise of prices, and see value as it really is.'],
         ['AI.', 'In the wave of technology, see its essence and its direction. Be the one who rides the wave, not the one swept away by it.'],
         ['Self-improvement.', 'Experience has taught me to read human nature, and to read myself. I have turned those insights into an original method for continuous growth.'],
@@ -181,7 +180,7 @@ export const T = {
         {
           h: 'Background',
           p: [
-            'I have a background in electronic information engineering and earned a PhD in economics. I’m a professor and a seasoned investor, and I have published a number of academic papers.',
+            'I have a background in electronic information engineering and earned a PhD in economics. I’m an assistant professor, and I have published a number of academic papers.',
             'Both disciplines shape how I write here. Engineering asks me to build something small and test it. Economics asks what it is worth, and why people choose it.',
           ],
         },
@@ -219,15 +218,11 @@ export const T = {
     minRead: (n) => `阅读约 ${n} 分钟`,
 
     home: {
-      title: '凌霄 SOLO PRIMUS · 独立思考，拓展人生的可能',
-      description: '凌霄的个人写作网站。以经济学研究、投资实践与工程背景为起点，探讨如何看清价值、善用 AI，在实践中持续精进。所有文章免费阅读。',
+      title: '凌霄 SOLO PRIMUS · 独行有道，借力登高，凌霄无界',
+      description: '独行有道，借力登高，凌霄无界。凌霄（SOLO PRIMUS）写投资、AI 与自我提升：在喧嚣中独立判断，在实践中善用工具，在求知中拓宽人生。',
       eyebrow: '投资 · AI · 自我提升',
-      h1: ['独立思考，', '拓展人生的可能。'],
-      pillars: [
-        ['投资', '看清生意、价格与周期，把判断建立在证据上。'],
-        ['AI', '理解技术的变化，把新工具用到真正重要的事上。'],
-        ['自我提升', '认识人性，也审视自己，在行动与复盘中持续精进。'],
-      ],
+      h1: ['独行有道', '借力登高', '凌霄无界'],
+      lead: '以独立判断择路，以资本与 AI 拓展所能，在持续求知与实践中，走向更开阔的人生。',
       facts: [
         ['追逐行情', '理解价值'],
         ['技术焦虑', '善用工具'],
@@ -238,13 +233,13 @@ export const T = {
       primary: '读几篇文章',
       secondary: '关注 Substack',
       heroAlt: '铂金与铜色的山形雕塑，一条蜿蜒的小路通向山顶',
-      leverEyebrow: '长期关注的三个问题',
-      leverTitle: '看清价值，善用技术，持续精进',
-      leverIntro: '投资关乎如何配置资本，AI 关乎如何拓展能力，成长关乎如何改善判断。我把研究与实践中的所得写在这里，也把尚未想明白的问题留给下一次探索。',
+      leverEyebrow: '知行之间',
+      leverTitle: '把向上的愿望，落在日常的功夫里',
+      leverIntro: '投资，练习在不确定中作判断；AI，探索一个人能做成多少事；自我提升，把经历沉淀为见识。三条路径，通向同一件事：更有底气地选择自己的生活。',
       cards: {
-        investing: { title: '价格在变，依据要清楚。', text: '从商业模式、竞争格局与现金流入手，判断价值，也检验自己的看法。', link: '阅读投资思考' },
-        ai: { title: '懂得趋势，更要用得上。', text: '关注技术进展，也回到具体任务，看看 AI 能解决什么问题、需要付出多少成本。', link: '阅读 AI 实践' },
-        growth: { title: '经历过，还要想明白。', text: '留意判断中的盲点，把一次次选择与复盘，沉淀为可反复使用的方法。', link: '阅读成长随笔' },
+        investing: { title: '喧嚣之中，自有判断', text: '从生意、价格与风险出发，寻找值得投入的价值，也写下让自己改变判断的证据。', link: '投资文章' },
+        ai: { title: '善用工具，拓展所能', text: '从真实问题出发，把 AI 融入研究、创作与日常工作，让想法经得起实践的检验。', link: 'AI 文章' },
+        growth: { title: '见识渐长，天地渐宽', text: '在阅读中打开视野，在行动中认识自己，把每一次复盘化为下一步的进益。', link: '自我提升文章' },
       },
       thesis: {
         label: '一份投资判断，四个追问',
@@ -263,10 +258,9 @@ export const T = {
       startEyebrow: '初次来访',
       startTitle: '不妨从这几篇读起',
       allEssays: '全部文章',
-      introTitle: '你好，我是凌霄。',
+      introTitle: '我是凌霄博士，助理教授。',
       intro: [
-        '我是一名教授、经济学博士，也长期参与投资实践。电子信息工程的学习经历，让我习惯追问事物如何运作；经济学训练，则让我关注选择背后的激励、约束与代价。',
-        '这里写投资，也写 AI 与个人成长。我希望把研究中的追问、实践中的得失，整理成值得反复琢磨的文字，与同样重视独立判断的人交流。',
+        'SOLO PRIMUS 是我的英文笔名，凌霄是中文笔名。山与路径，是这两个名字共同的意象：有自己的方向，也懂得借力；尊重每一步的积累，也不为求知与成长预设终点。这便是「独行有道，借力登高，凌霄无界」。',
       ],
       introMore: '关于我与这个网站',
       principlesTitle: '我看重的几件事',
@@ -309,25 +303,25 @@ export const T = {
       topicsTitle: '主题',
       readNext: '接着读',
       authorTitle: '关于作者',
-      authorBio: '凌霄，英文笔名 Solo Primus。教授、经济学博士，长期参与投资实践。在这里记录关于价值、技术与个人成长的思考。',
-      authorMore: '了解作者',
+      authorBio: '我是凌霄博士，助理教授。我写投资、AI 与自我提升。',
+      authorMore: '进一步了解我',
       alternate: '阅读英文版',
       allEssays: '全部文章',
     },
 
     about: {
       title: '关于凌霄 · SOLO PRIMUS',
-      description: '凌霄（SOLO PRIMUS），教授，经济学博士，资深投资人。',
+      description: '我是凌霄博士，助理教授。',
       eyebrow: '关于',
       h1: '关于凌霄',
-      lead: '在研究中追问，在实践中求证。这里记录我对投资、AI 与个人成长的长期思考。',
+      lead: '我是凌霄博士，助理教授。写投资、AI 与自我提升。',
       story: [
-        '投资时，我们很容易被价格牵着走；面对新技术，又怕自己慢了一步。信息越来越多，留给独立判断的余地却未必更多。',
-        '我想借这个网站，留下一处可以把问题想深、把依据说清的地方。不急着给每件事一个答案，也不把一时的成败当成最后的结论。',
-        '我是凌霄，英文笔名 Solo Primus。一名教授、经济学博士，也是一名长期参与市场的投资人。我的写作，围绕三个彼此关联的问题展开。',
-        ['投资：价值从哪里来？', '一家企业靠什么创造利润，行业的变化怎样传导到经营，什么价格值得承担风险。我关心判断背后的依据，也关心它会在什么条件下失效。'],
-        ['AI：技术怎样成为自己的能力？', '我关注模型与工具的进展，更关心它们进入具体工作之后，究竟解决了什么、又带来了哪些新的成本。理解趋势，需要亲手实践。'],
-        ['自我提升：经验怎样沉淀为判断力？', '读懂人性，也承认自己的局限。把选择、失误与复盘记录下来，逐渐形成自己的方法，让下一次行动多一点自觉。'],
+        '这是一个充满噪音的时代。\n市场用情绪左右你的钱，技术用焦虑推着你走，别人用他们的标准定义你的成功。',
+        '我相信，一个人也可以活得清醒：独立判断，持续精进，一步步登上更高的地方。',
+        '我是凌霄博士，助理教授。在这里，我写三件事。',
+        ['投资。', '从第一性原理出发，穿过价格的喧嚣，看见价值本来的样子。'],
+        ['AI。', '在技术的浪潮里，看清本质与方向。做驾驭浪潮的人，不做被浪潮裹挟的人。'],
+        ['自我提升。', '阅历让我读懂人性，也读懂自己。我把这些领悟，化成一套独创的精进方法。'],
       ],
       motto: '立足于己，行而向上。',
       mottoNote: '每周日更新，愿这些文字成为你思考时的一点参照。',
@@ -343,8 +337,8 @@ export const T = {
         {
           h: '我的经历与思考起点',
           p: [
-            '我有电子信息工程的学科背景，取得了经济学博士学位，目前是一名教授，发表过多篇学术论文，也积累了多年的投资经验。',
-            '工程训练让我重视机制与验证，经济学训练让我关注激励、约束和机会成本。市场则不断提醒我：一个解释再完整，也需要接受现实的检验。',
+            '我有电子信息工程的学科背景，并取得了经济学博士学位。我是助理教授，发表过多篇学术论文。',
+            '这两个学科都影响着我在这里的写作。工程学要求我先做出一个小东西，再去检验它；经济学让我追问：它值多少，人们为什么会选择它。',
           ],
         },
       ],

@@ -3,7 +3,7 @@
 Personal website of Solo Primus (凌霄): essays on investing, AI, and self-improvement.
 English is served at `/`, Chinese at `/zh/`.
 
-Solo Primus is a professor with a PhD in economics and a seasoned investor. The English slogan is “One person. Three levers. Unlimited upside.” The Chinese site uses its own editorial voice: “独立思考，拓展人生的可能。” Both are organized around investing, AI, and self-improvement.
+I’m Dr. Solo Primus, Assistant Professor. The English slogan is “One person. Three levers. Unlimited upside.” The Chinese homepage uses its own voice: “独行有道 · 借力登高 · 凌霄无界”. The site is organized around investing, AI, and self-improvement.
 
 ## RSS and follow links
 
@@ -62,7 +62,7 @@ Node 18 or later is required. There are no npm dependencies.
 
 ## Design
 
-Typography follows jamesclear.com: a classic serif for reading (Minion Pro there, Crimson Pro here) and a geometric sans for headings and navigation (Europa there, Figtree here). Chinese pages set reading text in 思源宋体 (Noto Serif SC) and headings in the system 黑体 (PingFang SC or Microsoft YaHei). Emphasis inside Chinese reading text uses 黑体, and key sentences use a copper highlight.
+Typography follows jamesclear.com: a classic serif for reading (Minion Pro there, Crimson Pro here) and a geometric sans for headings and navigation (Europa there, Figtree here). Chinese pages set reading text in 思源宋体 (Noto Serif SC) and headings in the system 黑体 (PingFang SC or Microsoft YaHei). The Chinese homepage slogan uses 思源宋体 in three lines, with a copper final line; its share card follows the same treatment. Emphasis inside Chinese reading text uses 黑体, and key sentences use a copper highlight.
 
 The palette keeps the copper accent of the mountain mark on warm white, with a matching dark theme. The home page explains each topic with a small static diagram (a thesis card, a workflow time chart, a growth loop) instead of decorative animation. The mountain sculpture rises once when the page opens and then stays still, so no pause control is needed; it doesn't move at all when the system asks for reduced motion.
 

@@ -210,7 +210,16 @@ html:lang(zh-CN) .section-head h2 { font-size: clamp(1.65rem, 1.3rem + 1.4vw, 2.
 }
 .hero h1 { font-size: clamp(2.4rem, 1.5rem + 3vw, 3.4rem); line-height: 1.08; letter-spacing: -.025em; margin-bottom: 24px; }
 .hero h1 span { display: block; }
-html:lang(zh-CN) .hero h1 { font-size: clamp(2.05rem, 1.4rem + 2.6vw, 3.2rem); line-height: 1.3; letter-spacing: .01em; }
+html:lang(zh-CN) .hero h1 {
+  font-family: var(--serif); font-weight: 400;
+  font-size: clamp(2.6rem, 1.7rem + 2.6vw, 4.1rem);
+  line-height: 1.4; letter-spacing: .1em;
+}
+html:lang(zh-CN) .hero h1 span:last-child { color: var(--accent-ink); }
+html:lang(zh-CN) .hero .lead { max-width: 25em; font-size: 1.125rem; line-height: 1.9; }
+@media (min-width: 881px) {
+  html:lang(zh-CN) .hero { grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); }
+}
 .hero .lead { margin-bottom: 32px; }
 
 /* The three topics, one line each, right under the slogan. */
@@ -297,6 +306,7 @@ html:lang(zh-CN) .facts dd { font-size: clamp(19px, 1.05rem + .45vw, 23px); lett
   .hero { grid-template-columns: 1fr; }
   .hero-art { max-width: 420px; width: 100%; justify-self: center; }
   .hero-art-inner { width: 112%; margin-inline: -6%; }
+  html:lang(zh-CN) .hero-art-inner { width: 100%; margin-inline: 0; }
 }
 @media (max-width: 880px) {
   .facts { grid-row: 2; margin-top: 36px; }
