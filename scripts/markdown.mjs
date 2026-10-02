@@ -1,6 +1,6 @@
 // A small Markdown renderer for the essays in content/essays.
 // Supports: ## headings, paragraphs, blank-line separation, > quotes, - and 1. lists, --- rules,
-// **bold**, *italic*, ==highlight==, `code`, and [links](https://…).
+// **bold**, *italic*, ==highlight==, `code`, links, local essay figures, and tables.
 
 export const escapeHtml = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 export const escapeAttr = (s) => escapeHtml(s).replace(/"/g, '&quot;');
@@ -65,10 +65,35 @@ export function markdown(source) {
   };
   const flushAll = () => { flushPara(); flushQuote(); flushList(); };
 
-  for (const raw of lines) {
+  const tableCells = (line) => line.trim().replace(/^\|/, '').replace(/\|$/, '').split('|').map((cell) => cell.trim());
+  const isTableRule = (line) => line && tableCells(line).every((cell) => /^:?-{3,}:?$/.test(cell));
+
+  for (let index = 0; index < lines.length; index++) {
+    const raw = lines[index];
     const line = raw.trimEnd();
     let m;
     if (!line.trim()) { flushAll(); continue; }
+    if ((m = line.match(/^!\[([^\]]*)\]\((\/assets\/images\/essays\/[a-zA-Z0-9_./-]+\.(?:png|jpe?g|webp))\)$/))) {
+      flushAll();
+      if (m[2].split('/').includes('..')) throw new Error('Essay images must stay inside assets/images/essays.');
+      html.push(`<figure class="essay-figure"><img src="${escapeAttr(m[2])}" alt="${escapeAttr(m[1])}" loading="lazy" decoding="async">${m[1] ? `<figcaption>${inline(m[1])}</figcaption>` : ''}</figure>`);
+      continue;
+    }
+    if (line.trim().startsWith('|') && isTableRule(lines[index + 1])) {
+      flushAll();
+      const header = tableCells(line);
+      const rules = tableCells(lines[++index]);
+      if (header.length !== rules.length) throw new Error('Table header and alignment columns must match.');
+      const rows = [];
+      while (lines[index + 1]?.trim().startsWith('|')) {
+        const row = tableCells(lines[++index]);
+        if (row.length !== header.length) throw new Error('Table rows must have the same number of columns.');
+        rows.push(row);
+      }
+      const aligned = (column) => rules[column].endsWith(':') ? (rules[column].startsWith(':') ? ' class="align-center"' : ' class="align-right"') : '';
+      html.push(`<div class="essay-table-wrap" tabindex="0"><table class="essay-table"><thead><tr>${header.map((cell, column) => `<th scope="col"${aligned(column)}>${inline(cell)}</th>`).join('')}</tr></thead><tbody>${rows.map((row) => `<tr>${row.map((cell, column) => column === 0 ? `<th scope="row">${inline(cell)}</th>` : `<td${aligned(column)}>${inline(cell)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`);
+      continue;
+    }
     if ((m = line.match(/^(#{2,4})\s+(.+)$/))) {
       flushAll();
       const level = m[1].length;

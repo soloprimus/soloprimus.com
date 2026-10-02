@@ -588,7 +588,7 @@ ${list.map((e) => `<item>
 <guid isPermaLink="true">${abs(P.essay(lang, e.slug))}</guid>
 <pubDate>${e.date.toUTCString()}</pubDate>
 <description>${esc(e.summary)}</description>
-<content:encoded>${cdata(e.html)}</content:encoded>
+<content:encoded>${cdata(e.html.replace(/(<img\b[^>]*\bsrc=")(\/[^"\s]+)(")/g, (_, start, path, end) => `${start}${abs(path)}${end}`))}</content:encoded>
 </item>`).join('\n')}
 </channel>
 </rss>

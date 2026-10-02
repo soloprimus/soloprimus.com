@@ -47,7 +47,9 @@ English homepage actions: Substack and X. Chinese homepage actions: Douyin and W
 
 4. Commit everything, including the generated HTML, and push `main`.
 
-Supported Markdown: `##`/`###` headings (three or more `##` headings add an “On this page” list), paragraphs, `**bold**`, `*italic*`, `==key sentence==` (brand highlight), `[links](https://…)`, `> quotes`, `-` and `1.` lists, and `---` rules.
+Supported Markdown: `##`/`###` headings (three or more `##` headings add an “On this page” list), paragraphs, `**bold**`, `*italic*`, `==key sentence==` (brand highlight), `[links](https://…)`, `> quotes`, `-` and `1.` lists, `---` rules, local essay figures, and pipe tables with column alignment.
+
+Store essay images under `assets/images/essays/<slug>/` and embed them with `![A descriptive caption](/assets/images/essays/<slug>/figure.png)`. Captions also provide alternative text. Images remain proportional, and wide tables scroll within the reading column on small screens. RSS image URLs are made absolute so figures work outside the website. Keep the original publication date and use the same slug for a complete English/Chinese pair; both the header and article byline link directly to the matching translation.
 
 Node 18 or later is required. There are no npm dependencies.
 

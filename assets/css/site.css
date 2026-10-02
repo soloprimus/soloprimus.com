@@ -537,6 +537,24 @@ html:lang(zh-CN) .prose em { font-style: normal; color: var(--muted); }
 .prose ul, .prose ol { padding-left: 1.3em; }
 .prose li + li { margin-top: .4em; }
 .prose code { padding: .1em .35em; border-radius: 3px; background: var(--band); font-size: .85em; }
+.prose .essay-figure { margin-inline: 0; margin-block: 1.8em; }
+.essay-figure img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 4px; }
+.essay-figure figcaption { margin-top: 10px; font: 400 14px/1.65 var(--sans); color: var(--muted); text-align: center; }
+.essay-table-wrap { max-width: 100%; overflow-x: auto; border-block: 1px solid var(--line-2); }
+.essay-table-wrap:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.essay-table { width: 100%; border-collapse: collapse; font: 400 16px/1.6 var(--sans); font-variant-numeric: tabular-nums; }
+.essay-table th, .essay-table td { padding: 12px 14px; text-align: left; vertical-align: top; }
+.essay-table thead { background: var(--band); }
+.essay-table thead th { font-weight: 600; }
+.essay-table tbody th { font-weight: 400; }
+.essay-table tbody tr + tr { border-top: 1px solid var(--line); }
+.essay-table .align-right { text-align: right; }
+.essay-table .align-center { text-align: center; }
+@media (max-width: 640px) {
+  .essay-table { font-size: 14px; }
+  .essay-table th, .essay-table td { padding: 10px 8px; }
+  .essay-figure figcaption { font-size: 12.5px; }
+}
 
 .article-note { margin-top: 44px; padding-top: 18px; border-top: 1px solid var(--line); font: 400 14px/1.65 var(--sans); color: var(--muted); }
 .author-box {

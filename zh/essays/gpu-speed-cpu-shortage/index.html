@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>都在抢GPU，为什么CPU也不够用了？ · 凌霄</title>
+<meta name="description" content="当 AI 从生成答案走向执行任务，算力瓶颈也在移动。沿着智能体的工作链条，看 CPU 需求为何上升，以及短缺能否持续。">
+<link rel="canonical" href="https://soloprimus.com/zh/essays/gpu-speed-cpu-shortage/">
+<link rel="alternate" hreflang="zh-CN" href="https://soloprimus.com/zh/essays/gpu-speed-cpu-shortage/">
+<link rel="alternate" hreflang="en" href="https://soloprimus.com/essays/gpu-speed-cpu-shortage/">
+<link rel="alternate" hreflang="x-default" href="https://soloprimus.com/essays/gpu-speed-cpu-shortage/">
+<link rel="alternate" type="application/rss+xml" title="凌霄 SOLO PRIMUS" href="/zh/feed.xml">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#fdfcf9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#151615" media="(prefers-color-scheme: dark)">
+<meta property="og:site_name" content="凌霄 SOLO PRIMUS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="都在抢GPU，为什么CPU也不够用了？ · 凌霄">
+<meta property="og:description" content="当 AI 从生成答案走向执行任务，算力瓶颈也在移动。沿着智能体的工作链条，看 CPU 需求为何上升，以及短缺能否持续。">
+<meta property="og:url" content="https://soloprimus.com/zh/essays/gpu-speed-cpu-shortage/">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://soloprimus.com/assets/og/zh-gpu-speed-cpu-shortage.png?v=6dc97461df">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/figtree/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/fonts.css?v=f9663c4608">
+<link rel="stylesheet" href="/assets/css/site.css?v=71f8d310b2">
+<script>try{var s=localStorage.getItem('soloprimus-theme');document.documentElement.dataset.theme=s==='dark'||s==='light'?s:matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}catch(e){}</script>
+<script src="/assets/js/site.js?v=38fe3046df" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"都在抢GPU，为什么CPU也不够用了？","description":"当 AI 从生成答案走向执行任务，算力瓶颈也在移动。沿着智能体的工作链条，看 CPU 需求为何上升，以及短缺能否持续。","datePublished":"2026-10-01","dateModified":"2026-10-01","inLanguage":"zh-CN","author":{"@id":"https://soloprimus.com/#person"},"publisher":{"@id":"https://soloprimus.com/#person"},"mainEntityOfPage":"https://soloprimus.com/zh/essays/gpu-speed-cpu-shortage/","url":"https://soloprimus.com/zh/essays/gpu-speed-cpu-shortage/","image":"https://soloprimus.com/assets/og/zh-gpu-speed-cpu-shortage.png?v=6dc97461df"},{"@type":"Person","@id":"https://soloprimus.com/#person","name":"Solo Primus","alternateName":["SOLO PRIMUS","凌霄"],"url":"https://soloprimus.com/about/","jobTitle":"Assistant Professor","description":"I’m Dr. Solo Primus, Assistant Professor.","knowsAbout":["Economics","Investing","Artificial intelligence","Self-improvement"],"sameAs":["https://x.com/thesoloprimus","https://substack.com/@soloprimus","https://github.com/soloprimus","https://www.youtube.com/@SoloPrimus"]}]}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="/zh/" aria-label="凌霄 SOLO PRIMUS，返回首页"><svg class="brand-mark" viewBox="0 0 100 80" aria-hidden="true" focusable="false"><path fill="currentColor" d="M50 6 63.8 24C63 28.5 52 32 43 39C34 46 37 51.5 45 59C55 69 51 74 36 74H4Z M66.5 27.5 96 74H81C76 64 66 57.5 56 51C45 44 46 40 53 35.5C59 32 63.5 31 66.5 27.5Z"/></svg><span class="brand-name">SOLO PRIMUS</span><span class="brand-cn">凌霄</span></a>
+    <nav class="site-nav" id="site-nav" aria-label="主导航">
+      <a href="/zh/essays/" aria-current="page">文章</a>
+      <a href="/zh/#topics">主题</a>
+      <a href="/zh/about/">关于</a>
+      <a href="#follow">订阅</a>
+      <a class="lang-link" href="/essays/gpu-speed-cpu-shortage/" hreflang="en" lang="en" title="阅读英文版网站">English</a>
+    </nav>
+    <div class="header-tools">
+      <button class="icon-btn theme-toggle" type="button" aria-label="切换到深色模式" data-label-dark="切换到深色模式" data-label-light="切换到浅色模式"><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.2 14.6A8.3 8.3 0 0 1 9.4 3.8a8.3 8.3 0 1 0 10.8 10.8Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></button>
+      <button class="icon-btn nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="打开菜单" data-label-open="打开菜单" data-label-close="关闭菜单"><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<div class="wrap article-layout">
+  <article class="article">
+    <header class="article-head">
+      <a class="topic-tag" href="/zh/essays/#ai">AI</a>
+      <h1>都在抢GPU，为什么CPU也不够用了？</h1>
+      <p class="article-dek">当 AI 从生成答案走向执行任务，算力瓶颈也在移动。沿着智能体的工作链条，看 CPU 需求为何上升，以及短缺能否持续。</p>
+      <p class="byline"><span>作者 <a href="/zh/about/">凌霄</a></span><span aria-hidden="true">·</span><time datetime="2026-10-01">2026年10月1日</time><span aria-hidden="true">·</span><span>阅读约 7 分钟</span><span aria-hidden="true">·</span><a href="/essays/gpu-speed-cpu-shortage/" hreflang="en">阅读英文版</a></p>
+    </header>
+    <nav class="toc" aria-labelledby="toc-title">
+      <p id="toc-title">本文目录</p>
+      <ol>
+        <li><a href="#gpu">一、GPU算得再快，也得等其他环节</a></li>
+        <li><a href="#section-2">二、一个人提问，一群智能体干活</a></li>
+        <li><a href="#cpu">三、CPU能加单，产能却不能立刻加速</a></li>
+        <li><a href="#cpu-2">四、同一座数据中心，可能需要更多CPU</a></li>
+        <li><a href="#ai">五、短缺能持续多久，要看AI接到了多少真活</a></li>
+      </ol>
+    </nav>
+    <div class="prose">
+<p>AI算力的抢购清单上，CPU正变得越来越显眼。</p>
+<p>9月底，渠道消息称，AMD第六代EPYC处理器Venice的2027年产能已被预订，订单开始排向2028年。这一说法尚未获得AMD官方确认，但服务器CPU的供给压力已经引起关注。<a href="https://www.techtimes.com/articles/328325/20260930/amd-epyc-venice-supply-exhausted-2027-agentic-ai-drives-server-cpu-crunch.htm">消息来源</a></p>
+<p>英特尔也发出了紧缺信号。据媒体对Splunk .conf26的报道，公司CEO表示，目前只能满足客户约一半的CPU需求。这一数字不能直接换算成全球缺口，但英特尔二季度正式披露已确认需求超过可供给数量，并预计基板、内存等关键部件的行业性短缺将持续至2027年。<a href="https://www.trendforce.com/news/2026/09/16/news-intel-ceo-flags-ai-supply-squeeze-memory-prices-up-5-7x-its-cpus-meet-just-50-of-demand/">发言报道</a>；<a href="https://www.sec.gov/Archives/edgar/data/50863/000005086326000157/intc-20260627.htm">英特尔季度报告</a></p>
+<p>理解这轮变化，需要看清AI正在接手什么工作。生成一段答案，与完成一项任务，对算力的要求很不一样。</p>
+<p><strong>当AI开始替人执行任务，CPU承担的工作也随之增加。</strong></p>
+<figure class="essay-figure"><img src="/assets/images/essays/gpu-cpu/01_cover_gpu_cpu_architecture.jpg" alt="AI算力体系中的GPU与CPU协同" loading="lazy" decoding="async"><figcaption>AI算力体系中的GPU与CPU协同</figcaption></figure>
+<h2 id="gpu">一、GPU算得再快，也得等其他环节</h2>
+<p>让一个编程智能体修复错误，它要做的远不止生成几行代码。</p>
+<p>它需要读取项目、提出方案、修改文件，再启动环境、编译、运行测试。如果测试失败，就把报错交回模型，修改后再试。</p>
+<p>模型计算主要依靠GPU，代码执行和大量工具工作依靠CPU。一次任务要在这些环节之间往返，交付速度取决于整条流程。</p>
+<p>算一笔简化的时间账：假设完成一项任务原本需要100秒，其中模型计算占90秒，其他暂时无法加速的步骤占10秒。</p>
+<div class="essay-table-wrap" tabindex="0"><table class="essay-table"><thead><tr><th scope="col">环节</th><th scope="col" class="align-right">GPU升级前</th><th scope="col" class="align-right">模型计算提速10倍后</th></tr></thead><tbody><tr><th scope="row">模型计算</th><td class="align-right">90秒</td><td class="align-right">9秒</td></tr><tr><th scope="row">其他步骤</th><td class="align-right">10秒</td><td class="align-right">10秒</td></tr><tr><th scope="row">总耗时</th><td class="align-right">100秒</td><td class="align-right">19秒</td></tr></tbody></table></div>
+<figure class="essay-figure"><img src="/assets/images/essays/gpu-cpu/02_amdahl_bottleneck_chart.png" alt="阿姆达尔定律简析：局部提速10倍，执行环节成为主要耗时瓶颈" loading="lazy" decoding="async"><figcaption>阿姆达尔定律简析：局部提速10倍，执行环节成为主要耗时瓶颈</figcaption></figure>
+<p>GPU负责的部分快了10倍，整项任务只快了约5.3倍。原来占十分之一的其他步骤，此时已经占去超过一半的时间。</p>
+<p>这就是阿姆达尔定律揭示的约束：<strong>任务规模固定时，局部加速的收益，会受到剩余步骤的限制。</strong>表中的数字用于说明机制，并非真实智能体的平均耗时。<a href="https://docs.nvidia.com/cuda/cuda-c-best-practices-guide/index.html#strong-scaling-and-amdahl-s-law">英伟达CUDA最佳实践指南</a></p>
+<p>但瓶颈更突出，还不等于CPU需求一定增长。每天只处理同样数量的任务，GPU升级可能只是缩短等待；网络延迟、磁盘访问和串行依赖，也未必能靠增加CPU解决。</p>
+<p>真正推动采购的是下一步：企业把释放出来的GPU能力，用来同时处理更多任务。更多代码需要编译，更多测试需要运行，更多执行环境需要启动，CPU的总工作量才随之上升。</p>
+<h2 id="section-2">二、一个人提问，一群智能体干活</h2>
+<p>智能体正在把这一步变成现实。</p>
+<p>人和聊天机器人对话，通常需要停下来读答案、想一想，再继续提问。人的阅读和判断速度，会限制请求频率。</p>
+<p>智能体收到一个目标，可以自行执行多轮“规划—调用工具—检查结果—重试”。一次修复要求，可能触发几十次测试；一项资料整理任务，可能带来大量网页访问和数据库查询。多个智能体还可以同时执行不同的子任务。</p>
+<p><strong>用户只交代了一件事，后台可能已经运行了许多轮计算与工具调用。</strong></p>
+<figure class="essay-figure"><img src="/assets/images/essays/gpu-cpu/03_agent_execution_loop.jpg" alt="智能体自主执行闭环：GPU模型推理与CPU执行环境交替协作" loading="lazy" decoding="async"><figcaption>智能体自主执行闭环：GPU模型推理与CPU执行环境交替协作</figcaption></figure>
+<p>这种扩张依然受到预算、权限和成功率的限制。企业愿意持续运行智能体，前提是完成工作的收益能够覆盖调用、执行和复核成本。一旦这个条件成立，CPU负载就不再只由人的提问次数决定，还取决于每项任务需要多少次尝试、多少个执行环境。</p>
+<p>训练智能体也会增加这类需求。模型学习写代码、使用工具，需要反复尝试并检验结果，许多工具和环境运行在CPU上。</p>
+<p>英伟达在2026年3月发布Vera CPU时，介绍了一种配备256颗CPU、可支持超过22500个并发CPU环境的机架。按照厂商披露的设计，这些资源服务于大规模执行与训练环境。<a href="https://nvidianews.nvidia.com/news/nvidia-launches-vera-cpu-purpose-built-for-agentic-ai">Vera CPU发布公告</a></p>
+<p>TrendForce也预计，智能体部署中的CPU与GPU数量配比，将从传统大模型场景的1∶4至1∶8，向1∶1至1∶2变化。这个判断针对特定部署场景，反映的是执行工作增加之后，硬件配置需要重新调整。<a href="https://www.trendforce.com/insights/agentic-ai-cpu-gpu">TrendForce分析</a></p>
+<h2 id="cpu">三、CPU能加单，产能却不能立刻加速</h2>
+<p>需求的变化，遇上了供给扩张的时间差。</p>
+<p>AMD已宣布Venice在台积电2纳米工艺上爬坡。新一代CPU同样需要先进制程资源，而晶圆制造只是交付的第一步，后面还有封装、基板、内存和整机配套。<a href="https://newsroom.amd.com/news/amd-announces-production-ramp-of-next-generation-a/">AMD量产爬坡公告</a></p>
+<p>任何一环缺货，都可能让已经造出来的芯片无法及时变成可用服务器。英特尔披露的基板和内存约束，正说明供给压力已经延伸到处理器之外。<a href="https://www.sec.gov/Archives/edgar/data/50863/000005086326000157/intc-20260627.htm">英特尔季度报告</a></p>
+<p>更多执行环境还需要更多内存容量、带宽，以及电力与散热支持。增加CPU采购量，实际上也在给整套配套设施增加订单。</p>
+<p>企业可以很快提高软件端的并发需求，硬件厂商却要增加设备、提高良率、协调部件，再完成平台验证。采购计划与可交付的计算能力之间，隔着一段无法跳过的时间。</p>
+<figure class="essay-figure"><img src="/assets/images/essays/gpu-cpu/04_cpu_supply_chain.jpg" alt="服务器芯片与硬件交付链条：从晶圆制造、先进封装基板到整机配套" loading="lazy" decoding="async"><figcaption>服务器芯片与硬件交付链条：从晶圆制造、先进封装基板到整机配套</figcaption></figure>
+<p>这段时间有多长，要看具体瓶颈。现有产线调整、新品放量和供应商扩产都可能缓解紧张，也都需要接受实际交付的检验。</p>
+<h2 id="cpu-2">四、同一座数据中心，可能需要更多CPU</h2>
+<p>CPU需求有多大，还取决于数据中心里运行的是什么任务。</p>
+<p>Arm在2026年3月的演讲中估算，传统AI数据中心每吉瓦对应约3000万CPU核心，智能体场景可能提高至1.2亿核心。这是厂商对特定场景的测算，包含与加速器相邻的CPU资源，并非所有数据中心的统一标准。<a href="https://investors.arm.com/static-files/3ef9667a-16cb-4139-9d9d-bd59dd9f0b3e">Arm演讲原文，第3—4页</a></p>
+<p>借用这两个端点，可以做一个简单的敏感性分析。</p>
+<p>假设新增投运的AI容量为G吉瓦，其中采用高CPU需求智能体配置的容量占比为p。采用线性插值，新增核心需求可以写成：</p>
+<blockquote><p>新增CPU核心需求 = G ×（3000万 + 9000万 × p）</p></blockquote>
+<p>以假设的10吉瓦新增容量为例，结果如下：</p>
+<div class="essay-table-wrap" tabindex="0"><table class="essay-table"><thead><tr><th scope="col">高CPU需求智能体配置占比</th><th scope="col" class="align-right">所需CPU核心</th><th scope="col" class="align-right">按每颗128核折算</th></tr></thead><tbody><tr><th scope="row">10%</th><td class="align-right">3.9亿</td><td class="align-right">约305万颗</td></tr><tr><th scope="row">30%</th><td class="align-right">5.7亿</td><td class="align-right">约445万颗</td></tr><tr><th scope="row">60%</th><td class="align-right">8.4亿</td><td class="align-right">约656万颗</td></tr></tbody></table></div>
+<figure class="essay-figure"><img src="/assets/images/essays/gpu-cpu/05_datacenter_cpu_demand_chart.png" alt="数据中心任务结构演变对CPU核心需求的影响" loading="lazy" decoding="async"><figcaption>数据中心任务结构演变对CPU核心需求的影响</figcaption></figure>
+<p>这里的10吉瓦、配置占比、线性插值和128核换算，都用于展示情景，不代表年度预测或行业平均配置。不同架构的核心也不能完全等量替代。</p>
+<p>这笔账揭示的关键是：<strong>即使新增容量相同，仅任务结构变化，就可能让CPU需求相差一倍以上。</strong></p>
+<p>要进一步计算全球缺口，还需要加入通用服务器更新、既有AI设施升级和设备复用，再与各厂商的实际有效供给比较。目前公开数据还不足以填齐这张账本。</p>
+<p>因此，2027年新品集中放量能否缓解紧张，取决于供给增加的同时，每座数据中心的CPU需求又提高了多少。判断未来是否平衡，必须同时看扩产速度、任务结构和软件效率。</p>
+<h2 id="ai">五、短缺能持续多久，要看AI接到了多少真活</h2>
+<p>预订火热，需要最终使用需求来兑现。</p>
+<p>客户担心拿不到货，可能提前采购，甚至重复下单。交期越长，囤货动机越强。如果实际任务增长没有跟上，今天的预订也可能变成明天的库存和砍单。</p>
+<p>软件效率同样会改变需求。减少无效重试、复用执行环境、合并查询，都能降低完成一项任务所需的CPU资源。数据中心建设放缓，也会压低新增采购。</p>
+<p>观察这轮短缺，可以抓住三个信号：</p>
+<ul><li><strong>交期</strong>：同类服务器CPU的交付时间，是否持续拉长。</li><li><strong>量价</strong>：厂商收入增长中，有多少来自实际出货，有多少来自高端产品占比提高和涨价。</li><li><strong>使用</strong>：云厂商的建设与采购计划，是否转化为投运容量和持续运行的任务。</li></ul>
+<p>量价尤其容易被混淆。英特尔二季度服务器平均售价同比提高48%，出货量提高9%，并披露售价增长主要来自高端产品占比提升。收入增长很快，未必意味着卖出的CPU同样多，更不能直接换算成市场缺口。<a href="https://www.sec.gov/Archives/edgar/data/50863/000005086326000157/intc-20260627.htm">英特尔季度报告</a></p>
+<p>CPU重新受到关注，背后是AI工作范围的扩大。模型能够提出更多方案之后，还需要系统执行代码、调用工具、读取数据、检查结果。企业真正购买的，是这些环节共同交付的一项工作。</p>
+<p><strong>CPU短缺能否持续，最终取决于企业愿意付钱交给AI完成的工作，能否增长得比整套基础设施更快。</strong></p>
+    </div>
+    <aside class="author-box" aria-labelledby="author-title">
+      <div class="avatar"><svg class="avatar-mark" viewBox="0 0 100 80" aria-hidden="true" focusable="false"><path fill="currentColor" d="M50 6 63.8 24C63 28.5 52 32 43 39C34 46 37 51.5 45 59C55 69 51 74 36 74H4Z M66.5 27.5 96 74H81C76 64 66 57.5 56 51C45 44 46 40 53 35.5C59 32 63.5 31 66.5 27.5Z"/></svg></div>
+      <div>
+        <h2 id="author-title">关于作者</h2>
+        <p>我是凌霄博士，助理教授。我写投资、AI 与自我提升。</p>
+        <div class="author-actions"><a href="/zh/about/">进一步了解我</a><a class="social-icon social-icon--substack" data-platform="substack" aria-label="关注 Substack" title="关注 Substack" href="https://substack.com/@soloprimus" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M22.539 8.242H1.46V5.406h21.08zM1.46 10.812V24L12 18.11L22.54 24V10.812zM22.54 0H1.46v2.836h21.08z"/></svg><span class="social-tooltip" aria-hidden="true">关注 Substack</span></a><a href="/zh/feed.xml">RSS</a></div>
+      </div>
+    </aside>
+  </article>
+  <aside class="article-side" aria-label="主题">
+    <div class="side-sticky">
+      <p class="side-label">主题</p>
+      <ul class="side-list">
+        <li><a href="/zh/essays/#investing">投资</a></li>
+        <li><a href="/zh/essays/#ai" aria-current="true">AI</a></li>
+        <li><a href="/zh/essays/#growth">自我提升</a></li>
+      </ul>
+      <p class="side-more"><a href="/zh/essays/">全部文章 →</a></p>
+    </div>
+  </aside>
+</div>
+<section class="section read-next" aria-labelledby="next-title">
+  <div class="wrap">
+    <h2 id="next-title" class="read-next-title">接着读</h2>
+    <ol class="essay-list">
+<li class="essay-row" data-topic="ai">
+  <div class="essay-meta"><a class="topic-tag" href="/zh/essays/#ai">AI</a><span><time datetime="2026-09-27">2026.09.27</time> · 阅读约 1 分钟</span></div>
+  <div class="essay-main">
+    <h3><a href="/zh/essays/give-ai-a-job/">用一项具体任务，检验 AI 的价值</a></h3>
+    <p>从手头的真实工作出发，把说明任务、核查结果与返工的时间一起算进去，才知道工具是否有用。</p>
+  </div>
+</li>
+<li class="essay-row" data-topic="ai">
+  <div class="essay-meta"><a class="topic-tag" href="/zh/essays/#ai">AI</a><span><time datetime="2026-09-05">2026.09.05</time> · 阅读约 3 分钟</span></div>
+  <div class="essay-main">
+    <h3><a href="/zh/essays/respect-the-bubble/">尊重泡沫</a></h3>
+    <p>判断估值过高，和判断何时下跌之间，隔着资金、利益和预期的变化。一个会主动调整的产业，会让空头为等待付出代价。</p>
+  </div>
+</li>
+<li class="essay-row" data-topic="growth">
+  <div class="essay-meta"><a class="topic-tag" href="/zh/essays/#growth">自我提升</a><span><time datetime="2026-10-02">2026.10.02</time> · 阅读约 9 分钟</span></div>
+  <div class="essay-main">
+    <h3><a href="/zh/essays/give-fear-a-job/">69岁的红杉传奇说：我这一生，都是被恐惧推着走的</a></h3>
+    <p>恐惧可以是燃料，也可能成为消耗。借道格·莱昂内的经历，讨论如何把具体的不安转化为行动，以及这套方法的边界。</p>
+  </div>
+</li>
+    </ol>
+  </div>
+</section>
+</main>
+<section class="follow" id="follow" aria-labelledby="follow-title">
+  <div class="wrap follow-inner">
+    <div>
+      <p class="eyebrow">保持联系</p>
+      <h2 id="follow-title">每周日，留一点时间认真想想。</h2>
+      <p>每周更新一篇文章，记录投资、技术与成长中的思考。所有内容免费开放，也欢迎通过 RSS 持续阅读。</p>
+    </div>
+    <div class="follow-actions">
+      <a class="social-icon social-icon--wechat" data-platform="wechat" aria-label="关注微信公众号 · 查看二维码" title="关注微信公众号 · 查看二维码" href="/assets/images/social/wechat-qr.jpg" data-qr-dialog="social-qr-wechat" aria-haspopup="dialog" aria-controls="social-qr-wechat"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213c0 .163.13.295.29.295a.33.33 0 0 0 .167-.054l1.903-1.114a.86.86 0 0 1 .717-.098a10.2 10.2 0 0 0 2.837.403c.276 0 .543-.027.811-.05c-.857-2.578.157-4.972 1.932-6.446c1.703-1.415 3.882-1.98 5.853-1.838c-.576-3.583-4.196-6.348-8.596-6.348M5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178A1.17 1.17 0 0 1 4.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178a1.17 1.17 0 0 1-1.162-1.178c0-.651.52-1.18 1.162-1.18m5.34 2.867c-1.797-.052-3.746.512-5.28 1.786c-1.72 1.428-2.687 3.72-1.78 6.22c.942 2.453 3.666 4.229 6.884 4.229c.826 0 1.622-.12 2.361-.336a.72.72 0 0 1 .598.082l1.584.926a.3.3 0 0 0 .14.047c.134 0 .24-.111.24-.247c0-.06-.023-.12-.038-.177l-.327-1.233a.6.6 0 0 1-.023-.156a.49.49 0 0 1 .201-.398C23.024 18.48 24 16.82 24 14.98c0-3.21-2.931-5.837-6.656-6.088V8.89c-.135-.01-.27-.027-.407-.03zm-2.53 3.274c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983a.976.976 0 0 1-.969-.983c0-.542.434-.982.97-.982zm4.844 0c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983a.976.976 0 0 1-.969-.983c0-.542.434-.982.969-.982"/></svg><span class="social-tooltip" aria-hidden="true">关注微信公众号 · 查看二维码</span></a>
+      <a class="social-icon social-icon--douyin" data-platform="douyin" aria-label="关注抖音 · 查看二维码" title="关注抖音 · 查看二维码" href="/assets/images/social/douyin-qr.png" data-qr-dialog="social-qr-douyin" aria-haspopup="dialog" aria-controls="social-qr-douyin"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02c.08 1.53.63 3.09 1.75 4.17c1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97c-.57-.26-1.1-.59-1.62-.93c-.01 2.92.01 5.84-.02 8.75c-.08 1.4-.54 2.79-1.35 3.94c-1.31 1.92-3.58 3.17-5.91 3.21c-1.43.08-2.86-.31-4.08-1.03c-2.02-1.19-3.44-3.37-3.65-5.71c-.02-.5-.03-1-.01-1.49c.18-1.9 1.12-3.72 2.58-4.96c1.66-1.44 3.98-2.13 6.15-1.72c.02 1.48-.04 2.96-.04 4.44c-.99-.32-2.15-.23-3.02.37c-.63.41-1.11 1.04-1.36 1.75c-.21.51-.15 1.07-.14 1.61c.24 1.64 1.82 3.02 3.5 2.87c1.12-.01 2.19-.66 2.77-1.61c.19-.33.4-.67.41-1.06c.1-1.79.06-3.57.07-5.36c.01-4.03-.01-8.05.02-12.07"/></svg><span class="social-tooltip" aria-hidden="true">关注抖音 · 查看二维码</span></a>
+      <a class="btn btn-quiet" href="/zh/feed.xml"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M2 2.5a11.5 11.5 0 0 1 11.5 11.5h-2A9.5 9.5 0 0 0 2 4.5v-2Zm0 4.4A7.1 7.1 0 0 1 9.1 14h-2A5.1 5.1 0 0 0 2 8.9v-2Zm1.6 4.3a1.4 1.4 0 1 1 0 2.8 1.4 1.4 0 0 1 0-2.8Z"/></svg><span>RSS 订阅</span></a>
+    </div>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="/zh/"><svg class="brand-mark" viewBox="0 0 100 80" aria-hidden="true" focusable="false"><path fill="currentColor" d="M50 6 63.8 24C63 28.5 52 32 43 39C34 46 37 51.5 45 59C55 69 51 74 36 74H4Z M66.5 27.5 96 74H81C76 64 66 57.5 56 51C45 44 46 40 53 35.5C59 32 63.5 31 66.5 27.5Z"/></svg><span class="brand-name">SOLO PRIMUS</span><span class="brand-cn">凌霄</span></a>
+      <p>明辨。笃行。</p>
+    </div>
+    <nav class="footer-links" aria-label="主导航">
+      <a href="/zh/essays/">文章</a>
+      <a href="/zh/about/">关于</a>
+      <a href="/zh/feed.xml">RSS</a>
+      <a href="/essays/gpu-speed-cpu-shortage/" hreflang="en" lang="en">English</a>
+    </nav>
+    <p class="footer-note">文章用于研究与教育。本站内容均不构成投资建议。</p>
+  </div>
+  <nav class="wrap footer-social" aria-labelledby="social-title">
+    <h2 id="social-title">在你常用的平台关注</h2>
+    <ul class="social-list">
+      <li><a class="social-icon social-icon--wechat" data-platform="wechat" aria-label="关注微信公众号 · 查看二维码" title="关注微信公众号 · 查看二维码" href="/assets/images/social/wechat-qr.jpg" data-qr-dialog="social-qr-wechat" aria-haspopup="dialog" aria-controls="social-qr-wechat"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8.691 2.188C3.891 2.188 0 5.476 0 9.53c0 2.212 1.17 4.203 3.002 5.55a.59.59 0 0 1 .213.665l-.39 1.48c-.019.07-.048.141-.048.213c0 .163.13.295.29.295a.33.33 0 0 0 .167-.054l1.903-1.114a.86.86 0 0 1 .717-.098a10.2 10.2 0 0 0 2.837.403c.276 0 .543-.027.811-.05c-.857-2.578.157-4.972 1.932-6.446c1.703-1.415 3.882-1.98 5.853-1.838c-.576-3.583-4.196-6.348-8.596-6.348M5.785 5.991c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178A1.17 1.17 0 0 1 4.623 7.17c0-.651.52-1.18 1.162-1.18zm5.813 0c.642 0 1.162.529 1.162 1.18a1.17 1.17 0 0 1-1.162 1.178a1.17 1.17 0 0 1-1.162-1.178c0-.651.52-1.18 1.162-1.18m5.34 2.867c-1.797-.052-3.746.512-5.28 1.786c-1.72 1.428-2.687 3.72-1.78 6.22c.942 2.453 3.666 4.229 6.884 4.229c.826 0 1.622-.12 2.361-.336a.72.72 0 0 1 .598.082l1.584.926a.3.3 0 0 0 .14.047c.134 0 .24-.111.24-.247c0-.06-.023-.12-.038-.177l-.327-1.233a.6.6 0 0 1-.023-.156a.49.49 0 0 1 .201-.398C23.024 18.48 24 16.82 24 14.98c0-3.21-2.931-5.837-6.656-6.088V8.89c-.135-.01-.27-.027-.407-.03zm-2.53 3.274c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983a.976.976 0 0 1-.969-.983c0-.542.434-.982.97-.982zm4.844 0c.535 0 .969.44.969.982a.976.976 0 0 1-.969.983a.976.976 0 0 1-.969-.983c0-.542.434-.982.969-.982"/></svg><span class="social-tooltip" aria-hidden="true">关注微信公众号 · 查看二维码</span></a></li>
+      <li><a class="social-icon social-icon--douyin" data-platform="douyin" aria-label="关注抖音 · 查看二维码" title="关注抖音 · 查看二维码" href="/assets/images/social/douyin-qr.png" data-qr-dialog="social-qr-douyin" aria-haspopup="dialog" aria-controls="social-qr-douyin"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02c.08 1.53.63 3.09 1.75 4.17c1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97c-.57-.26-1.1-.59-1.62-.93c-.01 2.92.01 5.84-.02 8.75c-.08 1.4-.54 2.79-1.35 3.94c-1.31 1.92-3.58 3.17-5.91 3.21c-1.43.08-2.86-.31-4.08-1.03c-2.02-1.19-3.44-3.37-3.65-5.71c-.02-.5-.03-1-.01-1.49c.18-1.9 1.12-3.72 2.58-4.96c1.66-1.44 3.98-2.13 6.15-1.72c.02 1.48-.04 2.96-.04 4.44c-.99-.32-2.15-.23-3.02.37c-.63.41-1.11 1.04-1.36 1.75c-.21.51-.15 1.07-.14 1.61c.24 1.64 1.82 3.02 3.5 2.87c1.12-.01 2.19-.66 2.77-1.61c.19-.33.4-.67.41-1.06c.1-1.79.06-3.57.07-5.36c.01-4.03-.01-8.05.02-12.07"/></svg><span class="social-tooltip" aria-hidden="true">关注抖音 · 查看二维码</span></a></li>
+      <li><span class="social-icon social-icon--channels social-placeholder" data-platform="channels" aria-label="关注微信视频号 · 即将开放" title="关注微信视频号 · 即将开放" role="img" aria-disabled="true"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M19.194 3.181c1.162-.47 2.155-.019 2.672 1.277C23.26 7.944 20 21.133 17.441 21.133c-.828 0-1.657-.688-2.624-1.926a23 23 0 0 1-1.357-1.974c-.374-.6-.742-1.232-1.095-1.87L12 14.69l-.018.032a44 44 0 0 1-1.442 2.511c-.467.75-.922 1.416-1.358 1.974c-.966 1.238-1.795 1.926-2.623 1.926C4 21.133.74 7.943 2.133 4.458C2.651 3.162 3.644 2.71 4.806 3.18c.842.34 1.772 1.156 2.81 2.376A32 32 0 0 1 9.548 8.11a59 59 0 0 1 2.137 3.36l.316.538l.316-.538a62 62 0 0 1 1.696-2.71l.44-.65a32 32 0 0 1 1.931-2.553c1.039-1.22 1.968-2.035 2.81-2.376M4.324 4.353c-.49-.199-.743-.084-1.005.57c-.457 1.145-.265 4.028.413 7.264l.158.724l.174.733c.856 3.46 2.087 6.224 2.495 6.224c.28 0 .889-.506 1.615-1.436c.405-.518.835-1.148 1.28-1.863c.362-.581.72-1.194 1.063-1.816l.415-.767l.348-.671l-.364-.638l-.332-.566a58 58 0 0 0-2.09-3.287a31 31 0 0 0-1.852-2.45c-.916-1.077-1.716-1.778-2.318-2.021m16.356.57c-.261-.654-.514-.769-1.005-.57c-.602.243-1.402.944-2.317 2.02a31 31 0 0 0-1.852 2.45a56 56 0 0 0-1.687 2.615l-.574.962l-.527.915l.181.35l.245.465a43 43 0 0 0 1.401 2.438a22 22 0 0 0 1.28 1.864c.727.93 1.336 1.436 1.616 1.436c.408 0 1.639-2.763 2.494-6.224l.174-.733c.805-3.523 1.063-6.758.571-7.987"/></svg><span class="social-tooltip" aria-hidden="true">关注微信视频号 · 即将开放</span></span></li>
+      <li><span class="social-icon social-icon--toutiao social-placeholder" data-platform="toutiao" aria-label="关注今日头条 · 即将开放" title="关注今日头条 · 即将开放" role="img" aria-disabled="true"><svg viewBox="0 0 48 48" aria-hidden="true" focusable="false"><mask id="social-168-svgIDa"><g fill="none"><path fill="#fff" d="M36.883 44h-25.77C7.192 44 4 40.808 4 36.883v-25.77C4 7.192 7.192 4 11.113 4h25.77c3.92 0 7.113 3.192 7.113 7.113v25.77C44 40.808 40.808 44 36.883 44ZM11.113 4.303a6.819 6.819 0 0 0-6.81 6.81v25.77a6.82 6.82 0 0 0 6.814 6.814h25.77a6.82 6.82 0 0 0 6.815-6.814v-25.77a6.82 6.82 0 0 0-6.815-6.815H11.113v.005Z"/><path fill="#fff" d="M44 34.795L4 36.887V13.205l40-2.092v23.682Z"/><path fill="#000" d="m19.17 15.92l-2.458.128c-.064 4.892-.132 7.645-1.014 9.618c-.895 2-2.805 3.657-6.61 6.955c-.158.137-.32.277-.49.422l3.873-.204c6.312-5.566 6.564-6.776 6.7-16.92Z"/><path fill="#000" d="M14.902 19.887v-2.42l-5.472-.495v2.417l5.472.498ZM9.43 21.064v2.42l5.472.499v-2.42l-5.472-.5Zm14.016 6.316l-15.444.805V26.02l15.444-.81v2.17Zm16.536-.866l-15.449.81v-2.17l15.449-.809v2.17Zm-.857-8.928l-11.242.588v-2.169l11.242-.588v2.17ZM21.06 28.59l-2.97.153l2.386 3.682l2.97-.153l-2.386-3.682Zm16.553-.866l-2.966.154l2.386 3.682l2.966-.154l-2.386-3.682Zm-7.715.401l-2.97.158l-2.387 3.929l2.97-.154l2.387-3.933Z"/><path fill="#000" d="m33.501 31.743l-2.519.132v-8.293l2.52-.128v8.29Zm3.357-16.207v1.522c-1.432 1.227-4.326 3.311-12.325 5.071v2.314c9.717-2.088 13.032-5.029 14.588-6.503v-2.523l-2.263.12Z"/><path fill="#000" d="M27.362 17.394c-.106-.072-.209-.144-.307-.208l-2.092 1.367s.933.678 1.035.746c1.71 1.177 4.833 3.324 13.983 4.339v-2.314c-8.31-.964-11.085-2.877-12.619-3.93Z"/><path fill="#000" d="m24.963 18.553l2.118 1.275l2.544-3.912l-2.327-.964l-2.335 3.601Z"/></g></mask><path fill="currentColor" d="M0 0h48v48H0z" mask="url(#social-168-svgIDa)"/></svg><span class="social-tooltip" aria-hidden="true">关注今日头条 · 即将开放</span></span></li>
+      <li><span class="social-icon social-icon--bilibili social-placeholder" data-platform="bilibili" aria-label="关注哔哩哔哩 · 即将开放" title="关注哔哩哔哩 · 即将开放" role="img" aria-disabled="true"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M17.813 4.653h.854q2.266.08 3.773 1.574Q23.946 7.72 24 9.987v7.36q-.054 2.266-1.56 3.773c-1.506 1.507-2.262 1.524-3.773 1.56H5.333q-2.266-.054-3.773-1.56C.053 19.614.036 18.858 0 17.347v-7.36q.054-2.267 1.56-3.76t3.773-1.574h.774l-1.174-1.12a1.23 1.23 0 0 1-.373-.906q0-.534.373-.907l.027-.027q.4-.373.92-.373t.92.373L9.653 4.44q.107.106.187.213h4.267a.8.8 0 0 1 .16-.213l2.853-2.747q.4-.373.92-.373c.347 0 .662.151.929.4s.391.551.391.907q0 .532-.373.906zM5.333 7.24q-1.12.027-1.88.773q-.76.748-.786 1.894v7.52q.026 1.146.786 1.893t1.88.773h13.334q1.12-.026 1.88-.773t.786-1.893v-7.52q-.026-1.147-.786-1.894t-1.88-.773zM8 11.107q.56 0 .933.373q.375.374.4.96v1.173q-.025.586-.4.96q-.373.375-.933.374c-.56-.001-.684-.125-.933-.374q-.375-.373-.4-.96V12.44q0-.56.386-.947q.387-.386.947-.386m8 0q.56 0 .933.373q.375.374.4.96v1.173q-.025.586-.4.96q-.373.375-.933.374c-.56-.001-.684-.125-.933-.374q-.375-.373-.4-.96V12.44q.025-.586.4-.96q.373-.373.933-.373"/></svg><span class="social-tooltip" aria-hidden="true">关注哔哩哔哩 · 即将开放</span></span></li>
+      <li><a class="social-icon social-icon--xiaohongshu" data-platform="xiaohongshu" aria-label="关注小红书 · 查看二维码" title="关注小红书 · 查看二维码" href="/assets/images/social/xiaohongshu-qr.png" data-qr-dialog="social-qr-xiaohongshu" aria-haspopup="dialog" aria-controls="social-qr-xiaohongshu"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M22.405 9.879c.002.016.01.02.07.019h.725a.797.797 0 0 0 .78-.972a.794.794 0 0 0-.884-.618a.795.795 0 0 0-.692.794c0 .101-.002.666.001.777m-11.509 4.808c-.203.001-1.353.004-1.685.003a2.5 2.5 0 0 1-.766-.126a.025.025 0 0 0-.03.014L7.7 16.127a.025.025 0 0 0 .01.032c.111.06.336.124.495.124c.66.01 1.32.002 1.981 0q.017 0 .023-.015l.712-1.545a.025.025 0 0 0-.024-.036zM.477 9.91c-.071 0-.076.002-.076.01l-.01.08c-.027.397-.038.495-.234 3.06c-.012.24-.034.389-.135.607c-.026.057-.033.042.003.112c.046.092.681 1.523.787 1.74c.008.015.011.02.017.02c.008 0 .033-.026.047-.044q.219-.282.371-.606c.306-.635.44-1.325.486-1.706c.014-.11.021-.22.03-.33l.204-2.616l.022-.293c.003-.029 0-.033-.03-.034zm7.203 3.757a1.4 1.4 0 0 1-.135-.607c-.004-.084-.031-.39-.235-3.06a.4.4 0 0 0-.01-.082c-.004-.011-.052-.008-.076-.008h-1.48c-.03.001-.034.005-.03.034l.021.293q.114 1.473.233 2.946c.05.4.186 1.085.487 1.706c.103.215.223.419.37.606c.015.018.037.051.048.049c.02-.003.742-1.642.804-1.765c.036-.07.03-.055.003-.112m3.861-.913h-.872a.126.126 0 0 1-.116-.178l1.178-2.625a.025.025 0 0 0-.023-.035l-1.318-.003a.148.148 0 0 1-.135-.21l.876-1.954a.025.025 0 0 0-.023-.035h-1.56q-.017 0-.024.015l-.926 2.068c-.085.169-.314.634-.399.938a.5.5 0 0 0-.02.191a.46.46 0 0 0 .23.378a1 1 0 0 0 .46.119h.59c.041 0-.688 1.482-.834 1.972a.5.5 0 0 0-.023.172a.47.47 0 0 0 .23.398c.15.092.342.12.475.12l1.66-.001q.017 0 .023-.015l.575-1.28a.025.025 0 0 0-.024-.035m-6.93-4.937H3.1a.032.032 0 0 0-.034.033c0 1.048-.01 2.795-.01 6.829c0 .288-.269.262-.28.262h-.74c-.04.001-.044.004-.04.047c.001.037.465 1.064.555 1.263c.01.02.03.033.051.033c.157.003.767.009.938-.014c.153-.02.3-.06.438-.132c.3-.156.49-.419.595-.765c.052-.172.075-.353.075-.533q.003-3.495-.007-6.991a.03.03 0 0 0-.032-.032zm11.784 6.896q-.002-.02-.024-.022h-1.465c-.048-.001-.049-.002-.05-.049v-4.66c0-.072-.005-.07.07-.07h.863c.08 0 .075.004.075-.074V8.393c0-.082.006-.076-.08-.076h-3.5c-.064 0-.075-.006-.075.073v1.445c0 .083-.006.077.08.077h.854c.075 0 .07-.004.07.07v4.624c0 .095.008.084-.085.084c-.37 0-1.11-.002-1.304 0c-.048.001-.06.03-.06.03l-.697 1.519s-.014.025-.008.036s.013.008.058.008q2.622.003 5.243.002c.03-.001.034-.006.035-.033zm4.177-3.43q0 .021-.02.024c-.346.006-.692.004-1.037.004q-.021-.003-.022-.024q-.006-.651-.01-1.303c0-.072-.006-.071.07-.07l.733-.003c.041 0 .081.002.12.015c.093.025.16.107.165.204c.006.431.002 1.153.001 1.153m2.67.244a1.95 1.95 0 0 0-.883-.222h-.18c-.04-.001-.04-.003-.042-.04V10.21q.001-.198-.025-.394a1.8 1.8 0 0 0-.153-.53a1.53 1.53 0 0 0-.677-.71a2.2 2.2 0 0 0-1-.258c-.153-.003-.567 0-.72 0c-.07 0-.068.004-.068-.065V7.76c0-.031-.01-.041-.046-.039H17.93s-.016 0-.023.007q-.008.008-.008.023v.546c-.008.036-.057.015-.082.022h-.95c-.022.002-.028.008-.03.032v1.481c0 .09-.004.082.082.082h.913c.082 0 .072.128.072.128v1.148s.003.117-.06.117h-1.482c-.068 0-.06.082-.06.082v1.445s-.01.068.064.068h1.457c.082 0 .076-.006.076.079v3.225c0 .088-.007.081.082.081h1.43c.09 0 .082.007.082-.08v-3.27c0-.029.006-.035.033-.035l2.323-.003a.7.7 0 0 1 .28.061a.46.46 0 0 1 .274.407c.008.395.003.79.003 1.185c0 .259-.107.367-.33.367h-1.218c-.023.002-.029.008-.028.033q.276.655.57 1.303a.05.05 0 0 0 .04.026c.17.005.34.002.51.003c.15-.002.517.004.666-.01a2 2 0 0 0 .408-.075c.59-.18.975-.698.976-1.313v-1.981q.001-.191-.034-.38c0 .078-.029-.641-.724-.998"/></svg><span class="social-tooltip" aria-hidden="true">关注小红书 · 查看二维码</span></a></li>
+      <li><a class="social-icon social-icon--substack" data-platform="substack" aria-label="关注Substack" title="关注Substack" href="https://substack.com/@soloprimus" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M22.539 8.242H1.46V5.406h21.08zM1.46 10.812V24L12 18.11L22.54 24V10.812zM22.54 0H1.46v2.836h21.08z"/></svg><span class="social-tooltip" aria-hidden="true">关注Substack</span></a></li>
+      <li><a class="social-icon social-icon--x" data-platform="x" aria-label="关注X" title="关注X" href="https://x.com/thesoloprimus" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M14.234 10.162L22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299l-.929-1.329L3.076 1.56h3.182l5.965 8.532l.929 1.329l7.754 11.09h-3.182z"/></svg><span class="social-tooltip" aria-hidden="true">关注X</span></a></li>
+    </ul>
+  </nav>
+  <div class="wrap footer-bottom"><span>© 2026 Solo Primus · 凌霄</span></div>
+</footer>
+<dialog class="qr-dialog" id="social-qr-wechat" aria-labelledby="social-qr-wechat-title" aria-describedby="social-qr-wechat-help">
+  <div class="qr-header">
+    <h2 id="social-qr-wechat-title">微信公众号</h2>
+    <form method="dialog"><button class="qr-close" type="submit" autofocus>关闭</button></form>
+  </div>
+  <p class="qr-help" id="social-qr-wechat-help">使用对应 App 扫码关注，也可保存图片后在 App 中识别二维码。</p>
+  <div class="qr-image"><img src="/assets/images/social/wechat-qr.jpg" width="430" height="430" alt="Solo Primus · 微信公众号 · 查看二维码" loading="lazy" decoding="async"></div>
+  <p class="qr-error" role="status" hidden>图片暂时无法加载，可以通过下方入口打开原图重试。</p>
+
+  <div class="qr-actions"><a class="btn btn-quiet" href="/assets/images/social/wechat-qr.jpg" download>保存二维码</a><a class="text-link" href="/assets/images/social/wechat-qr.jpg">打开原图</a></div>
+</dialog>
+<dialog class="qr-dialog" id="social-qr-douyin" aria-labelledby="social-qr-douyin-title" aria-describedby="social-qr-douyin-help">
+  <div class="qr-header">
+    <h2 id="social-qr-douyin-title">抖音</h2>
+    <form method="dialog"><button class="qr-close" type="submit" autofocus>关闭</button></form>
+  </div>
+  <p class="qr-help" id="social-qr-douyin-help">使用对应 App 扫码关注，也可保存图片后在 App 中识别二维码。</p>
+  <div class="qr-image"><img src="/assets/images/social/douyin-qr.png" width="1109" height="1343" alt="Solo Primus · 抖音 · 查看二维码" loading="lazy" decoding="async"></div>
+  <p class="qr-error" role="status" hidden>图片暂时无法加载，可以通过下方入口打开原图重试。</p>
+  <p class="qr-account">账号 <b>98502180065</b></p>
+  <div class="qr-actions"><a class="btn btn-quiet" href="/assets/images/social/douyin-qr.png" download>保存二维码</a><a class="text-link" href="/assets/images/social/douyin-qr.png">打开原图</a></div>
+</dialog>
+<dialog class="qr-dialog" id="social-qr-xiaohongshu" aria-labelledby="social-qr-xiaohongshu-title" aria-describedby="social-qr-xiaohongshu-help">
+  <div class="qr-header">
+    <h2 id="social-qr-xiaohongshu-title">小红书</h2>
+    <form method="dialog"><button class="qr-close" type="submit" autofocus>关闭</button></form>
+  </div>
+  <p class="qr-help" id="social-qr-xiaohongshu-help">使用对应 App 扫码关注，也可保存图片后在 App 中识别二维码。</p>
+  <div class="qr-image"><img src="/assets/images/social/xiaohongshu-qr.png" width="1244" height="1532" alt="Solo Primus · 小红书 · 查看二维码" loading="lazy" decoding="async"></div>
+  <p class="qr-error" role="status" hidden>图片暂时无法加载，可以通过下方入口打开原图重试。</p>
+  <p class="qr-account">账号 <b>soloprimus</b></p>
+  <div class="qr-actions"><a class="btn btn-quiet" href="/assets/images/social/xiaohongshu-qr.png" download>保存二维码</a><a class="text-link" href="/assets/images/social/xiaohongshu-qr.png">打开原图</a></div>
+</dialog>
+</body>
+</html>
