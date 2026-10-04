@@ -116,6 +116,24 @@ test('Unique visitors persist through refreshes, concurrency, day changes and ob
   storage.db.close();
 });
 
+test('Collecting the first city retains legacy geography for other countries', async () => {
+  const storage = sqliteStorage();
+  let instance = new VisitorCounter({ storage }, {});
+  await visit(instance, '198.51.100.30', { country: 'CN', lat: 32, lon: 122 });
+  await visit(instance, '198.51.100.31', { country: 'US', lat: 40, lon: -78 });
+  storage.sql.exec('DROP TABLE city_visitors');
+  storage.sql.exec('DROP TABLE city_locations');
+  instance = new VisitorCounter({ storage }, {});
+  await visit(instance, '198.51.100.30', approximateLocation({ country: 'CN', city: 'Shanghai', latitude: 31.2304, longitude: 121.4737 }));
+  const snapshot = instance.snapshot();
+  assert.equal(snapshot.today, 2);
+  assert.equal(snapshot.total, 2);
+  assert.equal(snapshot.locations.length, 2);
+  assert.equal(snapshot.locations.find(item => item.country === 'CN').city, 'Shanghai');
+  assert.equal(snapshot.locations.find(item => item.country === 'US').city, undefined);
+  storage.db.close();
+});
+
 test('Only real document requests count; statistics, feeds, bots and missing pages do not', async () => {
   const storage = sqliteStorage();
   const instance = new VisitorCounter({ storage }, {});
