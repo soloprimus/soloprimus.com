@@ -29,9 +29,27 @@ const visit = (counter, ip, location = { country: 'CN', lat: 32, lon: 122 }) => 
   method: 'POST', body: JSON.stringify({ ip, location }),
 }));
 
-test('Beijing midnight and geographic quantization', () => {
-  assert.equal(calendarDay(new Date('2026-10-04T15:59:59Z')), '2026-10-04');
-  assert.equal(calendarDay(new Date('2026-10-04T16:00:00Z')), '2026-10-05');
+test('California calendar days honor midnight, summer/winter time and DST transitions', () => {
+  for (const [timestamp, day] of [
+    ['2026-01-04T07:59:59Z', '2026-01-03'],
+    ['2026-01-04T08:00:00Z', '2026-01-04'],
+    ['2026-03-08T07:59:59Z', '2026-03-07'],
+    ['2026-03-08T08:00:00Z', '2026-03-08'],
+    ['2026-03-09T06:59:59Z', '2026-03-08'],
+    ['2026-03-09T07:00:00Z', '2026-03-09'],
+    ['2026-10-04T06:59:59Z', '2026-10-03'],
+    ['2026-10-04T07:00:00Z', '2026-10-04'],
+    ['2026-10-04T16:00:00Z', '2026-10-04'],
+    ['2026-11-01T06:59:59Z', '2026-10-31'],
+    ['2026-11-01T07:00:00Z', '2026-11-01'],
+    ['2026-11-01T08:30:00Z', '2026-11-01'],
+    ['2026-11-01T09:30:00Z', '2026-11-01'],
+    ['2026-11-02T07:59:59Z', '2026-11-01'],
+    ['2026-11-02T08:00:00Z', '2026-11-02'],
+  ]) assert.equal(calendarDay(new Date(timestamp)), day, timestamp);
+});
+
+test('Geographic quantization and city names', () => {
   assert.deepEqual(approximateLocation({ country: 'CN', latitude: '31.2304', longitude: '121.4737' }), { country: 'CN', city: '', region: '', lat: 32, lon: 122 });
   assert.deepEqual(approximateLocation({ country: 'CN', city: 'Shanghai', region: 'Shanghai', latitude: '31.2304', longitude: '121.4737' }), { country: 'CN', city: 'Shanghai', region: 'Shanghai', lat: 31.2, lon: 121.5 });
   assert.equal(approximateLocation({ country: 'US', city: ' New\u202eyork\n ', latitude: 40.7, longitude: -74 }).city, 'Newyork');
@@ -95,6 +113,12 @@ test('Unique visitors persist through refreshes, concurrency, day changes and ob
   assert(!JSON.stringify(storage.sql.exec('SELECT * FROM visitors').toArray()).includes('198.51.100'));
   assert.deepEqual(Object.keys(storage.sql.exec('SELECT * FROM visitors').toArray()[0]), ['visitor_hash']);
   t.mock.timers.setTime(new Date('2026-10-04T16:00:00Z').getTime());
+  assert.equal(counter.snapshot().today, 2, 'Beijing midnight must no longer reset the reporting day');
+  assert.equal(counter.snapshot().timeZone, 'America/Los_Angeles');
+  t.mock.timers.setTime(new Date('2026-10-05T06:59:59Z').getTime());
+  await visit(counter, '198.51.100.1');
+  assert.equal(counter.snapshot().today, 2);
+  t.mock.timers.setTime(new Date('2026-10-05T07:00:00Z').getTime());
   assert.equal(counter.snapshot().today, 0);
   await visit(counter, '198.51.100.1');
   await visit(counter, '198.51.100.3', null);

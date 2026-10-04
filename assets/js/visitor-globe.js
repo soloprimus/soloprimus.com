@@ -270,8 +270,9 @@
       if (![data.today, data.total].every(n => Number.isSafeInteger(n) && n >= 0) || data.today > data.total || !Array.isArray(data.locations) || !Array.isArray(data.countries) || !Number.isFinite(started.getTime()) || !Number.isFinite(updated.getTime())) throw new Error('Invalid statistics');
       section.querySelector('[data-visitor-today]').textContent = numberFormat.format(data.today);
       section.querySelector('[data-visitor-total]').textContent = numberFormat.format(data.total);
-      const date = new Intl.DateTimeFormat(locale, { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'Asia/Shanghai' }).format(started);
-      const time = new Intl.DateTimeFormat(locale, { hour: '2-digit', minute: '2-digit', timeZone: 'Asia/Shanghai', hour12: false }).format(updated);
+      const timeZone = data.timeZone || 'America/Los_Angeles';
+      const date = new Intl.DateTimeFormat(locale, { year: 'numeric', month: 'short', day: 'numeric', timeZone }).format(started);
+      const time = new Intl.DateTimeFormat(locale, { hour: '2-digit', minute: '2-digit', timeZone, hour12: false }).format(updated);
       statsStatus.textContent = `${copy.since.replace('{date}', date)} · ${copy.updated.replace('{time}', time)}`;
       statsStatus.dataset.error = 'false';
       section.dataset.statsReady = 'true';

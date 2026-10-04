@@ -1,13 +1,15 @@
 import { DurableObject } from 'cloudflare:workers';
 
-const TIME_ZONE = 'Asia/Shanghai';
+const TIME_ZONE = 'America/Los_Angeles';
+const DAY_FORMAT = new Intl.DateTimeFormat('en-US', { timeZone: TIME_ZONE, year: 'numeric', month: '2-digit', day: '2-digit' });
 const BOT = /bot|crawler|spider|headless|lighthouse|curl|wget|python-requests|preview|facebookexternalhit/i;
 const COUNTER_NAME = 'soloprimus-public-readers-v1';
 const encoder = new TextEncoder();
 
 export function calendarDay(now = new Date()) {
-  // An explicit UTC offset avoids depending on the runtime's locale formatting.
-  return new Date(now.getTime() + 8 * 60 * 60 * 1000).toISOString().slice(0, 10);
+  // IANA timezone rules include California's daylight-saving transitions.
+  const fields = Object.fromEntries(DAY_FORMAT.formatToParts(now).map(({ type, value }) => [type, value]));
+  return `${fields.year}-${fields.month}-${fields.day}`;
 }
 
 export function approximateLocation(cf = {}) {
