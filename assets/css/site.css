@@ -464,6 +464,53 @@ html:lang(zh-CN) .follow h2 { line-height: 1.45; }
 @media (max-width: 860px) { .follow-inner { grid-template-columns: 1fr; } }
 
 .site-footer { padding-block: 52px 28px; border-top: 1px solid var(--line); font: 400 15px/1.6 var(--sans); color: var(--ink-2); }
+/* Visitor design preview: inherits the publication's palette and typography. */
+.visitor-footprint { padding-block: 44px 38px; background: var(--paper); }
+.visitor-footprint [hidden] { display: none !important; }
+.visitors-grid { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); column-gap: clamp(40px, 6vw, 86px); align-items: center; }
+.visitors-copy { padding-block: 26px; }
+.visitors-copy h2 { max-width: 13em; font-size: clamp(1.7rem, 1.4rem + 1vw, 2.25rem); line-height: 1.15; letter-spacing: -.025em; }
+html:lang(zh-CN) .visitors-copy h2 { letter-spacing: .04em; line-height: 1.4; }
+.visitors-intro { margin-top: 12px; font-size: 1.125rem; color: var(--ink-2); }
+html:lang(zh-CN) .visitors-intro { font-size: 1.02rem; }
+.visitor-counts { display: grid; grid-template-columns: .85fr 1.15fr; gap: 20px; margin: 34px 0 20px; font-family: var(--sans); }
+.visitor-counts > div + div { padding-left: 28px; border-left: 1px solid var(--line-2); }
+.visitor-counts dt { margin-bottom: 10px; font: 500 13px/1.5 var(--sans); color: var(--muted); }
+html:lang(zh-CN) .visitor-counts dt { font-size: 14px; }
+.visitor-counts dd { display: flex; align-items: baseline; gap: 8px; margin: 0; font: 600 clamp(2.3rem, 2rem + 1.35vw, 3.35rem)/1.1 var(--sans); letter-spacing: -.045em; font-variant-numeric: tabular-nums; color: var(--ink); }
+.visitor-counts dd.visitor-today { color: var(--accent-ink); }
+.visitor-counts dd b { font-weight: inherit; }
+.visitor-counts dd span { font: 400 13px/1.5 var(--sans); color: var(--muted); letter-spacing: 0; }
+.visitors-counting { max-width: 32em; font: 400 12.5px/1.7 var(--sans); color: var(--muted); }
+.visitors-status { margin-top: 27px; font: 400 12px/1.7 var(--sans); color: var(--muted); }
+.visitors-status[data-error="true"] { color: var(--accent-ink); }
+.visitor-world { max-width: 470px; width: 100%; margin: 0; justify-self: end; }
+.visitor-globe-stage { position: relative; width: 100%; aspect-ratio: 1.2; }
+.visitor-globe { width: 100%; height: 100%; display: block; }
+.globe-status, .globe-nojs { position: absolute; inset: 0; display: grid; align-content: center; text-align: center; font: 400 14px/1.5 var(--sans); color: var(--muted); }
+.visitor-world-caption { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 8px; margin-inline: 14px; font: 500 13px/1.5 var(--sans); }
+.globe-place { display: inline-flex; align-items: center; gap: 9px; color: var(--ink-2); }
+.globe-place::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+.globe-pause { padding: 5px 0 5px 8px; border: 0; background: transparent; color: var(--muted); font: 400 12px/1.5 var(--sans); white-space: nowrap; cursor: pointer; }
+.globe-pause:hover { color: var(--accent-ink); }
+.globe-pause:disabled { cursor: default; }
+.globe-locations { display: flex; justify-content: flex-start; flex-wrap: wrap; gap: 8px; margin: 12px 14px 0; }
+.globe-locations button { padding: 5px 12px; border: 1px solid transparent; border-radius: 4px; background: transparent; font: 500 12px/1.5 var(--sans); color: var(--muted); cursor: pointer; }
+.globe-locations button:hover { color: var(--ink); background: var(--band); }
+.globe-locations button[aria-pressed="true"] { color: var(--accent-ink); border-color: var(--accent-line); background: var(--accent-soft); }
+@media (max-width: 760px) {
+  .visitor-footprint { padding-block: 36px 38px; }
+  .visitors-grid { grid-template-columns: 1fr; gap: 20px; }
+  .visitors-copy { padding: 0; }
+  .visitors-copy h2 { max-width: none; }
+  .visitor-counts { margin-top: 24px; max-width: 460px; }
+  .visitor-counts > div + div { padding-left: 20px; }
+  .visitor-counts dd { font-size: clamp(2.35rem, 9.5vw, 3rem); }
+  .visitors-status { margin-top: 18px; }
+  .visitor-world { justify-self: center; max-width: 410px; }
+  .visitor-globe-stage { aspect-ratio: 1.18; }
+  .visitor-world-caption, .globe-locations { margin-inline: 0; }
+}
 .footer-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr) minmax(0, 1.1fr); gap: 32px 48px; }
 .footer-brand p { margin-top: 14px; color: var(--muted); }
 .footer-links { display: grid; grid-template-columns: repeat(2, max-content); gap: 10px 40px; align-content: start; }

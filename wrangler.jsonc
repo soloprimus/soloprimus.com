@@ -1,0 +1,15 @@
+{
+  "name": "soloprimus-com",
+  "main": "workers/index.mjs",
+  "compatibility_date": "2026-10-04",
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    "run_worker_first": ["/", "/zh/*", "/essays/*", "/about/*", "/api/*"]
+  },
+  "durable_objects": {
+    "bindings": [{ "name": "VISITORS", "class_name": "VisitorCounter" }]
+  },
+  "migrations": [{ "tag": "visitors-v1", "new_sqlite_classes": ["VisitorCounter"] }]
+}

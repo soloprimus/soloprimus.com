@@ -51,7 +51,19 @@ Supported Markdown: `##`/`###` headings (three or more `##` headings add an “O
 
 Store essay images under `assets/images/essays/<slug>/` and embed them with `![A descriptive caption](/assets/images/essays/<slug>/figure.png)`. Captions also provide alternative text. Images remain proportional, and wide tables scroll within the reading column on small screens. RSS image URLs are made absolute so figures work outside the website. Keep the original publication date and use the same slug for a complete English/Chinese pair; both the header and article byline link directly to the matching translation.
 
-Node 18 or later is required. There are no npm dependencies.
+Node 22 or later is required for deployment tooling. The browser site uses no third-party runtime dependencies; Wrangler is a pinned development dependency.
+
+## Visitor statistics
+
+The visitor section is between the follow band and footer on English and Chinese pages. `assets/js/visitor-globe.js` reads the same-origin `/api/visitors` endpoint; counters are never initialized with fabricated numbers. Unavailable statistics show a clear status message, and missing geolocation produces no invented markers.
+
+`workers/index.mjs` records successful HTML document requests in a SQLite-backed Durable Object. The same IP counts once per Beijing calendar day and once in the all-time total, shared by both language versions. Known bots, feeds, images, API reads, redirects and 404 responses do not increase the count. These are unique IP estimates, rather than an exact count of individual people: shared networks and changing IPs affect the result. Historical traffic is not backfilled; the interface displays the start date.
+
+An object-private random HMAC key deduplicates IPs. Only hashes, daily totals and geographic aggregates are stored; the counter does not persist raw IPs, city names, user agents or browsing histories. The public API exposes totals and country-labelled coordinates rounded to two-degree cells. Day-level deduplication and geographic rows are retained for 14 days; all-time hashes and aggregate totals persist across releases. Cloudflare supplies geolocation at the edge, so there is no external IP lookup service or tracking cookie.
+
+The native Canvas globe loads its local Natural Earth geometry near the viewport, renders at 30 fps while visible, stops offscreen or in hidden tabs, and respects reduced motion. Its geography source and license are documented in `assets/data/README.md`.
+
+Run `npm ci`, `npm test`, `npm run build`, and `npm run dev` to verify locally. Local development uses a separate storage namespace and may have placeholder edge geolocation; never seed production with local test visits.
 
 ## Layout
 
@@ -82,7 +94,9 @@ Open `http://localhost:8790`. Links use root-relative paths, so serve the reposi
 
 ## Deployment
 
-Static files only. Publish the repository root with no build command; the generated pages are committed.
+Cloudflare Workers Builds deploys the existing `soloprimus-com` Worker from this repository. Generated pages remain committed at the repository root. The checked-in `wrangler.jsonc` adds the statistics Worker, static-assets binding and durable-object migration; `npx wrangler deploy` creates the SQLite namespace on the first release and preserves it on later deployments.
+
+Keep the Worker name and existing domain unchanged. `.assetsignore` excludes manuscripts, Worker source, tests, tools and development output from public assets. Never upload `.dev.vars`, credentials or local statistics databases. The public `/api/visitors` response uses `Cache-Control: no-store` so numbers cannot be frozen in the asset cache.
 
 ## Licenses
 

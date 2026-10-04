@@ -1,0 +1,12 @@
+{
+  "name": "soloprimus-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "test": "node --test tests/visitors.test.mjs"
+  },
+  "devDependencies": { "wrangler": "4.147.0" }
+}

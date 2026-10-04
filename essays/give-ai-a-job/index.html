@@ -28,9 +28,10 @@
 <link rel="preload" href="/assets/fonts/figtree/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/crimson-pro/crimson-pro-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/fonts.css?v=f9663c4608">
-<link rel="stylesheet" href="/assets/css/site.css?v=71f8d310b2">
+<link rel="stylesheet" href="/assets/css/site.css?v=105be92fa5">
 <script>try{var s=localStorage.getItem('soloprimus-theme');document.documentElement.dataset.theme=s==='dark'||s==='light'?s:matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}catch(e){}</script>
 <script src="/assets/js/site.js?v=38fe3046df" defer></script>
+<script src="/assets/js/visitor-globe.js?v=0c429ca592" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Give AI a job, not a wish list","description":"Evaluate a tool against a real task, including the time it takes to check and repair its output.","datePublished":"2026-09-27","dateModified":"2026-09-27","inLanguage":"en","author":{"@id":"https://soloprimus.com/#person"},"publisher":{"@id":"https://soloprimus.com/#person"},"mainEntityOfPage":"https://soloprimus.com/essays/give-ai-a-job/","url":"https://soloprimus.com/essays/give-ai-a-job/","image":"https://soloprimus.com/assets/og/en-give-ai-a-job.png?v=9ac8cea048"},{"@type":"Person","@id":"https://soloprimus.com/#person","name":"Solo Primus","alternateName":["SOLO PRIMUS","凌霄"],"url":"https://soloprimus.com/about/","jobTitle":"Assistant Professor","description":"I’m Dr. Solo Primus, Assistant Professor.","knowsAbout":["Economics","Investing","Artificial intelligence","Self-improvement"],"sameAs":["https://x.com/thesoloprimus","https://substack.com/@soloprimus","https://github.com/soloprimus","https://www.youtube.com/@SoloPrimus"]}]}</script>
 </head>
 <body>
@@ -140,6 +141,34 @@
       <a class="social-icon social-icon--x" data-platform="x" aria-label="Follow on X" title="Follow on X" href="https://x.com/thesoloprimus" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M14.234 10.162L22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299l-.929-1.329L3.076 1.56h3.182l5.965 8.532l.929 1.329l7.754 11.09h-3.182z"/></svg><span class="social-tooltip" aria-hidden="true">Follow on X</span></a>
       <a class="btn btn-quiet" href="/feed.xml"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M2 2.5a11.5 11.5 0 0 1 11.5 11.5h-2A9.5 9.5 0 0 0 2 4.5v-2Zm0 4.4A7.1 7.1 0 0 1 9.1 14h-2A5.1 5.1 0 0 0 2 8.9v-2Zm1.6 4.3a1.4 1.4 0 1 1 0 2.8 1.4 1.4 0 0 1 0-2.8Z"/></svg><span>RSS feed</span></a>
     </div>
+  </div>
+</section>
+<section class="visitor-footprint" id="visitors" aria-labelledby="visitors-title" data-visitor-globe data-stats-src="/api/visitors" data-land-src="/assets/data/globe-land.json?v=6b77a476ca" data-copy="{&quot;noLocations&quot;:&quot;No visitor regions to display yet&quot;,&quot;unavailable&quot;:&quot;Visitor statistics are temporarily unavailable.&quot;,&quot;since&quot;:&quot;Counting since {date}&quot;,&quot;updated&quot;:&quot;Updated {time}&quot;,&quot;region&quot;:&quot;{country} · {count} today&quot;}">
+  <div class="wrap visitors-grid">
+    <div class="visitors-copy">
+      <h2 id="visitors-title">Readers around the world</h2>
+      <p class="visitors-intro">Different time zones. A shared space for thought.</p>
+      <dl class="visitor-counts">
+        <div><dt>Today’s visitors</dt><dd class="visitor-today"><b data-visitor-today>…</b></dd></div>
+        <div><dt>All-time visitors</dt><dd><b data-visitor-total>…</b></dd></div>
+      </dl>
+      <p class="visitors-counting">Visitors are counted by IP. The day resets at midnight in Beijing. Only approximate regions are shown.</p>
+      <p class="visitors-status" data-stats-status role="status" hidden>Loading visitor statistics…</p>
+      <noscript><p class="visitors-status">Enable JavaScript to view visitor statistics.</p></noscript>
+    </div>
+    <figure class="visitor-world">
+      <div class="visitor-globe-stage">
+        <canvas class="visitor-globe" role="img" aria-label="Rotating globe of approximate visitor regions">Rotating globe of approximate visitor regions</canvas>
+        <p class="globe-status" role="status" data-error="The globe could not load. Refresh to try again." hidden>Preparing the globe…</p>
+        <noscript><p class="globe-nojs">Enable JavaScript to view the globe.</p></noscript>
+      </div>
+      <figcaption class="visitor-world-caption">
+        <span class="globe-place" data-globe-location>No visitor regions to display yet</span>
+        <button class="globe-pause" type="button" aria-pressed="false" data-pause="Pause motion" data-resume="Resume motion" data-static="Static view" hidden>Pause motion</button>
+      </figcaption>
+      <div class="globe-locations" role="group" aria-label="Explore visitor regions" hidden>
+      </div>
+    </figure>
   </div>
 </section>
 <footer class="site-footer">

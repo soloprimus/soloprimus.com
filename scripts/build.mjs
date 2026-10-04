@@ -28,6 +28,7 @@ const iso = (d) => d.toISOString().slice(0, 10);
 const other = (lang) => (lang === 'en' ? 'zh' : 'en');
 const fileHash = (file) => createHash('sha1').update(readFileSync(join(ROOT, file))).digest('hex').slice(0, 10);
 const V = { css: fileHash('assets/css/site.css'), fonts: fileHash('assets/css/fonts.css'), js: fileHash('assets/js/site.js') };
+const VISITOR_ASSETS = { js: fileHash('assets/js/visitor-globe.js'), land: fileHash('assets/data/globe-land.json') };
 
 const ogImage = (name) => {
   const file = `/assets/og/${name}.png`;
@@ -145,7 +146,7 @@ ${preloads}
 <link rel="stylesheet" href="/assets/css/site.css?v=${V.css}">
 <script>try{var s=localStorage.getItem('soloprimus-theme');document.documentElement.dataset.theme=s==='dark'||s==='light'?s:matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}catch(e){}</script>
 <script src="/assets/js/site.js?v=${V.js}" defer></script>
-${graph}</head>
+${!noindex ? `<script src="/assets/js/visitor-globe.js?v=${VISITOR_ASSETS.js}" defer></script>\n` : ''}${graph}</head>
 <body>
 <a class="skip-link" href="#main">${esc(t.skip)}</a>
 <header class="site-header">
@@ -165,7 +166,7 @@ ${nav.map(([key, href, label]) => `      <a href="${href}"${key === current ? ' 
 ${main}
 </main>
 ${followBand(lang)}
-${footer(lang, langHref)}
+${!noindex ? visitorFootprint(lang) + '\n' : ''}${footer(lang, langHref)}
 ${qrDialogs(lang)}
 </body>
 </html>
@@ -224,6 +225,38 @@ function followBand(lang) {
         : channelLink(lang, 'substack', f.substack) + '\n      ' + channelLink(lang, 'x', f.x)}
       <a class="btn btn-quiet" href="${P.feed(lang)}">${ICON.rss}<span>${esc(f.rss)}</span></a>
     </div>
+  </div>
+</section>`;
+}
+
+function visitorFootprint(lang) {
+  const v = T[lang].visitors;
+  return `<section class="visitor-footprint" id="visitors" aria-labelledby="visitors-title" data-visitor-globe data-stats-src="/api/visitors" data-land-src="/assets/data/globe-land.json?v=${VISITOR_ASSETS.land}" data-copy="${escAttr(JSON.stringify({ noLocations: v.noLocations, unavailable: v.unavailable, since: v.since, updated: v.updated, region: v.region }))}">
+  <div class="wrap visitors-grid">
+    <div class="visitors-copy">
+      <h2 id="visitors-title">${esc(v.title)}</h2>
+      <p class="visitors-intro">${esc(v.intro)}</p>
+      <dl class="visitor-counts">
+        <div><dt>${esc(v.today)}</dt><dd class="visitor-today"><b data-visitor-today>…</b>${v.unit ? `<span>${esc(v.unit)}</span>` : ''}</dd></div>
+        <div><dt>${esc(v.total)}</dt><dd><b data-visitor-total>…</b>${v.unit ? `<span>${esc(v.unit)}</span>` : ''}</dd></div>
+      </dl>
+      <p class="visitors-counting">${esc(v.counting)}</p>
+      <p class="visitors-status" data-stats-status role="status" hidden>${esc(v.statsLoading)}</p>
+      <noscript><p class="visitors-status">${esc(v.noJs)}</p></noscript>
+    </div>
+    <figure class="visitor-world">
+      <div class="visitor-globe-stage">
+        <canvas class="visitor-globe" role="img" aria-label="${escAttr(v.map)}">${esc(v.map)}</canvas>
+        <p class="globe-status" role="status" data-error="${escAttr(v.error)}" hidden>${esc(v.loading)}</p>
+        <noscript><p class="globe-nojs">${esc(lang === 'zh' ? '启用 JavaScript 后可查看地球动画。' : 'Enable JavaScript to view the globe.')}</p></noscript>
+      </div>
+      <figcaption class="visitor-world-caption">
+        <span class="globe-place" data-globe-location>${esc(v.noLocations)}</span>
+        <button class="globe-pause" type="button" aria-pressed="false" data-pause="${escAttr(v.pause)}" data-resume="${escAttr(v.resume)}" data-static="${escAttr(v.static)}" hidden>${esc(v.pause)}</button>
+      </figcaption>
+      <div class="globe-locations" role="group" aria-label="${escAttr(v.locations)}" hidden>
+      </div>
+    </figure>
   </div>
 </section>`;
 }
