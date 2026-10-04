@@ -15,8 +15,15 @@ export function approximateLocation(cf = {}) {
   if (cf.latitude == null || cf.longitude == null || cf.latitude === '' || cf.longitude === '') return null;
   const lat = Number(cf.latitude), lon = Number(cf.longitude);
   if (!Number.isFinite(lat) || !Number.isFinite(lon) || Math.abs(lat) > 90 || Math.abs(lon) > 180) return null;
-  // Coarse, approximately 200 km cells. Never publish an IP, exact city or GPS.
-  return { country: cf.country, lat: Math.round(lat / 2) * 2, lon: Math.round(lon / 2) * 2 };
+  const city = placeName(cf.city), region = placeName(cf.region);
+  // IP geolocation describes a city, never a person's GPS position.
+  const step = city ? 0.1 : 2;
+  const round = value => Number((Math.round(value / step) * step).toFixed(1));
+  return { country: cf.country, city, region, lat: round(lat), lon: round(lon) };
+}
+
+function placeName(value) {
+  return typeof value === 'string' && value.length <= 100 ? value.replace(/[\p{Cc}\p{Cf}]/gu, '').trim() : '';
 }
 
 function json(body, status = 200) {
@@ -75,6 +82,8 @@ export class VisitorCounter extends DurableObject {
       CREATE TABLE IF NOT EXISTS daily_visitors (day TEXT NOT NULL, visitor_hash TEXT NOT NULL, PRIMARY KEY(day, visitor_hash));
       CREATE TABLE IF NOT EXISTS daily_totals (day TEXT PRIMARY KEY, visitors INTEGER NOT NULL);
       CREATE TABLE IF NOT EXISTS locations (day TEXT NOT NULL, country TEXT NOT NULL, lat REAL NOT NULL, lon REAL NOT NULL, visitors INTEGER NOT NULL, last_seen TEXT NOT NULL, PRIMARY KEY(day, country, lat, lon));
+      CREATE TABLE IF NOT EXISTS city_visitors (day TEXT NOT NULL, visitor_hash TEXT NOT NULL, PRIMARY KEY(day, visitor_hash));
+      CREATE TABLE IF NOT EXISTS city_locations (day TEXT NOT NULL, country TEXT NOT NULL, region TEXT NOT NULL, city TEXT NOT NULL, lat REAL NOT NULL, lon REAL NOT NULL, visitors INTEGER NOT NULL, last_seen TEXT NOT NULL, PRIMARY KEY(day, country, region, city));
       INSERT OR IGNORE INTO counters VALUES ('total', 0);
     `);
     const salt = this.sql.exec("SELECT value FROM metadata WHERE key = 'salt'").toArray()[0]?.value;
@@ -106,10 +115,18 @@ export class VisitorCounter extends DurableObject {
           this.sql.exec('INSERT INTO locations VALUES (?, ?, ?, ?, 1, ?) ON CONFLICT(day, country, lat, lon) DO UPDATE SET visitors = visitors + 1, last_seen = excluded.last_seen', day, location.country, location.lat, location.lon, timestamp);
         }
       }
+      // A previously counted reader can gain a city label after this upgrade.
+      // This updates only geographic aggregates, never either visitor total.
+      if (location && /^[A-Z]{2}$/.test(location.country) && Number.isFinite(location.lat) && Number.isFinite(location.lon) && Math.abs(location.lat) <= 90 && Math.abs(location.lon) <= 180) {
+        const observed = this.sql.exec('INSERT OR IGNORE INTO city_visitors VALUES (?, ?) RETURNING visitor_hash', day, visitor).toArray().length;
+        if (observed) this.sql.exec('INSERT INTO city_locations VALUES (?, ?, ?, ?, ?, ?, 1, ?) ON CONFLICT(day, country, region, city) DO UPDATE SET visitors = visitors + 1, last_seen = excluded.last_seen', day, location.country, placeName(location.region), placeName(location.city), location.lat, location.lon, timestamp);
+      }
       if (this.lastCleanup !== day) {
         const cutoff = calendarDay(new Date(now.getTime() - 14 * 86400000));
         this.sql.exec('DELETE FROM daily_visitors WHERE day < ?', cutoff);
         this.sql.exec('DELETE FROM locations WHERE day < ?', cutoff);
+        this.sql.exec('DELETE FROM city_visitors WHERE day < ?', cutoff);
+        this.sql.exec('DELETE FROM city_locations WHERE day < ?', cutoff);
         this.lastCleanup = day;
       }
     });
@@ -118,6 +135,7 @@ export class VisitorCounter extends DurableObject {
 
   snapshot() {
     const day = calendarDay();
+    const cities = this.sql.exec('SELECT country, region, city, lat, lon, visitors FROM city_locations WHERE day = ? ORDER BY visitors DESC, last_seen DESC LIMIT 24', day).toArray();
     return {
       today: this.sql.exec('SELECT visitors FROM daily_totals WHERE day = ?', day).toArray()[0]?.visitors || 0,
       total: this.sql.exec("SELECT value FROM counters WHERE key = 'total'").one().value,
@@ -125,7 +143,7 @@ export class VisitorCounter extends DurableObject {
       timeZone: TIME_ZONE,
       startedAt: this.sql.exec("SELECT value FROM metadata WHERE key = 'started_at'").one().value,
       generatedAt: new Date().toISOString(),
-      locations: this.sql.exec('SELECT country, lat, lon, visitors FROM locations WHERE day = ? ORDER BY visitors DESC, last_seen DESC LIMIT 24', day).toArray(),
+      locations: cities.length ? cities : this.sql.exec('SELECT country, lat, lon, visitors FROM locations WHERE day = ? ORDER BY visitors DESC, last_seen DESC LIMIT 24', day).toArray(),
       countries: this.sql.exec('SELECT country, SUM(visitors) AS visitors FROM locations WHERE day = ? GROUP BY country ORDER BY visitors DESC', day).toArray(),
     };
   }

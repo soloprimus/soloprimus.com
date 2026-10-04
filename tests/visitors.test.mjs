@@ -32,8 +32,51 @@ const visit = (counter, ip, location = { country: 'CN', lat: 32, lon: 122 }) => 
 test('Beijing midnight and geographic quantization', () => {
   assert.equal(calendarDay(new Date('2026-10-04T15:59:59Z')), '2026-10-04');
   assert.equal(calendarDay(new Date('2026-10-04T16:00:00Z')), '2026-10-05');
-  assert.deepEqual(approximateLocation({ country: 'CN', latitude: '31.2304', longitude: '121.4737' }), { country: 'CN', lat: 32, lon: 122 });
+  assert.deepEqual(approximateLocation({ country: 'CN', latitude: '31.2304', longitude: '121.4737' }), { country: 'CN', city: '', region: '', lat: 32, lon: 122 });
+  assert.deepEqual(approximateLocation({ country: 'CN', city: 'Shanghai', region: 'Shanghai', latitude: '31.2304', longitude: '121.4737' }), { country: 'CN', city: 'Shanghai', region: 'Shanghai', lat: 31.2, lon: 121.5 });
+  assert.equal(approximateLocation({ country: 'US', city: ' New\u202eyork\n ', latitude: 40.7, longitude: -74 }).city, 'Newyork');
   for (const value of [{}, { country: 'XX', latitude: 31, longitude: 120 }, { country: 'US', latitude: '', longitude: '' }, { country: 'US', latitude: 'NaN', longitude: 3 }, { country: 'US', latitude: 91, longitude: 2 }]) assert.equal(approximateLocation(value), null);
+});
+
+test('City upgrade keeps existing counts and keys, enriches returning visitors only once', async t => {
+  t.mock.timers.enable({ apis: ['Date'], now: new Date('2026-10-04T12:00:00Z') });
+  const storage = sqliteStorage();
+  let instance = new VisitorCounter({ storage }, {});
+  await visit(instance, '198.51.100.20', { country: 'CN', lat: 32, lon: 122 });
+  const salt = storage.sql.exec("SELECT value FROM metadata WHERE key = 'salt'").one().value;
+  const start = instance.snapshot().startedAt;
+  // Model storage written before city support was introduced.
+  storage.sql.exec('DROP TABLE city_visitors');
+  storage.sql.exec('DROP TABLE city_locations');
+  instance = new VisitorCounter({ storage }, {});
+  assert.equal(instance.snapshot().locations[0].city, undefined);
+  const shanghai = approximateLocation({ country: 'CN', city: 'Shanghai', region: 'Shanghai', latitude: 31.2304, longitude: 121.4737 });
+  const beijing = approximateLocation({ country: 'CN', city: 'Beijing', region: 'Beijing', latitude: 39.9042, longitude: 116.4074 });
+  await Promise.all(Array.from({ length: 10 }, () => visit(instance, '198.51.100.20', shanghai)));
+  assert.equal(instance.snapshot().today, 1);
+  assert.equal(instance.snapshot().total, 1);
+  assert.equal(instance.snapshot().locations[0].city, 'Shanghai');
+  assert.equal(instance.snapshot().locations[0].visitors, 1);
+  await visit(instance, '198.51.100.21', shanghai);
+  await visit(instance, '198.51.100.22', beijing);
+  let snapshot = instance.snapshot();
+  assert.equal(snapshot.total, 3);
+  assert.equal(snapshot.locations.length, 2);
+  assert.equal(snapshot.locations.find(item => item.city === 'Shanghai').visitors, 2);
+  assert.equal(snapshot.countries[0].visitors, 3);
+  assert.equal(snapshot.startedAt, start);
+  assert.equal(storage.sql.exec("SELECT value FROM metadata WHERE key = 'salt'").one().value, salt);
+  instance = new VisitorCounter({ storage }, {});
+  await visit(instance, '198.51.100.20', beijing);
+  assert.equal(instance.snapshot().total, 3);
+  assert.equal(instance.snapshot().locations.find(item => item.city === 'Beijing').visitors, 1);
+  t.mock.timers.setTime(new Date('2026-10-25T04:00:00Z').getTime());
+  await visit(instance, '198.51.100.20', beijing);
+  assert.equal(instance.snapshot().today, 1);
+  assert.equal(instance.snapshot().total, 3);
+  assert.equal(storage.sql.exec('SELECT COUNT(*) AS n FROM city_visitors').one().n, 1);
+  assert.equal(storage.sql.exec('SELECT COUNT(*) AS n FROM city_locations').one().n, 1);
+  storage.db.close();
 });
 
 test('Unique visitors persist through refreshes, concurrency, day changes and object restarts', async t => {

@@ -221,30 +221,39 @@
     schedule();
   }
   function updateLocations(points, countries) {
-    const selectedCountry = locations[active]?.country;
+    const selectedKey = locations[active]?.key;
     const totals = new Map(countries.filter(item => /^[A-Z]{2}$/.test(item.country) && Number.isSafeInteger(item.visitors) && item.visitors > 0).map(item => [item.country, item.visitors]));
-    locations = points.filter(item => /^[A-Z]{2}$/.test(item.country) && Number.isFinite(item.lat) && Number.isFinite(item.lon) && Math.abs(item.lat) <= 90 && Math.abs(item.lon) <= 180 && Number.isSafeInteger(item.visitors) && item.visitors > 0).slice(0, 24).map(item => ({
-      ...item,
-      name: countryNames.of(item.country),
-      label: copy.region.replace('{country}', countryNames.of(item.country)).replace('{count}', numberFormat.format(totals.get(item.country) || item.visitors)),
-    }));
+    locations = points.filter(item => /^[A-Z]{2}$/.test(item.country) && Number.isFinite(item.lat) && Number.isFinite(item.lon) && Math.abs(item.lat) <= 90 && Math.abs(item.lon) <= 180 && Number.isSafeInteger(item.visitors) && item.visitors > 0).slice(0, 24).map(item => {
+      const city = typeof item.city === 'string' ? item.city.slice(0, 100) : '';
+      const region = typeof item.region === 'string' ? item.region.slice(0, 100) : '';
+      const country = countryNames.of(item.country);
+      const name = [city || region, country].filter(Boolean).join(' · ');
+      const count = 'city' in item ? item.visitors : totals.get(item.country) || item.visitors;
+      return {
+        ...item, name, shortName: city || region || country,
+        key: JSON.stringify([item.country, region, city]),
+        label: copy.region.replace('{place}', name).replace('{count}', numberFormat.format(count)),
+      };
+    });
     markers = locations.map(item => worldPoint(item.lat, item.lon));
     locationControls.replaceChildren();
     const chosen = new Set();
     for (let index = 0; index < locations.length && chosen.size < 3; index++) {
-      if (chosen.has(locations[index].country)) continue;
-      chosen.add(locations[index].country);
+      if (chosen.has(locations[index].key)) continue;
+      chosen.add(locations[index].key);
       const button = document.createElement('button');
       button.type = 'button';
       button.dataset.globeLocationIndex = String(index);
-      button.textContent = locations[index].name;
+      button.textContent = locations[index].shortName;
+      button.setAttribute('aria-label', locations[index].label);
+      button.title = locations[index].name;
       button.addEventListener('click', () => selectLocation(index));
       locationControls.append(button);
     }
     locationButtons = [...locationControls.querySelectorAll('button')];
     locationControls.hidden = !loaded || !locations.length;
-    active = Math.max(0, locations.findIndex(item => item.country === selectedCountry));
-    selectLocation(active, !selectedCountry && locations.length > 0);
+    active = Math.max(0, locations.findIndex(item => item.key === selectedKey));
+    selectLocation(active, !selectedKey && locations.length > 0);
   }
   function queueStats(delay = 45000) {
     clearTimeout(statsTimer);
