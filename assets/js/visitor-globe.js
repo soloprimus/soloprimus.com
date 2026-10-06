@@ -222,8 +222,9 @@
   }
   function updateLocations(points, countries) {
     const selectedKey = locations[active]?.key;
+    const focusedKey = locationControls.contains(document.activeElement) ? locations[Number(document.activeElement.dataset.globeLocationIndex)]?.key : null;
     const totals = new Map(countries.filter(item => /^[A-Z]{2}$/.test(item.country) && Number.isSafeInteger(item.visitors) && item.visitors > 0).map(item => [item.country, item.visitors]));
-    locations = points.filter(item => /^[A-Z]{2}$/.test(item.country) && Number.isFinite(item.lat) && Number.isFinite(item.lon) && Math.abs(item.lat) <= 90 && Math.abs(item.lon) <= 180 && Number.isSafeInteger(item.visitors) && item.visitors > 0).slice(0, 24).map(item => {
+    locations = points.filter(item => /^[A-Z]{2}$/.test(item.country) && Number.isFinite(item.lat) && Number.isFinite(item.lon) && Math.abs(item.lat) <= 90 && Math.abs(item.lon) <= 180 && Number.isSafeInteger(item.visitors) && item.visitors > 0).map(item => {
       const city = typeof item.city === 'string' ? item.city.slice(0, 100) : '';
       const region = typeof item.region === 'string' ? item.region.slice(0, 100) : '';
       const country = countryNames.of(item.country);
@@ -236,9 +237,10 @@
       };
     });
     markers = locations.map(item => worldPoint(item.lat, item.lon));
+    const scrollTop = locationControls.scrollTop;
     locationControls.replaceChildren();
     const chosen = new Set();
-    for (let index = 0; index < locations.length && chosen.size < 3; index++) {
+    for (let index = 0; index < locations.length; index++) {
       if (chosen.has(locations[index].key)) continue;
       chosen.add(locations[index].key);
       const button = document.createElement('button');
@@ -254,6 +256,8 @@
     locationControls.hidden = !loaded || !locations.length;
     active = Math.max(0, locations.findIndex(item => item.key === selectedKey));
     selectLocation(active, !selectedKey && locations.length > 0);
+    if (focusedKey) locationButtons.find(button => locations[Number(button.dataset.globeLocationIndex)].key === focusedKey)?.focus({ preventScroll: true });
+    locationControls.scrollTop = scrollTop;
   }
   function queueStats(delay = 45000) {
     clearTimeout(statsTimer);

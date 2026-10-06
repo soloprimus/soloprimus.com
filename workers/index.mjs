@@ -137,9 +137,9 @@ export class VisitorCounter extends DurableObject {
 
   snapshot() {
     const day = calendarDay();
-    const cities = this.sql.exec('SELECT country, region, city, lat, lon, visitors FROM city_locations WHERE day = ? ORDER BY visitors DESC, last_seen DESC LIMIT 24', day).toArray();
+    const cities = this.sql.exec('SELECT country, region, city, lat, lon, visitors FROM city_locations WHERE day = ? ORDER BY visitors DESC, last_seen DESC', day).toArray();
     const cityCountries = new Set(cities.map(item => item.country));
-    const legacy = this.sql.exec('SELECT country, lat, lon, visitors FROM locations WHERE day = ? ORDER BY visitors DESC, last_seen DESC LIMIT 24', day).toArray();
+    const legacy = this.sql.exec('SELECT country, lat, lon, visitors FROM locations WHERE day = ? ORDER BY visitors DESC, last_seen DESC', day).toArray();
     return {
       today: this.sql.exec('SELECT visitors FROM daily_totals WHERE day = ?', day).toArray()[0]?.visitors || 0,
       total: this.sql.exec("SELECT value FROM counters WHERE key = 'total'").one().value,
@@ -147,7 +147,7 @@ export class VisitorCounter extends DurableObject {
       timeZone: TIME_ZONE,
       startedAt: this.sql.exec("SELECT value FROM metadata WHERE key = 'started_at'").one().value,
       generatedAt: new Date().toISOString(),
-      locations: [...cities, ...legacy.filter(item => !cityCountries.has(item.country))].slice(0, 24),
+      locations: [...cities, ...legacy.filter(item => !cityCountries.has(item.country))],
       countries: this.sql.exec('SELECT country, SUM(visitors) AS visitors FROM locations WHERE day = ? GROUP BY country ORDER BY visitors DESC', day).toArray(),
     };
   }

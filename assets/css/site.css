@@ -494,7 +494,7 @@ html:lang(zh-CN) .visitor-counts dt { font-size: 14px; }
 .globe-pause { padding: 5px 0 5px 8px; border: 0; background: transparent; color: var(--muted); font: 400 12px/1.5 var(--sans); white-space: nowrap; cursor: pointer; }
 .globe-pause:hover { color: var(--accent-ink); }
 .globe-pause:disabled { cursor: default; }
-.globe-locations { display: flex; justify-content: flex-start; flex-wrap: wrap; gap: 8px; margin: 12px 14px 0; }
+.globe-locations { display: flex; justify-content: flex-start; flex-wrap: wrap; align-content: flex-start; gap: 8px; max-height: 216px; overflow-y: auto; overscroll-behavior-y: contain; margin: 12px 14px 0; padding: 5px; scrollbar-width: thin; scrollbar-color: var(--line-2) transparent; }
 .globe-locations button { max-width: 100%; overflow-wrap: anywhere; padding: 5px 12px; border: 1px solid transparent; border-radius: 4px; background: transparent; font: 500 12px/1.5 var(--sans); color: var(--muted); cursor: pointer; }
 .globe-locations button:hover { color: var(--ink); background: var(--band); }
 .globe-locations button[aria-pressed="true"] { color: var(--accent-ink); border-color: var(--accent-line); background: var(--accent-soft); }

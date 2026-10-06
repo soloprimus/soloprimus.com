@@ -158,6 +158,36 @@ test('Collecting the first city retains legacy geography for other countries', a
   storage.db.close();
 });
 
+test('Every current-day city and legacy country remains available beyond 24 locations', async t => {
+  t.mock.timers.enable({ apis: ['Date'], now: new Date('2026-10-05T12:00:00Z') });
+  const storage = sqliteStorage();
+  let instance = new VisitorCounter({ storage }, {});
+  const legacyCountries = ['CN', 'JP', 'GB', 'DE', 'FR'];
+  for (let i = 0; i < legacyCountries.length; i++) {
+    await visit(instance, `198.51.100.${i + 1}`, { country: legacyCountries[i], lat: 30, lon: i * 10 });
+  }
+  storage.sql.exec('DROP TABLE city_visitors');
+  storage.sql.exec('DROP TABLE city_locations');
+  instance = new VisitorCounter({ storage }, {});
+  for (let i = 0; i < 40; i++) {
+    await visit(instance, `203.0.113.${i + 1}`, { country: 'US', city: `Test City ${i}`, region: 'Test Region', lat: 30, lon: i });
+  }
+  await visit(instance, '203.0.113.200', { country: 'US', city: 'Test City 39', region: 'Test Region', lat: 30, lon: 39 });
+  const snapshot = instance.snapshot();
+  assert.equal(snapshot.today, 46);
+  assert.equal(snapshot.total, 46);
+  assert.equal(snapshot.locations.length, 45);
+  assert.equal(snapshot.locations.filter(item => item.city).length, 40);
+  assert.equal(snapshot.locations[0].city, 'Test City 39');
+  assert.equal(snapshot.locations[0].visitors, 2);
+  for (const country of legacyCountries) assert(snapshot.locations.some(item => item.country === country && !('city' in item)));
+  assert.equal(new Set(snapshot.locations.filter(item => item.city).map(item => item.city)).size, 40);
+  t.mock.timers.setTime(new Date('2026-10-06T07:00:00Z').getTime());
+  assert.equal(instance.snapshot().locations.length, 0, 'Locations follow the current California day');
+  assert.equal(instance.snapshot().total, 46);
+  storage.db.close();
+});
+
 test('Only real document requests count; statistics, feeds, bots and missing pages do not', async () => {
   const storage = sqliteStorage();
   const instance = new VisitorCounter({ storage }, {});
