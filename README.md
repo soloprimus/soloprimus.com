@@ -53,6 +53,16 @@ Store essay images under `assets/images/essays/<slug>/` and embed them with `![A
 
 Node 22 or later is required for deployment tooling. The browser site uses no third-party runtime dependencies; Wrangler is a pinned development dependency.
 
+### We-media import: October 7, 2026
+
+Three previously unpublished manuscripts were imported from `soloprimus/we-media` at commit `79694bda4a820f259dafbae21f8838dd538af0ac`, each with a complete English edition and its original publication date:
+
+- `dont-waste-your-life-being-ordinary`: 《不要浪费时间做一个普通人》, October 6.
+- `give-one-thing-ten-years`: 《多年以后，你会后悔：为什么当初没有把一件事做十年？》, October 2.
+- `waiting-is-not-compounding`: 《“长期主义”最大的误区：把永远等待，当成了永远复利》, October 2.
+
+The first Chinese manuscript is unchanged apart from moving its title into front matter. Internal drafting notes were removed from the second. Website editions clarify the cited regret research, trading-cost interpretation, the conditions of the 8% compounding example, and stock-return concentration. The Nike editions correct Jefferies’ October 2 target from $75 to $60, distinguish restructuring charges from cash payments, identify the actual disclosed sources of margin improvement, and qualify the timing comparison as an illustrative calculation. Supporting references are linked within both editions. The original we-media manuscripts remain unchanged.
+
 ## Visitor statistics
 
 The visitor section is between the follow band and footer on English and Chinese pages. `assets/js/visitor-globe.js` reads the same-origin `/api/visitors` endpoint; counters are never initialized with fabricated numbers. Unavailable statistics show a clear status message, and missing geolocation produces no invented markers.
