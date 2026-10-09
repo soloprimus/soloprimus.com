@@ -63,6 +63,12 @@ Three previously unpublished manuscripts were imported from `soloprimus/we-media
 
 The first Chinese manuscript is unchanged apart from moving its title into front matter. Internal drafting notes were removed from the second. Website editions clarify the cited regret research, trading-cost interpretation, the conditions of the 8% compounding example, and stock-return concentration. The Nike editions correct Jefferies’ October 2 target from $75 to $60, distinguish restructuring charges from cash payments, identify the actual disclosed sources of margin improvement, and qualify the timing comparison as an illustrative calculation. Supporting references are linked within both editions. The original we-media manuscripts remain unchanged.
 
+### We-media import: October 9, 2026
+
+The October 8 manuscript on Li Lu and AI was imported from `soloprimus/we-media` at commit `ea78eab2f771fc951da75c4501bbd1f5623595d7` (Markdown blob `7fa8ec6b029a382d5ba7853857e3f62cd2141cf1`) as `li-lu-ai-and-human-judgment`. The Chinese body is unchanged; a complete English edition preserves all seven sections and the original publication date. Both editions use the existing article layout, reading-language links, and share-card template.
+
+This is the author’s interpretation and further reflection, not a speech transcript; both editions identify that distinction. [Columbia Business School’s official event archive](https://business.columbia.edu/heilbrunn/events/graham-dodd-event) confirms Li Lu as the guest of the 36th Annual Graham & Dodd Luncheon in 2026. The October 5 speech date follows the source manuscript; the archive does not provide a full transcript or independently establish every attributed remark.
+
 ## Visitor statistics
 
 The visitor section is between the follow band and footer on English and Chinese pages. `assets/js/visitor-globe.js` reads the same-origin `/api/visitors` endpoint; counters are never initialized with fabricated numbers. Unavailable statistics show a clear status message, and missing geolocation produces no invented markers.
