@@ -69,6 +69,10 @@ The October 8 manuscript on Li Lu and AI was imported from `soloprimus/we-media`
 
 This is the author’s interpretation and further reflection, not a speech transcript; both editions identify that distinction. [Columbia Business School’s official event archive](https://business.columbia.edu/heilbrunn/events/graham-dodd-event) confirms Li Lu as the guest of the 36th Annual Graham & Dodd Luncheon in 2026. The October 5 speech date follows the source manuscript; the archive does not provide a full transcript or independently establish every attributed remark.
 
+### English copyediting: October 10, 2026
+
+All nine website English editions were reviewed using [sloptrim](https://github.com/seyedehsanhadi/sloptrim/blob/38dbb7cb4e97de0b9bf157903c95bdcab016dda2/SKILL.md), version 0.9.4. Seven received targeted edits to repetitive signposting, rhetorical scaffolding, excessive emphasis, and paragraph rhythm. The two short workflow guides were retained. Article titles, dates, section headings, numerical data, cited URLs, original illustrations, and Chinese manuscripts were preserved. Detector findings were treated as editing prompts, not evidence of authorship; technical terminology and meaningful quotations were retained.
+
 ## Visitor statistics
 
 The visitor section is between the follow band and footer on English and Chinese pages. `assets/js/visitor-globe.js` reads the same-origin `/api/visitors` endpoint; counters are never initialized with fabricated numbers. Unavailable statistics show a clear status message, and missing geolocation produces no invented markers.

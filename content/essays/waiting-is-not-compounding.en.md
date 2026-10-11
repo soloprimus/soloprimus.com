@@ -1,6 +1,6 @@
 ---
 title: Waiting Is Not Compounding
-summary: Holding for a long time is not the same as compounding. Nike’s turnaround offers a way to examine opportunity cost, the limits of cost cutting, and the evidence for staying invested or reallocating.
+summary: Nike’s turnaround tests a long-term investor’s patience. What evidence would justify waiting, and when would the capital be better used elsewhere?
 topic: investing
 date: 2026-10-02
 featured: 1
@@ -45,7 +45,7 @@ Investors can find once-great companies especially difficult to leave. A poor co
 
 Someone anchored to the peak may think that such a low price is an opportunity too good to miss. But a lower price alone is insufficient. What matters is price alongside evidence of a turn in the business. Without that evidence, apparent cheapness may simply mark another point on the way down.
 
-The expensive mistake may be taking too long to admit that the original judgment could have been wrong.
+The original judgment could have been wrong. Taking too long to admit that possibility can be expensive.
 
 ## 3. An improving margin can coexist with a weakening brand
 
@@ -90,7 +90,7 @@ The central point remains: cutting costs may help a business survive, but it can
 
 ## 5. Take the counterarguments seriously, then define the conditions
 
-You may reasonably ask what the other side of the argument looks like. I take those objections seriously.
+There is a case for continuing to hold, and it deserves consideration.
 
 First: Jefferies maintained a Buy rating, although its target had been cut from $75 to $60.
 
@@ -119,7 +119,7 @@ This is not personal investment advice or a prediction of Nike’s share price. 
 
 ## 6. Your own version of Nike
 
-Now shift the focus from Nike to yourself. Its story offers a useful mirror for employees and entrepreneurs, because you have a personal version of the same asset.
+Employees and entrepreneurs can face a similar problem: living off an asset built in earlier years while investing too little in its future.
 
 Your career, skills, professional reputation, and relationships can compound. The judgment you have developed over ten years, and what colleagues believe about your work, form a valuable personal brand. It can accumulate strength, or lose it.
 

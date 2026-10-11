@@ -1,6 +1,6 @@
 ---
 title: Don’t Waste Your Life Being Ordinary
-summary: Time is capital you can never buy back. Put it into judgment, work, trust, and health that endure, rather than a busy life that leaves nothing behind.
+summary: Time cannot be bought back. Use it to build judgment, useful work, trust, and health, so each year leaves you with more than a full calendar.
 topic: growth
 date: 2026-10-06
 featured: 1
@@ -24,11 +24,9 @@ The gap is hard to see as it develops, for a simple reason: it appears as income
 
 For years, I have followed a habit when looking at someone’s career. Before asking how much they earn, I ask how much of their income comes from selling this year’s time, and how much comes from what they accumulated in previous years. The former is wages; the latter is a return on assets. If the sources of someone’s income are almost identical after ten years, there is a good chance those years were consumed rather than invested.
 
-I am not saying this to provoke anxiety. I want to put the accounts on the table: your time is finite principal, and each year some of it is allocated somewhere. The question is whether you chose that allocation, or merely drifted into it.
+I don't want to make you anxious. I want to put the accounts on the table: your time is finite principal, and each year some of it goes somewhere. Did you choose that allocation, or drift into it?
 
 ## 2. Being ordinary and staying ordinary by default
-
-Before going further, I need to draw a distinction. Without it, this essay is easy to read as something I do not intend.
 
 “Don’t waste your life being ordinary” can sound contemptuous of ordinary people. If that is how you hear it, I understand. Statements like this often carry an air of superiority, as though the world contains two kinds of people: those entitled to climb, and those who deserve to be left behind.
 
@@ -48,8 +46,6 @@ Third: are you accumulating anything? Even with an ordinary income today, a path
 
 So when I speak of wasting time, I mean an unexamined default: a life carried forward by inertia. If someone consciously chooses a quiet life, knows what they want, and accepts its costs, I have no objection. I may even envy them a little.
 
-With that distinction in place, we can move on.
-
 ## 3. A linear life and a compounding life
 
 Income can broadly be divided into two kinds.
@@ -58,7 +54,7 @@ One is linear: work an hour, receive an hour’s pay. Stop working, and the inco
 
 The other compounds: what you do today produces value today and continues to produce value afterward. A good essay is still being read a year later. A tested method of judgment can be used ten or a hundred times without being reinvented. A client who trusts you may introduce you to someone else while you are doing nothing at all. These have something in common: their value does not vanish with the time you spent. They remain as assets that can keep working.
 
-The crucial step in compounding is not rapid growth. It is creating something that remains. Many people work hard all their lives, but the product of their effort is used up immediately. Once the task is finished, nothing is left. The next year begins from scratch. That effort has value; it simply does not accumulate.
+Compounding requires something that remains after the work is done. Many people work hard all their lives, but the product of their effort is used up immediately. Once the task is finished, nothing is left. The next year begins from scratch. That effort has value; it simply does not accumulate.
 
 In my experience, assets that can accumulate fall into roughly five categories.
 
@@ -72,7 +68,7 @@ Capital. This needs little explanation: capital producing more capital is compou
 
 Health and energy. I put these last because they matter so much that we often take them for granted. Think of them as the operating capacity of every other asset. Without enough energy, accumulation slows. If your health breaks down, even the value you have already built can become difficult to realize. I have seen people push themselves relentlessly before 40, then spend much of their energy afterward repairing the damage. In effect, they cash out part of their future compounding early, at a steep discount.
 
-You need not become exceptional in all five categories, or work on them all at once. But ask yourself: has any one of them genuinely grown over the past year? If the answer is no across the board, it is time to examine where the time went.
+You need not become exceptional in all five categories, or work on them all at once. But ask yourself: has any one of them grown over the past year? If the answer is no across the board, look at where the time went.
 
 ## 4. The risk of taking no risks
 
@@ -106,8 +102,6 @@ When I say the greatest risk is taking no risks, I mean the first case. No singl
 
 ## 5. The two sides of AI
 
-Any discussion of personal resource allocation today must address AI. I want to be specific, rather than repeat slogans about replacement or enormous opportunity.
-
 My view is that AI is doing two things that pull in opposite directions.
 
 First, it is eroding the value of a category of competence: intermediate skills that can be clearly described and repeatedly reproduced.
@@ -116,7 +110,7 @@ What does “clearly described” mean? It means you could write instructions th
 
 Such abilities once supported many livelihoods. They commanded a price because, for a time, only trained people could perform the work. That barrier is becoming thinner. I do not want to predict an exact timetable, or announce which professions will disappear; such predictions are often unreliable. But the direction seems clear: value supported mainly by being slightly more proficient than someone else will face continuing pressure.
 
-One point deserves emphasis: this pressure reaches beyond low-end work. The middle can be especially vulnerable. Low-end work already commands a low price; the middle relies on a premium for proficiency and experience, and proficiency is precisely what can be copied most readily.
+This pressure reaches beyond low-end work. The middle can be especially vulnerable. Low-end work already commands a low price; the middle relies on a premium for proficiency and experience, and proficiency is precisely what can be copied most readily.
 
 Second, AI is amplifying another kind of ability: judgment, taste, and leverage.
 
@@ -138,11 +132,11 @@ Instead, shift some of that time toward other directions:
 - Accumulate things others cannot readily copy: your experience, your perspective, and the trust you build with particular people.
 - Learn to turn tools into your leverage, rather than becoming the work they replace.
 
-Let me be clear: I do not think AI makes life harder for everyone. For someone willing to develop judgment, it can be a powerful amplifier. The greatest pressure falls on those who stake their entire value on proficiency and never move beyond it. That is why remaining ordinary by default can become more costly in this period.
+I don't think AI makes life harder for everyone. For someone willing to develop judgment, it can be a powerful amplifier. The greatest pressure falls on those who stake their entire value on proficiency and never move beyond it. That is why remaining ordinary by default can become more costly in this period.
 
 ## 6. The discipline of investing in yourself
 
-Now we need to move from ideas to things we can do. I dislike slogans, so I will offer a few restrained practices whose results can be checked.
+The practices below give you a way to check what your time is producing.
 
 First, conduct a balance-sheet review once a year.
 
@@ -156,7 +150,7 @@ Work through the five categories:
 - Capital: did my savings and investments grow independently of the wages I earned this year?
 - Health and energy: am I in better or worse shape than last year?
 
-You do not need scores or a long report. Write two or three factual sentences for each category: what you did, and what resulted. The category you cannot write about marks a gap in your year.
+You don't need scores or a long report. Write two or three factual sentences for each category: what you did, and what resulted. If you can't write anything for a category, there's a gap worth examining.
 
 Second, protect a fixed time for your exploratory allocation.
 
@@ -176,12 +170,10 @@ Being busy does not guarantee useful output. At the end of each week, I look bac
 
 Sixth, compare yourself with last year’s self, rather than with other people.
 
-That may sound like a motivational cliché, but I mean it. Other people begin with different resources and live at different stages. Those comparisons tell you little. The useful comparison runs through time: after another year, has your own balance sheet grown?
+Other people begin with different resources and live at different stages. Comparing yourself with them tells you little. After another year, has your own balance sheet grown?
 
 None of these practices requires you to resign immediately, reinvent your career overnight, or transform your life at once. They ask only that you treat time as capital that needs managing, review the accounts regularly, and acknowledge that every hour spent is irretrievable.
 
 Time cannot be bought back. A year gone is a year gone; nobody can return it. What you can do is look honestly at the ledger at the end of each year and ask: what did this year’s time become?
 
 If it added something, however modest, next year begins from a better position. If it added nothing, find out why and allocate differently next year.
-
-That is all.

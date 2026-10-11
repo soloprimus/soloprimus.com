@@ -7,27 +7,21 @@ featured: 1
 note: This essay presents the author’s interpretation and further reflections on Li Lu’s remarks. It is not a transcript, and its arguments should not all be read as Li Lu’s own words.
 ---
 
-What struck me about Li Lu’s recent discussion at Columbia was the framework behind it. His individual predictions about AI, the United States, China, or markets mattered less than the way he brought those subjects together: **technology changes the world, capital follows technology, and politics reshapes its boundaries. Yet long-term investment returns still depend on value, price, costs, competitive advantage, and how rationally people behave.** AI may be the largest variable in this cycle without overturning the basic rules of investing. The more dramatic the technology and the more excited the market, the more those unglamorous rules deserve our attention.
+What struck me about Li Lu’s recent discussion at Columbia was how he connected AI, the United States, China, and markets. Technology changes the world, capital follows it, and politics reshapes its boundaries. Yet long-term investment returns still depend on value, price, costs, competitive advantage, and how rationally people behave. AI may be the largest variable in this cycle without overturning the basic rules of investing. The more dramatic the technology and the more excited the market, the more those unglamorous rules deserve our attention.
 
-Li Lu covered value investing, AI, China’s economy, US–China relations, the global political order, and compounding over a lifetime. Taken together, these subjects raised one central question for me:
-
-**When the world changes profoundly, what changes with it—and what holds?**
-
-That is where I would begin reading his remarks.
+Li Lu covered value investing, AI, China’s economy, US–China relations, the global political order, and compounding over a lifetime. Taken together, these subjects left me asking what changes with a changing world, and what holds.
 
 ## 1. The danger of pricing AI as a god
 
 Over the past few years, a familiar story about AI has grown beyond the idea of an increasingly capable tool. It now imagines something approaching a god of our own making.
 
-The case for a tool is straightforward: AI can help people perform more and more tasks.
-
-The more ambitious story says AI will eventually solve problems we cannot solve ourselves, transforming economic growth, productivity, wealth creation, and the structure of society.
+As a tool, AI can help people perform more and more tasks. The more ambitious story says it will eventually solve problems we cannot solve ourselves, transforming economic growth, productivity, wealth creation, and the structure of society.
 
 The distance between those two claims is much greater than it first appears.
 
 Li Lu repeatedly returned to that distinction. He acknowledged AI’s extraordinary capabilities and its potential to become one of history’s most important technologies. But he was wary of drawing a straight line from today’s systems to artificial general intelligence, then superintelligence, and finally a world in which intelligence faces almost no limits. Development, in his account, involves more than making models increasingly capable. Costs, energy, capital, human involvement, and social acceptance impose constraints of their own.
 
-One implication seems particularly important to investors: **society’s willingness to tolerate a technology’s risks may limit how far it can go.**
+For investors, one implication deserves attention: society’s willingness to tolerate a technology’s risks may limit how far it can go.
 
 What a system can do and what people will allow it to do are separate questions.
 
@@ -35,19 +29,13 @@ Consider autonomous driving. A system might be statistically safer than human dr
 
 AI’s practical limits therefore extend beyond the capabilities of its models.
 
-**Engineering determines what a technology can do. Economics, institutions, and human attitudes help determine whether it will actually be used.**
+Engineering determines what a technology can do. Economics, institutions, and human attitudes help determine whether it will actually be used.
 
-That is why I find “Will AI reach AGI?” an inadequate investment question.
-
-I would rather ask:
-
-**Even if AI acquires a particular capability, who will pay for it? Who will bear the risk? How much existing spending can it replace? How much additional value can it create?**
+“Will AI reach AGI?” doesn't tell me enough as an investor. Even if AI acquires a particular capability, who will pay for it? Who will bear the risk? How much existing spending can it replace? How much additional value can it create?
 
 Those questions bring the discussion back from technological awe to economics.
 
 None of this rules out productivity gains far beyond what we see today. If AI substantially lowers the marginal cost of knowledge work, it could become an exceptionally powerful general-purpose technology.
-
-Investors still need to keep one distinction in view:
 
 **A technology can create enormous value for society without delivering enormous returns to everyone who invests in it.**
 
@@ -75,9 +63,7 @@ Once markets become convinced that a technology has a vast future, money pours i
 
 That feedback loop cannot run indefinitely.
 
-Eventually, capital must answer a plain question:
-
-**How much actual cash flow will these investments generate?**
+Eventually, investors need to know how much actual cash flow these investments will generate.
 
 If cash generation fails to keep pace with investment, the cycle turns. Returns on capital weaken, valuations contract, projects fail, excess capacity emerges, and markets reprice the industry.
 
@@ -85,15 +71,11 @@ This helps explain why technological revolutions can pass through successive boo
 
 An AI bubble, if there is one, would not by itself mean the technology is a fraud.
 
-Indeed, **some of the most dangerous bubbles form around technologies with real transformative potential.**
+Some of the most dangerous bubbles form around technologies capable of changing how we live and work.
 
 A worthless technology has difficulty sustaining widespread conviction. A technology that genuinely changes the world gives speculation something far more durable to feed on.
 
-The internet was real. So was the dot-com bubble.
-
-Railways were real. So were railway bubbles.
-
-AI may follow a similar course.
+The internet and railways changed the world; both also produced bubbles. AI may follow a similar course.
 
 In discussing the AI market, Li Lu returned to valuation and a useful long-term anchor: stock-market returns cannot indefinitely outstrip the earning power of businesses and the growth capacity of the economy.
 
@@ -103,9 +85,7 @@ That is an easily neglected part of value investing.
 
 An outstanding company in a remarkable industry still has to answer three questions: how much future cash can it generate, how much will reach shareholders, and how much must an investor pay today?
 
-Technology can increase the cash those businesses produce.
-
-The price you pay determines how much of that success becomes your return.
+Technology can increase the cash those businesses produce. The price you pay determines how much of that success becomes your return.
 
 I would therefore spend less time debating whether AI deserves the word “bubble” and more time asking:
 
@@ -117,9 +97,7 @@ If so, AI could change the world and still leave the investment disappointing.
 
 This may have been one of the most practically useful points in Li Lu’s discussion.
 
-When capital concentrates in AI, it need not make the entire market expensive. It can produce a more uneven landscape:
-
-**Some assets attract intense enthusiasm while others become cheap through lack of attention.**
+When capital concentrates in AI, it need not make the entire market expensive. Some assets attract intense enthusiasm while others become cheap through lack of attention.
 
 Li Lu described a deeply divided market and suggested that such disparities could improve the opportunity set for rational investors.
 
@@ -131,17 +109,11 @@ Much of the time, they allocate attention instead.
 
 Capital pursues fashionable industries, analysts cover fashionable companies, and the media follows fashionable stories. Entrepreneurs respond to what investors want to fund. The busiest areas accumulate more information, discussion, and higher valuations. Elsewhere, businesses may receive less research, attract less competition for their shares, and be mispriced.
 
-That raises an obvious question:
-
-**If the opportunity is so clear, why does everyone overlook it?**
-
-Because investing rationally often demands more of our temperament than our intelligence.
+Such opportunities can be hard to act on even when we see them. Investing rationally often demands more of our temperament than our intelligence.
 
 A severalfold rise in an AI stock can make you feel you have missed your chance. Years of stagnant prices in an established business can make you conclude it has no future.
 
-Markets have a way of feeding those impressions:
-
-**Rising prices generate reasons to be bullish; falling prices generate reasons to be bearish.**
+Rising prices generate reasons to be bullish; falling prices generate reasons to be bearish.
 
 Investors then read a rally as evidence that the market has discovered value, and a decline as evidence that it has uncovered a problem.
 
@@ -150,8 +122,6 @@ A value investor has to return to the business:
 **What has actually changed in the company since its share price moved?**
 
 When the change in business value is much smaller than the change in price, the discrepancy may be an opportunity.
-
-There is an essential qualification, however.
 
 An overlooked asset is not necessarily a bargain.
 
@@ -165,7 +135,7 @@ That is a promising place to direct research in the current market.
 
 The more capital AI attracts, the more deliberately investors should widen their field of view.
 
-There is no need to oppose AI on principle. **Attention has an opportunity cost in every market.**
+There's no need to oppose AI on principle. Attention has an opportunity cost in every market.
 
 When everyone looks in the same direction, better prospective returns may lie elsewhere.
 
@@ -195,8 +165,6 @@ One of China’s major changes is the adjustment of a growth model built around 
 
 Investors cannot simply carry the asset-allocation assumptions of the last decade into the next.
 
-They also need to resist the opposite temptation:
-
 **Industrial strength does not make every manufacturer a good investment. Rapid technological progress does not guarantee high shareholder returns.**
 
 In industries with heavy capital requirements, fierce competition, and continually expanding capacity, consumers may capture the gains from innovation before shareholders do.
@@ -207,11 +175,9 @@ That makes the useful research question more specific than whether to be bullish
 
 These are very different questions.
 
-If opportunities in Chinese assets exist, they may depend more on selecting particular businesses—alpha—than on a broad bet on the economy, or beta.
+If opportunities in Chinese assets exist, they may depend more on selecting particular businesses (alpha) than on a broad bet on the economy, or beta.
 
-The economy is reallocating resources.
-
-The market is reassessing what those resources are worth.
+The economy is reallocating resources while the market reassesses what those resources are worth.
 
 I would look for companies well placed in the emerging economy whose prospects, after careful research, appear insufficiently reflected in their prices.
 
@@ -223,7 +189,7 @@ In Li Lu’s discussion of US–China relations and the world order, one distinc
 
 Relations can deteriorate, strategic competition can intensify, supply chains can be partly rebuilt, and access to technology can be restricted. None of this means the global economy can quickly separate into entirely isolated blocs.
 
-Decades of globalization have created an intricate division of labor.
+Decades of globalization have created a complex division of labor.
 
 Links among capital, technology, goods, talent, energy, and consumer markets cannot all be severed by a handful of policies.
 
@@ -231,11 +197,9 @@ We may be seeing globalization enter a more complicated phase rather than simply
 
 **Greater political division can coexist with substantial economic interdependence.**
 
-Li Lu emphasized the interdependence of global markets and the extensive economic ties between China and the United States, while also stressing the importance of strategic stability.
+Li Lu stressed the interdependence of global markets, the extensive economic ties between China and the United States, and the importance of strategic stability.
 
-That places a difficult demand on investors:
-
-Take geopolitics seriously without allowing it to replace economic analysis.
+Investors have to take geopolitics seriously without allowing it to replace economic analysis.
 
 Investors once too readily assumed globalization would continue on its existing course forever. Today, the error can run the other way: greater US–China rivalry is taken to imply complete economic decoupling.
 
@@ -275,17 +239,7 @@ Principal, rate of return, and time.
 
 The things that accumulate over a lifetime extend far beyond money.
 
-Knowledge builds on knowledge.
-
-Skills improve through use.
-
-Reputation grows through consistent conduct.
-
-Trust deepens over time.
-
-The benefits of caring for your health accumulate.
-
-Judgment improves as you learn from experience.
+Knowledge builds on knowledge, and skills improve through use. Consistent conduct builds reputation and deepens trust. The benefits of caring for your health accumulate, while judgment improves as you learn from experience.
 
 Li Lu brought these forms of accumulation together and emphasized a condition for compounding: **first, protect what you already have.**
 
@@ -293,9 +247,7 @@ It sounds modest, but it may be one of the most consequential principles in inve
 
 Compounding’s power lies less in a spectacular year than in the enormous difference a small advantage can make when sustained for long enough.
 
-The same logic works in reverse.
-
-A large, permanent loss can erase years of progress.
+The same logic works in reverse: a large, permanent loss can erase years of progress.
 
 Avoiding loss is therefore more than an expression of caution. It reflects an understanding of time.
 
@@ -313,7 +265,7 @@ With experience, an investor comes to appreciate that:
 
 **Finding opportunities and preserving what you have accumulated are inseparable parts of investing.**
 
-That helps explain Li Lu’s repeated emphasis on a circle of competence, a margin of safety, and avoiding commitments you do not understand.
+That helps explain why Li Lu repeatedly stressed a circle of competence, a margin of safety, and avoiding commitments you do not understand.
 
 These principles manage our vulnerability as much as our money.
 
@@ -337,11 +289,7 @@ Geopolitical tension makes it necessary to distinguish political arrangements fr
 
 A long life gives us more reason to protect our knowledge, capital, reputation, health, and judgment.
 
-That is what I would take away from Li Lu’s remarks.
-
-He offered no simple answer to the question of which stock to buy next.
-
-I found a more useful reminder:
+I took a reminder about judgment from Li Lu’s remarks, rather than a simple answer about which stock to buy next:
 
 **Investing requires a way of judging the future that can withstand uncertainty, rather than a prediction that depends on getting everything right.**
 

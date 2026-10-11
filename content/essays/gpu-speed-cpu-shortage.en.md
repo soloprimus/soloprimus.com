@@ -12,7 +12,7 @@ In late September, reports from industry channels suggested that 2027 production
 
 Intel has also signaled a shortage. According to coverage of Splunk .conf26, its CEO said the company could currently meet only about half of customers’ CPU demand. That figure cannot be translated directly into a global supply gap. Intel’s formal second-quarter disclosure, however, confirmed that demand exceeded available supply and that industry-wide shortages of critical components, including substrates and memory, were expected to persist into 2027. [Coverage of the remarks](https://www.trendforce.com/news/2026/09/16/news-intel-ceo-flags-ai-supply-squeeze-memory-prices-up-5-7x-its-cpus-meet-just-50-of-demand/); [Intel quarterly filing](https://www.sec.gov/Archives/edgar/data/50863/000005086326000157/intc-20260627.htm)
 
-To understand the shift, we need to examine the work AI is taking on. Generating an answer and completing a task make very different demands on computing infrastructure.
+Generating an answer and completing a task make very different demands on computing infrastructure.
 
 **When AI starts executing tasks on people’s behalf, the work falling to CPUs grows too.**
 
@@ -45,8 +45,6 @@ A more visible bottleneck does not, by itself, mean CPU demand must rise. If the
 What drives procurement is the next step: companies use the freed-up GPU capacity to run more tasks at once. More code needs compiling, more tests need running, and more execution environments need starting. Only then does the total amount of CPU work increase.
 
 ## 2. One person asks; a team of agents gets to work
-
-Agents are making that next step possible.
 
 In a conversation with a chatbot, people usually pause to read the answer, think, and ask another question. Human reading and judgment place a limit on the frequency of requests.
 
@@ -104,7 +102,7 @@ For a hypothetical 10 gigawatts of new capacity:
 
 The 10-gigawatt capacity assumption, configuration shares, linear interpolation, and conversion at 128 cores per processor are illustrative. They are not an annual forecast or an industry-average configuration. Nor are cores from different architectures fully interchangeable.
 
-The calculation highlights a key point: **even with identical additions to capacity, a change in workloads alone could more than double CPU requirements.**
+**Even with identical additions to capacity, a change in workloads alone could more than double CPU requirements.**
 
 Estimating a global shortfall would also require accounting for general-purpose server replacement, upgrades to existing AI facilities, and equipment reuse, then comparing that demand with each supplier’s effective output. Public data is not yet sufficient to complete that calculation.
 
@@ -120,9 +118,9 @@ Software efficiency can change demand too. Reducing unsuccessful retries, reusin
 
 Three signals are worth watching:
 
-- **Lead times:** are delivery times for comparable server CPUs continuing to lengthen?
-- **Volume and price:** how much revenue growth comes from shipments, and how much from a richer product mix or higher prices?
-- **Use:** do cloud providers’ construction and procurement plans become commissioned capacity and sustained workloads?
+- Are delivery times for comparable server CPUs continuing to lengthen?
+- How much revenue growth comes from shipments, and how much from a richer product mix or higher prices?
+- Do cloud providers’ construction and procurement plans become commissioned capacity and sustained workloads?
 
 Volume and price are particularly easy to confuse. Intel’s second-quarter server average selling price rose 48% year over year, while shipments rose 9%. The company attributed the price increase primarily to a higher-end product mix. Rapid revenue growth need not mean equally rapid growth in CPU units sold, and cannot be converted directly into a market shortfall. [Intel quarterly filing](https://www.sec.gov/Archives/edgar/data/50863/000005086326000157/intc-20260627.htm)
 

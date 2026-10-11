@@ -1,29 +1,25 @@
 ---
 title: At 69, Sequoia’s Doug Leone still runs on fear
-summary: Fear can fuel action or drain it. Doug Leone’s experience offers a way to turn a specific unease into practical steps—and a reminder of where that approach stops working.
+summary: Doug Leone describes fear as a reason to keep changing. His experience suggests how a specific worry can lead to action, and why living in constant fear is a different matter.
 topic: growth
 date: 2026-10-02
 featured: 1
 note: Translated from the Chinese essay. Interview quotations are English renderings of the Chinese manuscript.
 ---
 
-A man who spent 26 years leading Sequoia Capital—a firm associated with investments in Cisco, Google, Apple, and NVIDIA—said something striking at 69:
+A man who spent 26 years leading Sequoia Capital said something striking at 69. His firm was associated with investments in Cisco, Google, Apple, and NVIDIA. He said:
 
 “Whenever I have reinvented myself, it hasn’t come from a romantic ambition to be great. It has come from the fear of becoming obsolete.”
 
-You might think he was being modest. Instead, he was revealing something that exceptionally successful people rarely admit.
+It might sound like modesty. To me, it revealed something exceptionally successful people rarely admit.
 
 That man is Doug Leone. After retiring, the venture-capital veteran returned to the front line at Sequoia because he could not quite let go of his concerns. Here was someone who had already made it, openly describing unease as his fuel.
 
 You have probably seen countless articles warning that AI will replace you. Perhaps they made you anxious. What happened next? For many people, the answer is simple: they worried, then kept scrolling.
 
-The problem is not that you feel too much fear. It is that your fear has nowhere useful to go.
-
-**This essay makes a counterintuitive argument: in the age of AI, fear need not be an enemy to defeat. It can be a force that keeps you from being left behind.**
+Fear with nowhere useful to go can leave you stuck. Give it a specific object, and it can help you keep up with AI rather than simply worry about being left behind.
 
 ## 1. The danger begins when you stop being afraid
-
-Start with a story that hurts any investor.
 
 In an interview, Leone described selling the best winners too early as one of venture capital’s greatest mistakes. His example was Sequoia itself: the firm exited Cisco after making $90 million; had it held on, he said, the position would have been worth hundreds of billions.
 
@@ -41,9 +37,7 @@ Leone’s continuing unease at 69 suggests that his radar is still on.
 
 ## 2. Fear is not the same thing as anxiety
 
-Here I need to slow down. I can already hear the objection: “You’re just selling anxiety.”
-
-That is not what I mean. I want to distinguish three experiences that are often treated as one.
+Fear, anxiety, and panic are often treated as interchangeable. I use them differently here.
 
 **Anxiety** is a diffuse unease without a clear object. You cannot quite say what you fear; you just feel that time is running out. Its familiar outcome is paralysis: scrolling, buying courses, saving articles, and doing nothing with them.
 
@@ -51,17 +45,15 @@ That is not what I mean. I want to distinguish three experiences that are often 
 
 **Fear**, as I use the term here, has an identifiable object. You know what threatens you, so you can break it down, assess it, and respond.
 
-This essay argues for the last of these: **fear with a specific object is an underrated source of motivation.**
+Fear with a specific object can motivate us in ways we often overlook.
 
-Psychology offers a useful starting point. The Yerkes–Dodson relationship is often represented as an inverted U: too little arousal can leave us unmotivated; too much can impair performance; a moderate level can help. Psychologist Julie Norem has studied “defensive pessimists,” who deliberately imagine what could go wrong and prepare for each possibility. In that research, forcing such people to think positively can undermine rather than improve their performance.
+The Yerkes–Dodson relationship is often represented as an inverted U: too little arousal can leave us unmotivated; too much can impair performance; a moderate level can help. Psychologist Julie Norem has studied “defensive pessimists,” who deliberately imagine what could go wrong and prepare for each possibility. In that research, forcing such people to think positively can undermine rather than improve their performance.
 
 Consider how Leone reportedly handles his fears. Afraid of public speaking, he practices it. Afraid of heights, he climbs a 96-foot mast. Afraid of pain, he is said to have undergone a root canal without anesthesia. These stories sound like acts of self-denial, but the underlying pattern is clear: rather than letting fear immobilize him, he repeatedly turns it into something to confront and do. That pattern has something in common with the principle of exposure in therapy.
 
 **Anxiety is fear that has nowhere to go. A specific fear can give unease a direction for action.**
 
 ## 3. An economist’s view: fear gives tail risks a price
-
-Now let me put on my economist’s hat.
 
 A recurring concern in decision-making is that people can be poorly prepared for events that are unlikely but devastating. Nassim Nicholas Taleb’s discussion of black swans draws attention to this problem: we are comfortable planning for ordinary conditions, and less comfortable preparing for extreme ones.
 
@@ -81,9 +73,7 @@ Leone has said he is interested in extreme outliers capable of returning 100 tim
 
 ## 4. AI is shortening the shelf life of skills
 
-Bring the focus back from investing to the rest of us.
-
-The biggest change AI brings is not simply that a machine can do your job. It is that **skills can depreciate much faster**. A skill that once supported a career for a decade may find its market value rewritten within a few years. Translation, basic programming, copywriting, junior analysis, standardized design—the boundaries of work once considered secure are shifting.
+AI can make skills lose their value much faster, as well as perform work people once did. A skill that once supported a career for a decade may find its market value rewritten within a few years. Translation, basic programming, copywriting, junior analysis, standardized design—the boundaries of work once considered secure are shifting.
 
 In that environment, “How capable am I today?” matters less on its own. “How quickly can I reinvent myself?” matters more. Reinvention often needs a force strong enough to disturb the status quo.
 
@@ -99,13 +89,13 @@ The same logic applies to an individual. In Charles Handy’s idea of the “sec
 
 If fear is fuel, how do you use it without burning yourself?
 
-**First, name it.** Turn “I’m overwhelmed” into “What, exactly, am I afraid of?” Instead of “AI will replace me,” ask: “Which three kinds of task in my job are most susceptible to automation? How much of my day do they take up?” Once you can write a list, fear becomes a map rather than a fog.
+First, name it. Turn “I’m overwhelmed” into “What, exactly, am I afraid of?” Instead of “AI will replace me,” ask: “Which three kinds of task in my job are most susceptible to automation? How much of my day do they take up?” Once you can write a list, you have something specific to work on.
 
-**Second, price it.** For each concern, estimate its likelihood, cost, and time horizon. Then decide how much to invest in a response. This is a basic investment discipline, and it is useful in life too. Some risks deserve a year of preparation; others need a weekend; some are best set aside.
+Second, price it. For each concern, estimate its likelihood, cost, and time horizon. Then decide how much to invest in a response. This is a basic investment discipline, and it is useful in life too. Some risks deserve a year of preparation; others need a weekend; some are best set aside.
 
 An unpriced fear can expand without limit. A fear with a considered cost becomes more manageable.
 
-**Third, face it.** Take a cue from Leone and deliberately do something each year that unsettles you: give a talk, publish an essay that could attract criticism, or learn a tool you have kept avoiding. Small, controllable encounters with discomfort can keep your awareness sharp.
+Third, face it. Take a cue from Leone and deliberately do something each year that unsettles you: give a talk, publish an essay that could attract criticism, or learn a tool you have kept avoiding. Small, controllable encounters with discomfort can keep your awareness sharp.
 
 
 One condition is easy to overlook: **fear needs a container**. When discussing boards, Leone has described a healthy board as one that can put its central disagreements on the table. If debate gets heated, a five- or ten-minute recess allows people to cool down. The detail matters: facing risk requires an environment capable of holding conflict. A group that can say “We might lose” honestly can turn fear into shared intelligence. A group in which nobody dares speak plainly leaves each person carrying it alone.
@@ -126,11 +116,11 @@ As a teenager repairing boats at a yacht club, Leone felt looked down on and res
 
 There are limits to this argument, and they need to be explicit.
 
-**First, fear alone is not enough.** Countless frightened people have not succeeded. We hear disproportionately from those who did, so survivorship bias matters. Fear has value only when combined with capability and action.
+Fear alone is not enough. Countless frightened people have not succeeded. We hear disproportionately from those who did, so survivorship bias matters. Fear has value only when combined with capability and action.
 
-**Second, this is not a prescription for everyone.** Chronic stress can damage health and cognition. If you are living with persistent anxiety, insomnia, or loss of emotional control, look after your well-being first and seek professional support when needed. The argument here concerns moderate, specific fears that can become action—not a life spent soaking in stress.
+This is not a prescription for everyone. Chronic stress can damage health and cognition. If you are living with persistent anxiety, insomnia, or loss of emotional control, look after your well-being first and seek professional support when needed. The argument here concerns moderate, specific fears that can become action, rather than a life spent soaking in stress.
 
-**Third, intrinsic motivation matters too.** Interest and meaning can provide more durable motivation for work you love. Fear is better understood as an engine for getting started and staying awake to change, rather than the whole point of living.
+Intrinsic motivation matters too. Interest and meaning can provide more durable motivation for work you love. Fear is better understood as an engine for getting started and staying awake to change, rather than the whole point of living.
 
 **Fear gets you moving. Goodwill helps you go the distance.**
 
@@ -142,6 +132,6 @@ He does not necessarily lack the ability to enjoy life. He may simply have under
 
 Your protection in the AI era is not only what you know today. It is your willingness to recognize a threat and act on it.
 
-So do one small thing today: **write down a concern you ought to take seriously. Make it specific. Then take the smallest useful step. Just one.**
+Write down a concern you ought to take seriously. Make it specific. Then take the smallest useful step.
 
 **Sometimes the person who feels no fear has the most reason to pay attention.**

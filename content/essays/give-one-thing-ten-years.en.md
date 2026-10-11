@@ -16,9 +16,7 @@ That possibility is the starting point of this essay, because it suggests someth
 
 In finance, a foreseeable future cost belongs in today’s decision. Yet most people price the difficulty they face now without pricing the regret they may feel later. That is a systematic error in valuation, and it may take years to become visible. By then, the original decision can no longer be revised.
 
-The question I want to explore is simple: when you look back, you may wish you had chosen the long-term version of what mattered.
-
-Why does that happen? Which pursuits deserve that commitment, and which do not? Let us work through it.
+When you look back, you may wish you had given a worthwhile pursuit more time. The difficulty is deciding which pursuits deserve that commitment.
 
 ## 1. Regret changes with time
 
@@ -41,8 +39,6 @@ In financial terms, short-term regret resembles a loss with a ceiling. Long-term
 The long-term version matters because it usually requires extending the holding period, giving that possibility enough time to develop.
 
 ## 2. The short-term and long-term versions are different pursuits
-
-This is the central point of the essay, and the one most easily mistaken for motivational advice. So let me be precise.
 
 Most people understand a long-term approach as doing the same thing for a little longer. That understanding is incomplete.
 
@@ -78,7 +74,7 @@ Where do the costs appear? Two bodies of evidence are worth considering.
 
 First, Brad Barber and Terrance Odean’s [Trading Is Hazardous to Your Wealth](https://faculty.haas.berkeley.edu/odean/papers%20current%20versions/individual_investor_performance_final.pdf), published in the Journal of Finance in 2000, analyzed household accounts at a large US brokerage from 1991 to 1996. The most active traders earned a net annualized return of about 11.4%, compared with about 17.9% for the market. Trading costs associated with high turnover were an important source of the gap.
 
-Second, Morningstar’s recurring [Mind the Gap research](https://www.morningstar.com/en-us/business/insights/research/mind-the-gap) finds that investors’ dollar-weighted returns have often fallen short of the returns of the funds they owned, reflecting the timing of purchases and sales. The precise gap varies by year and methodology. I recommend reading the latest report directly rather than treating my summary as a substitute.
+Second, Morningstar’s recurring [Mind the Gap research](https://www.morningstar.com/en-us/business/insights/research/mind-the-gap) finds that investors’ dollar-weighted returns have often fallen short of the returns of the funds they owned. The differences reflect when investors bought and sold. The precise gap varies by year and methodology. I recommend reading the latest report directly rather than treating my summary as a substitute.
 
 Both point toward a similar lesson: how an investment is held can change the return its owner receives. Part of the difference comes from our behavior, rather than from the market alone.
 
@@ -128,7 +124,7 @@ What becomes more valuable as speed grows cheaper? Judgment, taste, domain depth
 
 I find multiplication a useful way to think about this. AI is the multiplier; what you have built is the base being multiplied. Give the same tool to someone with a decade of accumulated expertise and to a beginner, and the results may differ dramatically. A stronger base gives the multiplier more to amplify. If the base is zero, multiplying it changes nothing.
 
-Another way to frame it is that short-lived capabilities are depreciating while enduring ones become more valuable. You may spend three months learning a tool, only to find a new version has replaced it a year later. Such tool-specific skills have an increasingly short shelf life. Judging whether a business model can make money, whether a source is credible, or whether a question is worth asking can remain useful for decades.
+Tool-specific skills are losing value while judgment that travels across tools becomes more valuable. You may spend three months learning a tool, only to find a new version has replaced it a year later. Such skills have an increasingly short shelf life. Judging whether a business model can make money, whether a source is credible, or whether a question is worth asking can remain useful for decades.
 
 Nassim Nicholas Taleb has popularized the Lindy effect: for certain nonperishable things, such as ideas, books, and technical standards, a longer history of survival can suggest a longer remaining life. It is a heuristic, not an iron law, and it does not apply to perishable things. As a filter, though, it can be useful: give some priority to what time has already tested.
 
@@ -169,13 +165,11 @@ Be selective before you begin. Be patient once the choice continues to earn that
 
 ## 7. Return to your future self
 
-Return to the evening at the beginning.
-
 Ten years from now, you open that old file. You are unlikely to dwell on one particular portfolio drawdown, or remember how many people read a single essay. The question that remains is simpler:
 
 Did you give the worthwhile pursuit its long-term version?
 
-Let me put it plainly. A long-term approach is more than a temperament, an exercise in willpower, or a comforting story. It is an economic judgment:
+A long-term approach involves an economic judgment, as well as temperament and willpower:
 
 A repricing of time, compounding, and opportunity cost. What needs to change is the scale you use to assess your actions, rather than the strength of your self-discipline alone.
 
