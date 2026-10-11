@@ -1,6 +1,6 @@
 ---
-title: Years From Now, You’ll Wish You Had Given It Ten Years
-summary: A long-term commitment changes more than how long you persist. It changes your measure of success, bringing future regret, compounding, and opportunity cost into today’s choices.
+title: Years From Now, You'll Wish You Had Given It Ten Years
+summary: A long-term commitment changes more than how long you persist. It changes your measure of success, bringing future regret, compounding, and opportunity cost into today's choices.
 topic: growth
 date: 2026-10-02
 featured: 1
@@ -10,11 +10,11 @@ One evening, ten years from now, you open an old file. Perhaps it contains unfin
 
 What will you think of the person you were then?
 
-I suspect it will rarely be, “Thank goodness I gave that up.” More likely: “What might this have become if I had stayed with it for a few more years?”
+I suspect it will rarely be, "Thank goodness I gave that up." More likely: "What might this have become if I had stayed with it for a few more years?"
 
 That possibility is the starting point of this essay, because it suggests something an economist cannot easily ignore: some future regret can be anticipated.
 
-In finance, a foreseeable future cost belongs in today’s decision. Yet most people price the difficulty they face now without pricing the regret they may feel later. That is a systematic error in valuation, and it may take years to become visible. By then, the original decision can no longer be revised.
+In finance, a foreseeable future cost belongs in today's decision. Yet most people price the difficulty they face now without pricing the regret they may feel later. That is a systematic error in valuation, and it may take years to become visible. By then, the original decision can no longer be revised.
 
 When you look back, you may wish you had given a worthwhile pursuit more time. The difficulty is deciding which pursuits deserve that commitment.
 
@@ -46,7 +46,7 @@ The same activity can become a different pursuit at a different time horizon, be
 
 Consider a few examples.
 
-Investing. The short-term version optimizes how an account’s return chart looks this quarter. The long-term version asks whether your assets will remain productive a decade from now, with a base on which returns can compound. The former encourages chasing themes, frequent rebalancing, and avoiding any period that makes the account look bad. The latter directs attention to whether the businesses you own can keep creating value, and whether you can endure interim drawdowns without being forced out. The information, actions, mindset, and even stock-selection criteria differ.
+Investing. The short-term version optimizes how an account's return chart looks this quarter. The long-term version asks whether your assets will remain productive a decade from now, with a base on which returns can compound. The former encourages chasing themes, frequent rebalancing, and avoiding any period that makes the account look bad. The latter directs attention to whether the businesses you own can keep creating value, and whether you can endure interim drawdowns without being forced out. The information, actions, mindset, and even stock-selection criteria differ.
 
 Writing and publishing. The short-term version optimizes the views on a single piece. The long-term version asks whether readers will still recognize and trust you three years from now. The first rewards headlines and emotion; the second rewards an accumulation of judgment and credibility.
 
@@ -72,15 +72,15 @@ The environment reinforces it. Modern society is a machine for immediate feedbac
 
 Where do the costs appear? Two bodies of evidence are worth considering.
 
-First, Brad Barber and Terrance Odean’s [Trading Is Hazardous to Your Wealth](https://faculty.haas.berkeley.edu/odean/papers%20current%20versions/individual_investor_performance_final.pdf), published in the Journal of Finance in 2000, analyzed household accounts at a large US brokerage from 1991 to 1996. The most active traders earned a net annualized return of about 11.4%, compared with about 17.9% for the market. Trading costs associated with high turnover were an important source of the gap.
+First, Brad Barber and Terrance Odean's [Trading Is Hazardous to Your Wealth](https://faculty.haas.berkeley.edu/odean/papers%20current%20versions/individual_investor_performance_final.pdf), published in the Journal of Finance in 2000, analyzed household accounts at a large US brokerage from 1991 to 1996. The most active traders earned a net annualized return of about 11.4%, compared with about 17.9% for the market. Trading costs associated with high turnover were an important source of the gap.
 
-Second, Morningstar’s recurring [Mind the Gap research](https://www.morningstar.com/en-us/business/insights/research/mind-the-gap) finds that investors’ dollar-weighted returns have often fallen short of the returns of the funds they owned. The differences reflect when investors bought and sold. The precise gap varies by year and methodology. I recommend reading the latest report directly rather than treating my summary as a substitute.
+Second, Morningstar's recurring [Mind the Gap research](https://www.morningstar.com/en-us/business/insights/research/mind-the-gap) finds that investors' dollar-weighted returns have often fallen short of the returns of the funds they owned. The differences reflect when investors bought and sold. The precise gap varies by year and methodology. I recommend reading the latest report directly rather than treating my summary as a substitute.
 
 Both point toward a similar lesson: how an investment is held can change the return its owner receives. Part of the difference comes from our behavior, rather than from the market alone.
 
 My conclusion is that the short-term version is rarely cheap. It sends the bill to your future self.
 
-The delay is what makes that bill deceptive. The patience you avoid paying for today may return in five or ten years, with interest, as the thought: “If only I had…”
+The delay is what makes that bill deceptive. The patience you avoid paying for today may return in five or ten years, with interest, as the thought: "If only I had…"
 
 ## 4. Compounding needs something to keep compounding
 
@@ -102,7 +102,7 @@ If you stop the growth after year ten and allow neither the principal nor its ac
 
 That is what I mean when I say compounding punishes interruption more than a lack of intensity. The costly mistake is discarding your accumulated base during a period when its value is still easy to overlook.
 
-Evidence from markets illustrates the concentration of returns. In his [2018 study in the Journal of Financial Economics](https://asu.elsevierpure.com/en/publications/do-stocks-outperform-treasury-bills/), Hendrik Bessembinder found that fewer than 5% of US stocks accounted for the market’s entire net wealth creation from 1926 to 2016; the remainder collectively matched Treasury bills. Returns were concentrated in relatively few companies. A long holding period can help gains accumulate, but holding any particular stock for long enough does not guarantee a profit.
+Evidence from markets illustrates the concentration of returns. In his [2018 study in the Journal of Financial Economics](https://asu.elsevierpure.com/en/publications/do-stocks-outperform-treasury-bills/), Hendrik Bessembinder found that fewer than 5% of US stocks accounted for the market's entire net wealth creation from 1926 to 2016; the remainder collectively matched Treasury bills. Returns were concentrated in relatively few companies. A long holding period can help gains accumulate, but holding any particular stock for long enough does not guarantee a profit.
 
 Warren Buffett is another familiar illustration: most of his wealth accumulated after he turned 50, a pattern discussed by several writers who have examined his wealth over time. The exact proportion changes with share prices.
 
@@ -116,7 +116,7 @@ That changes how we should think about opportunity cost. Most people compare doi
 
 Investing, writing, and personal development share this logic. AI can sharpen it, rather than make it less relevant.
 
-The intuitive response is often: “If AI is this fast, does long-term accumulation still matter?” My judgment is the opposite.
+The intuitive response is often: "If AI is this fast, does long-term accumulation still matter?" My judgment is the opposite.
 
 Consider what AI changes. It drives down the cost of execution. Drafts, spreadsheets, information searches, and code that once required considerable time can now often be produced in minutes. Speed becomes cheap.
 
@@ -138,7 +138,7 @@ Quite the reverse. Few things do.
 
 The cost of the long-term version is substantial: it occupies your scarcest resource, time. Committing years to one pursuit excludes many alternatives. Before deciding to make that commitment, I use four questions.
 
-First: does it compound? Will today’s effort make tomorrow’s output easier? The trust accumulated through writing can do that; a one-off job may not.
+First: does it compound? Will today's effort make tomorrow's output easier? The trust accumulated through writing can do that; a one-off job may not.
 
 Second: does it create a barrier others will struggle to cross? After ten years, would it be difficult for someone else to catch up in one? If anyone can replicate the result in a year, it may not deserve ten years of your life.
 
@@ -150,14 +150,14 @@ I look for a yes to at least three of these questions before committing years.
 
 Then comes the essential boundary: a long-term approach is different from the sunk-cost fallacy.
 
-The sunk-cost effect, classically examined in [Arkes and Blumer’s 1985 study](https://www.sciencedirect.com/science/article/pii/0749597885900494), describes the tendency to keep pursuing something because much has already been invested, even when its prospects have deteriorated. On the surface, it resembles persistence: both tell us not to give up easily.
+The sunk-cost effect, classically examined in [Arkes and Blumer's 1985 study](https://www.sciencedirect.com/science/article/pii/0749597885900494), describes the tendency to keep pursuing something because much has already been invested, even when its prospects have deteriorated. On the surface, it resembles persistence: both tell us not to give up easily.
 
 The difference lies in the reason for the decision:
 
 - Sunk-cost reasoning looks backward: I have spent too much to let it go to waste.
 - A long-term approach looks forward: the prospects still justify another commitment.
 
-One question separates them: “If I were starting from zero today, would I choose this again?” If yes, the amount already spent is beside the point; you continue because the pursuit remains worthwhile. If no, even five years of prior effort should not oblige you to spend more of your future defending a past that no longer holds up.
+One question separates them: "If I were starting from zero today, would I choose this again?" If yes, the amount already spent is beside the point; you continue because the pursuit remains worthwhile. If no, even five years of prior effort should not oblige you to spend more of your future defending a past that no longer holds up.
 
 Someone who takes the long term seriously can therefore be unusually decisive about stopping. They choose carefully before committing, and give a sound choice enough time to work.
 

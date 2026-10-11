@@ -6,13 +6,13 @@ date: 2026-10-02
 featured: 1
 ---
 
-> My first piece of investment advice for young people: don’t study investing.
+> My first piece of investment advice for young people: don't study investing.
 
-My first piece of investment advice for a young person may not be what you expect: don’t study investing.
+My first piece of investment advice for a young person may not be what you expect: don't study investing.
 
 That does not mean investing is unimportant or that the stock market has no value. What I object to is a misallocation of resources: someone earning RMB 8,000 a month spends hundreds of hours analyzing financial statements, watching prices, and hunting for the next tenbagger—only to gain less than they might have gained by putting those hours toward a promotion or a pay rise.
 
-I want to address something more fundamental than “What should I buy?” Where should a young person put their scarcest resources?
+I want to address something more fundamental than "What should I buy?" Where should a young person put their scarcest resources?
 
 ## 1. The stock market amplifies wealth. It does not print it.
 
@@ -28,7 +28,7 @@ The return is identical. The amount earned differs by a factor of 100.
 
 Young people are often captivated by percentages: whose stock doubled, who caught the latest rally. Yet in the first two or three decades of adult life, the scale of your wealth usually depends far more on the capital you can accumulate than on an exceptional rate of return.
 
-The question to ask is therefore not “What should I buy?” but “What do I have to amplify?”
+The question to ask is therefore not "What should I buy?" but "What do I have to amplify?"
 
 ## 2. Your greatest asset is yourself
 
@@ -40,7 +40,7 @@ When you are young, human capital makes up the largest share of your assets. Fin
 
 That changes the allocation problem. Suppose you have RMB 100,000 to invest and 300 hours of spare time each year:
 
-- Spend the 300 hours researching stocks. Even if you are a capable stock picker and add a few percentage points to your annual return, the extra gain on RMB 100,000 may be only a few thousand to somewhat over ten thousand renminbi.
+- Spend the 300 hours researching stocks. Say you are a capable stock picker and add a few percentage points to your annual return. On RMB 100,000, that extra gain may amount to only a few thousand to a little over RMB 10,000.
 - Spend the same 300 hours learning a scarce skill, building a side business, developing a venture, or mastering AI tools. You might raise your annual income from RMB 200,000 to RMB 300,000, or more. That can be an addition to cash flow lasting many years.
 
 The comparison is not between two percentage returns. It is between two uses of the same 300 hours: which could add more to your wealth? This is the basic economic idea of opportunity cost.
@@ -59,13 +59,13 @@ You might object that some people do change their fortunes through stocks. Of co
 
 There is research we can consult rather than rely on impressions.
 
-First, even professional managers struggle to beat an index over time. S&P Dow Jones Indices’ SPIVA reports show that roughly nine in ten active U.S. large-cap funds underperform the S&P 500 over long periods such as 15 years. For example, the 15-year figure in the [mid-year 2024 report](https://www.spglobal.com/spdji/en/documents/spiva/spiva-us-mid-year-2024.pdf) was 89.54%. Percentages vary between reports; consult the latest original report for the current figure. Buffett’s wager with the hedge-fund industry, agreed in 2007, is another illustration. He bet that an S&P 500 index fund would outperform a selection of hedge funds over ten years. It did. His [2017 shareholder letter](https://www.berkshirehathaway.com/letters/2017ltr.pdf) reported a cumulative gain of 125.8% for the index fund; the arithmetic average of the cumulative gains for the five funds of funds was about 36.3%.
+First, even professional managers struggle to beat an index over time. S&P Dow Jones Indices' SPIVA reports show that roughly nine in ten active U.S. large-cap funds underperform the S&P 500 over long periods such as 15 years. For example, the 15-year figure in the [mid-year 2024 report](https://www.spglobal.com/spdji/en/documents/spiva/spiva-us-mid-year-2024.pdf) was 89.54%. Percentages vary between reports; consult the latest original report for the current figure. Buffett's wager with the hedge-fund industry, agreed in 2007, is another illustration. He bet that an S&P 500 index fund would outperform a selection of hedge funds over ten years. It did. His [2017 shareholder letter](https://www.berkshirehathaway.com/letters/2017ltr.pdf) reported a cumulative gain of 125.8% for the index fund; the arithmetic average of the cumulative gains for the five funds of funds was about 36.3%.
 
 Second, frequent trading can damage returns. In a [paper published in the *Journal of Finance* in 2000](https://faculty.haas.berkeley.edu/odean/papers%20current%20versions/individual_investor_performance_final.pdf), Brad Barber and Terrance Odean analyzed individual accounts at a large U.S. brokerage. The most active investors significantly underperformed the market after costs. Trading costs and trading behavior were central to the poor results.
 
-Third, consistently successful day traders are rare. In a [study of Taiwanese day traders](https://faculty.haas.berkeley.edu/odean/papers/Day%20Traders/Day%20Trading%20Skill%20110523.pdf), Barber and his coauthors found that fewer than 1% could be identified from the previous year’s performance as reliably earning positive abnormal returns after trading costs in the following year.
+Third, consistently successful day traders are rare. In a [study of Taiwanese day traders](https://faculty.haas.berkeley.edu/odean/papers/Day%20Traders/Day%20Trading%20Skill%20110523.pdf), Barber and his coauthors found that fewer than 1% could be identified from the previous year's performance as reliably earning positive abnormal returns after trading costs in the following year.
 
-Fourth, selecting the right individual stocks is difficult in its own right. Hendrik Bessembinder’s [research on U.S. stocks from 1926 to 2016](https://knowledge.wpcarey.asu.edu/20180917-do-stocks-outperform-treasury-bills) found that net wealth creation above Treasury-bill returns was concentrated in roughly 4% of stocks. Most individual stocks did no better than Treasury bills over their lifetimes. Pick a handful at random, and you risk missing the relatively few exceptional winners.
+Fourth, selecting the right individual stocks is difficult in its own right. Hendrik Bessembinder's [research on U.S. stocks from 1926 to 2016](https://knowledge.wpcarey.asu.edu/20180917-do-stocks-outperform-treasury-bills) found that net wealth creation above Treasury-bill returns was concentrated in roughly 4% of stocks. Most individual stocks did no better than Treasury bills over their lifetimes. Pick a handful at random, and you risk missing the relatively few exceptional winners.
 
 Taken together, these findings point beyond a simple lack of effort. Individual investors face institutions, algorithms, and unequal access to information, while also contending with the familiar biases of chasing gains, selling in fear, overconfidence, and excessive trading. Turning a small stake into a large fortune requires more than diligence: information, discipline, luck, and the ability to bear risk must align. That is not a combination most people can count on.
 
@@ -77,7 +77,7 @@ Someone who knows they do not understand investing may choose a simple approach.
 
 Why is this trap attractive to young people? My observation is that it can offer a subtle escape from a harder reality.
 
-Increasing your income is difficult. You have to face questions such as: “How can I become more valuable?” “What are my professional skills actually worth in the market?” “How can I use AI to become more productive?” These questions have no answer key. They require steady work, often without an immediate payoff.
+Increasing your income is difficult. You have to face questions such as: "How can I become more valuable?" "What are my professional skills actually worth in the market?" "How can I use AI to become more productive?" These questions have no answer key. They require steady work, often without an immediate payoff.
 
 Improving an investment return can appear much easier. Read a few more research reports, find the right stock, and perhaps you can bypass years of effort.
 
@@ -99,19 +99,19 @@ Your career generates the capital. Investing amplifies it. Both have a role.
 
 Three objections deserve a response.
 
-The first: “Didn’t Buffett succeed by picking stocks?” Yes, but Buffett is an exceptional case. His advice for most people favors a simple index approach. In his [2013 shareholder letter](https://www.berkshirehathaway.com/letters/2013ltr.pdf), he described instructions for a trust benefiting his wife: 90% in a low-cost S&P 500 index fund and 10% in short-term government bonds. His point was not to reject investing, but to avoid assuming that everyone can invest like him.
+The first: "Didn't Buffett succeed by picking stocks?" Yes, but Buffett is an exceptional case. His advice for most people favors a simple index approach. In his [2013 shareholder letter](https://www.berkshirehathaway.com/letters/2013ltr.pdf), he described instructions for a trust benefiting his wife: 90% in a low-cost S&P 500 index fund and 10% in short-term government bonds. His point was not to reject investing, but to avoid assuming that everyone can invest like him.
 
-The second: “An index can fall, sometimes dramatically.” Correct. That is why two conditions matter. The first is using money you will not need for living expenses, so that years without access or a substantial drawdown will not force you to sell at a bad time. The second is consistency: treating the process as a long-term habit, rather than a one-off bet. Indices fluctuate. Long-term returns are not guaranteed, and past performance does not establish future results. Time and discipline are ways to handle volatility, not ways to abolish risk.
+The second: "An index can fall, sometimes dramatically." Correct. That is why two conditions matter. The first is using money you will not need for living expenses, so that years without access or a substantial drawdown will not force you to sell at a bad time. The second is consistency: treating the process as a long-term habit, rather than a one-off bet. Indices fluctuate. Long-term returns are not guaranteed, and past performance does not establish future results. Time and discipline are ways to handle volatility, not ways to abolish risk.
 
-The third: “Why focus on the U.S. market?” My reasons are that the United States is one of the world’s largest economies; many of its listed businesses are profitable and operate globally; its capital-market institutions and disclosure frameworks are relatively mature; and an index such as the S&P 500 provides exposure to many leading companies. This does not mean U.S. stocks rise forever or that other markets offer no opportunities. Under the premise of minimizing ongoing research, it is a comparatively straightforward option. Cross-border investment rules, limits, and tax obligations differ by jurisdiction, so understand the rules that apply where you live.
+The third: "Why focus on the U.S. market?" My reasons are that the United States is one of the world's largest economies; many of its listed businesses are profitable and operate globally; its capital-market institutions and disclosure frameworks are relatively mature; and an index such as the S&P 500 covers many large, internationally active companies. This does not mean U.S. stocks rise forever or that other markets offer no opportunities. Under the premise of minimizing ongoing research, it is a comparatively straightforward option. Cross-border investment rules, limits, and tax obligations differ by jurisdiction, so understand the rules that apply where you live.
 
 ## 6. In the AI era, study your own productive potential
 
-AI is changing how we think about an individual’s human capital. A useful heuristic is to consider professional ability, the leverage available from AI, and the productivity with which a person combines them.
+AI is changing how we think about an individual's human capital. A useful heuristic is to consider professional ability, the leverage available from AI, and the productivity with which a person combines them.
 
-The same person’s output may differ greatly depending on whether they can use AI effectively and integrate it into their workflow. For a young person, the most valuable opportunity to investigate may therefore be how AI changes their own ability to produce—not which AI stock will rise next.
+The same person's output may differ greatly depending on whether they can use AI effectively and integrate it into their workflow. For a young person, the most valuable opportunity to investigate may therefore be how AI changes their own ability to produce—not which AI stock will rise next.
 
-Many people eagerly ask which company AI will make rich, but devote little time to a question closer to home: “How can AI help me do work that once required a team?” The first makes you a spectator. The second concerns leverage from which you can benefit directly.
+Many people eagerly ask which company AI will make rich, but devote little time to a question closer to home: "How can AI help me do work that once required a team?" The first makes you a spectator. The second concerns leverage from which you can benefit directly.
 
 The division of labor is clear: AI can help strengthen your earning ability; capital markets can amplify money you have already earned. Give each its proper job.
 

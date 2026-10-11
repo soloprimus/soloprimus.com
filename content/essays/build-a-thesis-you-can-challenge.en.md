@@ -15,7 +15,7 @@ Describe who pays the company, what they pay for, and what has to happen for rev
 
 ## Write the counterargument.
 
-Choose the strongest explanation for why your thesis could be wrong. A competitor might lower prices, a customer might leave, or growth might require more capital than you expected.
+Choose the strongest explanation for why your thesis could be wrong. A competitor could lower prices, a customer leave, or growth require more capital than you expected.
 
 ## Name the next evidence.
 

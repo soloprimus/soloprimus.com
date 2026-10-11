@@ -71,9 +71,13 @@ The October 8 manuscript on Li Lu and AI was imported from `soloprimus/we-media`
 
 This is the author’s interpretation and further reflection, not a speech transcript; both editions identify that distinction. [Columbia Business School’s official event archive](https://business.columbia.edu/heilbrunn/events/graham-dodd-event) confirms Li Lu as the guest of the 36th Annual Graham & Dodd Luncheon in 2026. The October 5 speech date follows the source manuscript; the archive does not provide a full transcript or independently establish every attributed remark.
 
-### English copyediting: October 10, 2026
+### We-media import: October 11, 2026
 
-All nine website English editions were reviewed using [sloptrim](https://github.com/seyedehsanhadi/sloptrim/blob/38dbb7cb4e97de0b9bf157903c95bdcab016dda2/SKILL.md), version 0.9.4. Seven received targeted edits to repetitive signposting, rhetorical scaffolding, excessive emphasis, and paragraph rhythm. The two short workflow guides were retained. Article titles, dates, section headings, numerical data, cited URLs, original illustrations, and Chinese manuscripts were preserved. Detector findings were treated as editing prompts, not evidence of authorship; technical terminology and meaningful quotations were retained.
+The October 10 essay on Peter Thiel and the October 11 essay on knowledge were imported from `soloprimus/we-media`, whose latest source commit at import was `c0138b352c408a17142770e16d64d0ed5cc09493`. They are published as `substance-over-status` and `what-counts-as-knowledge`, each with a Chinese original and a complete English edition. Both pairs use the site's language switch and existing article layout.
+
+### English copyediting: October 11, 2026
+
+All eleven website English editions were reviewed using [sloptrim](https://github.com/seyedehsanhadi/sloptrim/blob/38dbb7cb4e97de0b9bf157903c95bdcab016dda2/SKILL.md), version 0.9.4. Its detector placed them in the clean band; edits addressed flagged typography and specific wording while retaining factual caveats, technical terms, and intentional uses of domain language. Detector findings were treated as editing prompts, not evidence of authorship.
 
 ## Visitor statistics
 

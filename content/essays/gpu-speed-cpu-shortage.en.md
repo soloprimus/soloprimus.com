@@ -1,6 +1,6 @@
 ---
 title: Everyone wants GPUs. Why are CPUs running short?
-summary: As AI moves from producing answers to completing tasks, its bottlenecks shift. Follow an agent’s workflow to understand rising CPU demand—and what would make the shortage last.
+summary: As AI moves from producing answers to completing tasks, its bottlenecks shift. Follow an agent's workflow to understand rising CPU demand—and what would make the shortage last.
 topic: ai
 date: 2026-10-01
 featured: 1
@@ -8,13 +8,13 @@ featured: 1
 
 CPUs are becoming increasingly prominent on AI infrastructure shopping lists.
 
-In late September, reports from industry channels suggested that 2027 production of AMD’s sixth-generation EPYC processor, Venice, was already booked, with orders spilling into 2028. AMD has not officially confirmed the claim. Even so, pressure on server CPU supply is attracting attention. [Reported supply constraints](https://www.techtimes.com/articles/328325/20260930/amd-epyc-venice-supply-exhausted-2027-agentic-ai-drives-server-cpu-crunch.htm)
+In late September, reports from industry channels suggested that 2027 production of AMD's sixth-generation EPYC processor, Venice, was already booked, with orders spilling into 2028. AMD has not officially confirmed the claim. Even so, pressure on server CPU supply is attracting attention. [Reported supply constraints](https://www.techtimes.com/articles/328325/20260930/amd-epyc-venice-supply-exhausted-2027-agentic-ai-drives-server-cpu-crunch.htm)
 
-Intel has also signaled a shortage. According to coverage of Splunk .conf26, its CEO said the company could currently meet only about half of customers’ CPU demand. That figure cannot be translated directly into a global supply gap. Intel’s formal second-quarter disclosure, however, confirmed that demand exceeded available supply and that industry-wide shortages of critical components, including substrates and memory, were expected to persist into 2027. [Coverage of the remarks](https://www.trendforce.com/news/2026/09/16/news-intel-ceo-flags-ai-supply-squeeze-memory-prices-up-5-7x-its-cpus-meet-just-50-of-demand/); [Intel quarterly filing](https://www.sec.gov/Archives/edgar/data/50863/000005086326000157/intc-20260627.htm)
+Intel has also signaled a shortage. According to coverage of Splunk .conf26, its CEO said the company could currently meet only about half of customers' CPU demand. That figure cannot be translated directly into a global supply gap. Intel's formal second-quarter disclosure, however, confirmed that demand exceeded available supply and that industry-wide shortages of critical components, including substrates and memory, were expected to persist into 2027. [Coverage of the remarks](https://www.trendforce.com/news/2026/09/16/news-intel-ceo-flags-ai-supply-squeeze-memory-prices-up-5-7x-its-cpus-meet-just-50-of-demand/); [Intel quarterly filing](https://www.sec.gov/Archives/edgar/data/50863/000005086326000157/intc-20260627.htm)
 
 Generating an answer and completing a task make very different demands on computing infrastructure.
 
-**When AI starts executing tasks on people’s behalf, the work falling to CPUs grows too.**
+**When AI starts executing tasks on people's behalf, the work falling to CPUs grows too.**
 
 ![How GPUs and CPUs work together in AI infrastructure](/assets/images/essays/gpu-cpu/01_cover_gpu_cpu_architecture.jpg)
 
@@ -34,11 +34,11 @@ Consider a simplified time budget. Suppose a task originally takes 100 seconds: 
 | Other steps | 10 seconds | 10 seconds |
 | Total time | 100 seconds | 19 seconds |
 
-![Amdahl’s law: a 10× speedup in model computation makes the remaining execution steps the main bottleneck](/assets/images/essays/gpu-cpu/02_amdahl_bottleneck_chart.png)
+![Amdahl's law: a 10× speedup in model computation makes the remaining execution steps the main bottleneck](/assets/images/essays/gpu-cpu/02_amdahl_bottleneck_chart.png)
 
-The GPU’s portion becomes ten times faster, but the whole task speeds up by only about 5.3 times. Steps that originally accounted for one-tenth of the time now take more than half of it.
+The GPU's portion becomes ten times faster, but the whole task speeds up by only about 5.3 times. Steps that originally accounted for one-tenth of the time now take more than half of it.
 
-That is the constraint described by Amdahl’s law: **for a fixed-size task, the benefit of accelerating one part is limited by the work that remains.** The numbers illustrate the mechanism; they are not measurements of an average real-world agent. [NVIDIA CUDA best practices guide](https://docs.nvidia.com/cuda/cuda-c-best-practices-guide/index.html#strong-scaling-and-amdahl-s-law)
+That is the constraint described by Amdahl's law: **for a fixed-size task, the benefit of accelerating one part is limited by the work that remains.** The numbers illustrate the mechanism; they are not measurements of an average real-world agent. [NVIDIA CUDA best practices guide](https://docs.nvidia.com/cuda/cuda-c-best-practices-guide/index.html#strong-scaling-and-amdahl-s-law)
 
 A more visible bottleneck does not, by itself, mean CPU demand must rise. If the same number of tasks is processed each day, a GPU upgrade might simply shorten waiting times. Network latency, disk access, and sequential dependencies cannot necessarily be resolved by adding CPUs either.
 
@@ -52,7 +52,7 @@ Given a goal, an agent can run repeated cycles of planning, tool use, checking, 
 
 **The user assigns one job; behind the scenes, many rounds of computation and tool use may already be underway.**
 
-![An agent’s execution loop alternates between GPU inference and CPU-based tool environments](/assets/images/essays/gpu-cpu/03_agent_execution_loop.jpg)
+![An agent's execution loop alternates between GPU inference and CPU-based tool environments](/assets/images/essays/gpu-cpu/03_agent_execution_loop.jpg)
 
 This expansion remains constrained by budgets, permissions, and success rates. Companies will keep agents running only when the value of the completed work covers the costs of model calls, execution, and review. Once that condition is met, CPU load is no longer determined solely by how often people ask questions. It also depends on how many attempts and execution environments each task requires.
 
@@ -66,9 +66,9 @@ TrendForce also expects CPU-to-GPU ratios in agent deployments to move from the 
 
 Changing demand is colliding with the time required to expand supply.
 
-AMD has announced the production ramp of Venice on TSMC’s 2-nanometer process. The next generation of CPUs also needs advanced manufacturing capacity. Wafer fabrication is only the first step: packaging, substrates, memory, and complete server systems must follow. [AMD production-ramp announcement](https://newsroom.amd.com/news/amd-announces-production-ramp-of-next-generation-a/)
+AMD has announced the production ramp of Venice on TSMC's 2-nanometer process. The next generation of CPUs also needs advanced manufacturing capacity. Wafer fabrication is only the first step: packaging, substrates, memory, and complete server systems must follow. [AMD production-ramp announcement](https://newsroom.amd.com/news/amd-announces-production-ramp-of-next-generation-a/)
 
-A shortage at any stage can prevent a finished chip from becoming a usable server on schedule. Intel’s disclosures about substrate and memory constraints show that the supply pressure extends beyond processors themselves. [Intel quarterly filing](https://www.sec.gov/Archives/edgar/data/50863/000005086326000157/intc-20260627.htm)
+A shortage at any stage can prevent a finished chip from becoming a usable server on schedule. Intel's disclosures about substrate and memory constraints show that the supply pressure extends beyond processors themselves. [Intel quarterly filing](https://www.sec.gov/Archives/edgar/data/50863/000005086326000157/intc-20260627.htm)
 
 More execution environments also need more memory capacity and bandwidth, as well as power and cooling. Buying more CPUs therefore adds orders across the supporting infrastructure.
 
@@ -82,7 +82,7 @@ How long that takes depends on the particular bottleneck. Adjustments to existin
 
 The scale of CPU demand also depends on what a data center runs.
 
-In a March 2026 presentation, Arm estimated about 30 million CPU cores per gigawatt for a traditional AI data center, potentially rising to 120 million cores in an agentic configuration. This is a vendor’s estimate for specific scenarios, including CPU resources adjacent to accelerators—not a universal standard for every data center. [Arm presentation, pages 3–4](https://investors.arm.com/static-files/3ef9667a-16cb-4139-9d9d-bd59dd9f0b3e)
+In a March 2026 presentation, Arm estimated about 30 million CPU cores per gigawatt for a traditional AI data center, potentially rising to 120 million cores in an agentic configuration. This is a vendor's estimate for specific scenarios, including CPU resources adjacent to accelerators—not a universal standard for every data center. [Arm presentation, pages 3–4](https://investors.arm.com/static-files/3ef9667a-16cb-4139-9d9d-bd59dd9f0b3e)
 
 Those two endpoints allow a simple sensitivity analysis.
 
@@ -104,7 +104,7 @@ The 10-gigawatt capacity assumption, configuration shares, linear interpolation,
 
 **Even with identical additions to capacity, a change in workloads alone could more than double CPU requirements.**
 
-Estimating a global shortfall would also require accounting for general-purpose server replacement, upgrades to existing AI facilities, and equipment reuse, then comparing that demand with each supplier’s effective output. Public data is not yet sufficient to complete that calculation.
+Estimating a global shortfall would also require accounting for general-purpose server replacement, upgrades to existing AI facilities, and equipment reuse, then comparing that demand with each supplier's effective output. Public data is not yet sufficient to complete that calculation.
 
 Whether new products ramping in 2027 can ease the shortage therefore depends on how much CPU demand per data center rises as supply expands. A judgment about future balance must consider capacity growth, workload mix, and software efficiency together.
 
@@ -112,7 +112,7 @@ Whether new products ramping in 2027 can ease the shortage therefore depends on 
 
 Strong bookings must eventually be supported by actual use.
 
-Customers worried about availability may buy early or place duplicate orders. Longer lead times strengthen the incentive to stockpile. If real workloads fail to keep pace, today’s bookings may become tomorrow’s inventory and cancellations.
+Customers worried about availability may buy early or place duplicate orders. Longer lead times strengthen the incentive to stockpile. If real workloads fail to keep pace, today's bookings may become tomorrow's inventory and cancellations.
 
 Software efficiency can change demand too. Reducing unsuccessful retries, reusing execution environments, and combining queries can lower the CPU resources needed to finish a task. Slower data-center construction would also reduce new purchases.
 
@@ -120,10 +120,10 @@ Three signals are worth watching:
 
 - Are delivery times for comparable server CPUs continuing to lengthen?
 - How much revenue growth comes from shipments, and how much from a richer product mix or higher prices?
-- Do cloud providers’ construction and procurement plans become commissioned capacity and sustained workloads?
+- Do cloud providers' construction and procurement plans become commissioned capacity and sustained workloads?
 
-Volume and price are particularly easy to confuse. Intel’s second-quarter server average selling price rose 48% year over year, while shipments rose 9%. The company attributed the price increase primarily to a higher-end product mix. Rapid revenue growth need not mean equally rapid growth in CPU units sold, and cannot be converted directly into a market shortfall. [Intel quarterly filing](https://www.sec.gov/Archives/edgar/data/50863/000005086326000157/intc-20260627.htm)
+Volume and price are particularly easy to confuse. Intel's second-quarter server average selling price rose 48% year over year, while shipments rose 9%. The company attributed the price increase primarily to a higher-end product mix. Rapid revenue growth need not mean equally rapid growth in CPU units sold, and cannot be converted directly into a market shortfall. [Intel quarterly filing](https://www.sec.gov/Archives/edgar/data/50863/000005086326000157/intc-20260627.htm)
 
-The renewed attention to CPUs reflects AI’s expanding scope. Once a model can propose more solutions, a system still has to execute code, call tools, read data, and check results. What companies actually buy is a completed job, delivered by all these stages together.
+The renewed attention to CPUs reflects AI's expanding scope. Once a model can propose more solutions, a system still has to execute code, call tools, read data, and check results. What companies actually buy is a completed job, delivered by all these stages together.
 
 **Whether the CPU shortage lasts ultimately depends on whether the work companies will pay AI to do grows faster than the infrastructure required to deliver it.**

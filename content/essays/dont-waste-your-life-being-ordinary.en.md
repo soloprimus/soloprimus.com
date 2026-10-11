@@ -1,5 +1,5 @@
 ---
-title: Don’t Waste Your Life Being Ordinary
+title: Don't Waste Your Life Being Ordinary
 summary: Time cannot be bought back. Use it to build judgment, useful work, trust, and health, so each year leaves you with more than a full calendar.
 topic: growth
 date: 2026-10-06
@@ -10,11 +10,11 @@ featured: 1
 
 Start with a simple calculation.
 
-Suppose you work from the age of 25 to 60: roughly 35 years. After sleep, meals, commuting, and necessary household tasks, you might have around 3,000 waking hours a year that you can freely allocate to doing something. This is an illustrative figure; everyone’s circumstances differ, but it gives us an order of magnitude. Over 35 years, that comes to a little over 100,000 hours. This is the total capital a person has to allocate across a working life.
+Suppose you work from the age of 25 to 60: roughly 35 years. After sleep, meals, commuting, and necessary household tasks, you might have around 3,000 waking hours a year that you can freely allocate to doing something. This is an illustrative figure; everyone's circumstances differ, but it gives us an order of magnitude. Over 35 years, that comes to a little over 100,000 hours. This is the total capital a person has to allocate across a working life.
 
 In economics, opportunity cost means that choosing A requires giving up the best available alternative, B. Most people think of it in terms of money: money spent on a house cannot also be invested in stocks. But money can be earned again. Lose it, and you can save more; if you cannot borrow it today, you may find a way tomorrow. Time is different. There is no lending market for time, and no buyback provision. Once you spend three hours this evening, they are gone. No financial instrument can buy them back.
 
-So the question is not simply, “What did I do with those three hours?” It is, “What do I have now that I did not have before?”
+So the question is not simply, "What did I do with those three hours?" It is, "What do I have now that I did not have before?"
 
 I have seen this many times in investing: an asset is always in motion, always making news, always looking busy, yet a decade later its net value has barely changed. Plenty of activity; little accumulation. Many lives follow the same pattern. Work fills the day, the calendar is packed, and energy is spent constantly. But compare yourself today with yourself three years ago: what you can do, what your work commands in the market, and what you can judge are almost unchanged. The time has been spent, yet the balance sheet has gained no new asset.
 
@@ -22,13 +22,13 @@ That is what I mean by the price of mediocrity. It is not a loss you can trace t
 
 The gap is hard to see as it develops, for a simple reason: it appears as income never earned, rather than money paid out. No bill arrives. At some point, you simply discover that you have fewer options than you expected.
 
-For years, I have followed a habit when looking at someone’s career. Before asking how much they earn, I ask how much of their income comes from selling this year’s time, and how much comes from what they accumulated in previous years. The former is wages; the latter is a return on assets. If the sources of someone’s income are almost identical after ten years, there is a good chance those years were consumed rather than invested.
+For years, I have followed a habit when looking at someone's career. Before asking how much they earn, I ask how much of their income comes from selling this year's time, and how much comes from what they accumulated in previous years. The former is wages; the latter is a return on assets. If the sources of someone's income are almost identical after ten years, there is a good chance those years were consumed rather than invested.
 
 I don't want to make you anxious. I want to put the accounts on the table: your time is finite principal, and each year some of it goes somewhere. Did you choose that allocation, or drift into it?
 
 ## 2. Being ordinary and staying ordinary by default
 
-“Don’t waste your life being ordinary” can sound contemptuous of ordinary people. If that is how you hear it, I understand. Statements like this often carry an air of superiority, as though the world contains two kinds of people: those entitled to climb, and those who deserve to be left behind.
+"Don't waste your life being ordinary" can sound contemptuous of ordinary people. If that is how you hear it, I understand. Statements like this often carry an air of superiority, as though the world contains two kinds of people: those entitled to climb, and those who deserve to be left behind.
 
 That is not what I am criticizing.
 
@@ -40,7 +40,7 @@ Three questions make the distinction clear.
 
 First: did you choose this path, or drift into it? Choosing means comparing alternatives, understanding the costs, and then deciding how to allocate your time. Drifting means that nobody asked you, you never asked yourself, and things simply happened.
 
-Second: is this a stage, or your destination? Many people say, “For now, I’ll carry on like this. I’ll think about it later.” If “later” has no timetable and no preparatory action, it is not a plan. It is postponement.
+Second: is this a stage, or your destination? Many people say, "For now, I'll carry on like this. I'll think about it later." If "later" has no timetable and no preparatory action, it is not a plan. It is postponement.
 
 Third: are you accumulating anything? Even with an ordinary income today, a path can slope upward if each year adds something in a chosen direction: a skill, a body of work, a group of people who trust you. The starting point is simply low. Conversely, however high the starting point, a flat slope means standing still.
 
@@ -50,7 +50,7 @@ So when I speak of wasting time, I mean an unexamined default: a life carried fo
 
 Income can broadly be divided into two kinds.
 
-One is linear: work an hour, receive an hour’s pay. Stop working, and the income stops. Most wages, hourly services, and piecework fall into this category. They offer stability and predictability, but their ceiling is set by your time. A day has only 24 hours, and perhaps ten or so can be sold. Linear income therefore has a natural upper limit.
+One is linear: work an hour, receive an hour's pay. Stop working, and the income stops. Most wages, hourly services, and piecework fall into this category. They offer stability and predictability, but their ceiling is set by your time. A day has only 24 hours, and perhaps ten or so can be sold. Linear income therefore has a natural upper limit.
 
 The other compounds: what you do today produces value today and continues to produce value afterward. A good essay is still being read a year later. A tested method of judgment can be used ten or a hundred times without being reinvented. A client who trusts you may introduce you to someone else while you are doing nothing at all. These have something in common: their value does not vanish with the time you spent. They remain as assets that can keep working.
 
@@ -106,7 +106,7 @@ My view is that AI is doing two things that pull in opposite directions.
 
 First, it is eroding the value of a category of competence: intermediate skills that can be clearly described and repeatedly reproduced.
 
-What does “clearly described” mean? It means you could write instructions that another person could follow to produce broadly similar results. Organizing information, drafting standard documents, preparing formulaic analysis, writing conventional marketing copy, or turning one report format into another all share this feature: the rules connecting the input to the output can be articulated. Once those rules can be articulated, machines can learn them, quickly and at low cost.
+What does "clearly described" mean? It means you could write instructions another person can follow to produce broadly similar results. Organizing information, drafting standard documents, preparing formulaic analysis, writing conventional marketing copy, or turning one report format into another all share this feature: the rules connecting the input to the output can be articulated. Once those rules can be articulated, machines can learn them, quickly and at low cost.
 
 Such abilities once supported many livelihoods. They commanded a price because, for a time, only trained people could perform the work. That barrier is becoming thinner. I do not want to predict an exact timetable, or announce which professions will disappear; such predictions are often unreliable. But the direction seems clear: value supported mainly by being slightly more proficient than someone else will face continuing pressure.
 
@@ -122,9 +122,9 @@ Leverage means that someone who uses tools well can produce several times as muc
 
 This leads to a practical implication for allocating time: avoid concentrating it in work whose value AI is likely to flatten.
 
-How can you assess that? I ask three questions. Could the method be written down as clear instructions? Would there be a substantial difference between the finished work of someone with five years’ experience and someone with six months’? If a sufficiently good tool were available, would I still want to spend the same amount of time doing it?
+How can you assess that? I ask three questions. Could the method be written down as clear instructions? Would there be a substantial difference between the finished work of someone with five years' experience and someone with six months'? If a sufficiently good tool were available, would I still want to spend the same amount of time doing it?
 
-If your answers lean toward “the method can be written down,” “the difference is small,” and “I would not,” be alert: you may be investing part of your time in an asset approaching depreciation.
+If your answers lean toward "the method can be written down," "the difference is small," and "I would not," be alert: you may be investing part of your time in an asset approaching depreciation.
 
 Instead, shift some of that time toward other directions:
 
@@ -140,7 +140,7 @@ The practices below give you a way to check what your time is producing.
 
 First, conduct a balance-sheet review once a year.
 
-Choose the end of the year, your birthday, or another convenient date. What matters is making it regular. Ask one central question: did this year’s time become assets that can grow in value?
+Choose the end of the year, your birthday, or another convenient date. What matters is making it regular. Ask one central question: did this year's time become assets that can grow in value?
 
 Work through the five categories:
 
@@ -168,12 +168,12 @@ Fifth, be skeptical of busyness.
 
 Being busy does not guarantee useful output. At the end of each week, I look back at the three activities that took the most time and ask what each produced. If the most time-consuming work leaves the least behind, it may need to be reduced, delegated, or dropped.
 
-Sixth, compare yourself with last year’s self, rather than with other people.
+Sixth, compare yourself with last year's self, rather than with other people.
 
 Other people begin with different resources and live at different stages. Comparing yourself with them tells you little. After another year, has your own balance sheet grown?
 
 None of these practices requires you to resign immediately, reinvent your career overnight, or transform your life at once. They ask only that you treat time as capital that needs managing, review the accounts regularly, and acknowledge that every hour spent is irretrievable.
 
-Time cannot be bought back. A year gone is a year gone; nobody can return it. What you can do is look honestly at the ledger at the end of each year and ask: what did this year’s time become?
+Time cannot be bought back. A year gone is a year gone; nobody can return it. What you can do is look honestly at the ledger at the end of each year and ask: what did this year's time become?
 
 If it added something, however modest, next year begins from a better position. If it added nothing, find out why and allocate differently next year.
