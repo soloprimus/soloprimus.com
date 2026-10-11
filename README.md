@@ -3,6 +3,8 @@
 Personal website of Solo Primus (凌霄): essays on investing, AI, and self-improvement.
 English is served at `/`, Chinese at `/zh/`.
 
+The homepage entry `/` defaults to Chinese for Cloudflare country code `CN` (mainland China), and English everywhere else, including Hong Kong, Macao and Taiwan. Missing geolocation falls back to English. Explicit `/zh/` and article URLs retain their requested language. Header/footer language switches use `?lang=en` or `?lang=zh` and remember a deliberate choice for one year in a first-party cookie, overriding the geographic default. Search crawlers retain stable URLs. Homepage negotiation and language-choice responses are not cached; feeds, assets and visitor statistics are unchanged. Country comes from trusted `request.cf.country`, not browser language or a client-supplied header.
+
 I’m Dr. Solo Primus, Assistant Professor. The English slogan is “One person. Three levers. Unlimited upside.” The Chinese homepage uses its own voice: “独行有道 · 借力登高 · 凌霄无界”. The site is organized around investing, AI, and self-improvement.
 
 ## RSS and follow links

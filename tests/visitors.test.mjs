@@ -29,6 +29,68 @@ const visit = (counter, ip, location = { country: 'CN', lat: 32, lon: 122 }) => 
   method: 'POST', body: JSON.stringify({ ip, location }),
 }));
 
+test('Homepage language uses mainland IP, with stable deep links and uncached redirects', async () => {
+  let assetCalls = 0;
+  const env = { ASSETS: { fetch: async () => {
+    assetCalls++;
+    return new Response('page', { headers: { 'Content-Type': 'text/html', 'Cache-Control': 'public, max-age=3600', 'X-Content-Type-Options': 'nosniff' } });
+  } } };
+  const ctx = { waitUntil() { throw new Error('Redirect must not count as a visit'); } };
+  async function request(path = '/', country = 'CN', headers = {}, method = 'GET', extra = {}) {
+    const req = new Request('https://soloprimus.com' + path, { method, headers: { 'User-Agent': 'Mozilla/5.0', ...headers } });
+    Object.defineProperty(req, 'cf', { value: { country, ...extra } });
+    return worker.fetch(req, env, ctx);
+  }
+  const cn = await request('/?utm_source=test');
+  assert.equal(cn.status, 302);
+  assert.equal(cn.headers.get('Location'), 'https://soloprimus.com/zh/?utm_source=test');
+  assert.equal(cn.headers.get('Cache-Control'), 'private, no-store');
+  assert.equal(assetCalls, 0);
+  for (const country of ['US', 'GB', 'JP', 'HK', 'MO', 'TW', 'XX', null]) {
+    const res = await request('/', country);
+    assert.equal(res.status, 200, String(country));
+    assert.equal(res.headers.get('Cache-Control'), 'private, no-store');
+    assert.equal(res.headers.get('X-Content-Type-Options'), 'nosniff');
+  }
+  const noGeo = await worker.fetch(new Request('https://soloprimus.com/'), env, ctx);
+  assert.equal(noGeo.status, 200);
+  assert.equal((await request('/', 'CN', {}, 'HEAD')).status, 302);
+  for (const path of ['/zh/', '/essays/gpu-speed-cpu-shortage/', '/zh/essays/gpu-speed-cpu-shortage/', '/about/']) {
+    for (const country of ['CN', 'US']) {
+      const res = await request(path, country);
+      assert.equal(res.status, 200);
+      assert.equal(res.headers.get('Cache-Control'), 'public, max-age=3600');
+    }
+  }
+  assert.equal((await request('/', 'CN', { 'CF-IPCountry': 'US' })).status, 302);
+  assert.equal((await request('/', 'US', { 'CF-IPCountry': 'CN' })).status, 200);
+  assert.equal((await request('/', 'CN', { 'User-Agent': 'Googlebot' })).status, 200);
+  assert.equal((await request('/', 'CN', {}, 'GET', { botManagement: { verifiedBot: true } })).status, 200);
+});
+
+test('Manual language selection survives geographic defaults without a redirect loop', async () => {
+  const env = { ASSETS: { fetch: async () => new Response('page', { headers: { 'Content-Type': 'text/html' } }) } };
+  async function request(path, country, cookie = '') {
+    const req = new Request('https://soloprimus.com' + path, { headers: { 'User-Agent': 'Mozilla/5.0', Cookie: cookie } });
+    Object.defineProperty(req, 'cf', { value: { country } });
+    return worker.fetch(req, env, { waitUntil() {} });
+  }
+  const en = await request('/?lang=en', 'CN', 'soloprimus-language=zh');
+  assert.equal(en.status, 200);
+  assert.match(en.headers.get('Set-Cookie'), /^soloprimus-language=en; Path=\/; Max-Age=31536000; Secure; HttpOnly; SameSite=Lax$/);
+  assert.equal((await request('/', 'CN', 'theme=dark; soloprimus-language=en; test=1')).status, 200);
+  const zh = await request('/zh/?lang=zh', 'US', 'soloprimus-language=en');
+  assert.match(zh.headers.get('Set-Cookie'), /^soloprimus-language=zh;/);
+  assert.equal(zh.headers.get('Cache-Control'), 'private, no-store');
+  assert.equal((await request('/', 'US', 'soloprimus-language=zh')).headers.get('Location'), 'https://soloprimus.com/zh/');
+  assert.equal((await request('/zh/', 'US', 'soloprimus-language=zh')).status, 200);
+  const article = await request('/essays/gpu-speed-cpu-shortage/?lang=en', 'CN');
+  assert.equal(article.status, 200);
+  assert.match(article.headers.get('Set-Cookie'), /^soloprimus-language=en;/);
+  assert.equal((await request('/?lang=invalid', 'CN', 'soloprimus-language=not-en')).status, 302);
+  assert.equal((await request('/?lang=en', 'CN')).headers.get('Location'), null);
+});
+
 test('California calendar days honor midnight, summer/winter time and DST transitions', () => {
   for (const [timestamp, day] of [
     ['2026-01-04T07:59:59Z', '2026-01-03'],

@@ -110,7 +110,7 @@ function layout({ lang, path, altPath, title, description, image, type = 'websit
   if (altPath) alternates.push([SITE.langs[o].hreflang, abs(altPath)]);
   const xDefault = lang === 'en' ? canonical : altPath ? abs(altPath) : null;
   const img = image || ogImage(`${lang}-default`);
-  const langHref = altPath || P.home(o);
+  const langHref = `${altPath || P.home(o)}?lang=${o}`;
   const nav = [
     ['essays', P.essays(lang), t.nav.essays],
     ['topics', `${P.home(lang)}#topics`, t.nav.topics],
@@ -485,7 +485,7 @@ function essayPage(e, essays) {
       <a class="topic-tag" href="${P.essays(lang)}#${e.topic}">${esc(t.topics[e.topic])}</a>
       <h1>${esc(e.title)}</h1>
       <p class="article-dek">${esc(e.summary)}</p>
-      <p class="byline"><span>${esc(A.by)} <a href="${P.about(lang)}">${lang === 'zh' ? `${NAME.zh}` : NAME.en}</a></span><span aria-hidden="true">·</span><time datetime="${iso(e.date)}">${esc(t.date(e.date))}</time><span aria-hidden="true">·</span><span>${esc(t.minRead(e.minutes))}</span>${altPath ? `<span aria-hidden="true">·</span><a href="${altPath}" hreflang="${SITE.langs[other(lang)].hreflang}">${esc(A.alternate)}</a>` : ''}</p>
+      <p class="byline"><span>${esc(A.by)} <a href="${P.about(lang)}">${lang === 'zh' ? `${NAME.zh}` : NAME.en}</a></span><span aria-hidden="true">·</span><time datetime="${iso(e.date)}">${esc(t.date(e.date))}</time><span aria-hidden="true">·</span><span>${esc(t.minRead(e.minutes))}</span>${altPath ? `<span aria-hidden="true">·</span><a href="${altPath}?lang=${other(lang)}" hreflang="${SITE.langs[other(lang)].hreflang}">${esc(A.alternate)}</a>` : ''}</p>
     </header>
 ${toc.length >= 3 ? `    <nav class="toc" aria-labelledby="toc-title">
       <p id="toc-title">${esc(A.onThisPage)}</p>

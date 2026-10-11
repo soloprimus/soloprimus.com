@@ -36,6 +36,21 @@ function counter(env) {
   return env.VISITORS.get(env.VISITORS.idFromName(COUNTER_NAME));
 }
 
+function languagePreference(request, url) {
+  const chosen = url.searchParams.get('lang');
+  const explicit = chosen === 'en' || chosen === 'zh' ? chosen : null;
+  const saved = request.headers.get('Cookie')?.match(/(?:^|;\s*)soloprimus-language=(en|zh)(?:;|$)/)?.[1];
+  return { explicit, language: explicit || saved || (request.cf?.country === 'CN' ? 'zh' : 'en') };
+}
+
+function languageHeaders(response, explicit) {
+  const result = new Response(response.body, response);
+  // The same homepage URL can redirect differently for different visitors.
+  result.headers.set('Cache-Control', 'private, no-store');
+  if (explicit) result.headers.append('Set-Cookie', `soloprimus-language=${explicit}; Path=/; Max-Age=31536000; Secure; HttpOnly; SameSite=Lax`);
+  return result;
+}
+
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
@@ -48,6 +63,17 @@ export default {
       }
     }
     if (url.pathname.startsWith('/api/')) return json({ error: 'not_found' }, 404);
+
+    const navigation = request.method === 'GET' || request.method === 'HEAD';
+    const { explicit, language } = languagePreference(request, url);
+    const homepage = url.pathname === '/';
+    const bot = BOT.test(request.headers.get('User-Agent') || '') || request.cf?.botManagement?.verifiedBot;
+    // Explicit Chinese URLs and article permalinks stay shareable worldwide.
+    // Only the language-neutral entry point negotiates a default language.
+    if (navigation && homepage && language === 'zh' && (!bot || explicit)) {
+      url.pathname = '/zh/';
+      return languageHeaders(new Response(null, { status: 302, headers: { Location: url.href } }), explicit);
+    }
 
     // Static assets keep their existing headers, redirects, 404 and cache behavior.
     const response = await env.ASSETS.fetch(request);
@@ -68,7 +94,8 @@ export default {
         if (!result.ok) throw new Error('Counter write failed');
       }).catch(() => console.error('Visitor statistics write unavailable')));
     }
-    return response;
+    return navigation && (homepage || (explicit && response.headers.get('Content-Type')?.includes('text/html')))
+      ? languageHeaders(response, explicit) : response;
   },
 };
 
