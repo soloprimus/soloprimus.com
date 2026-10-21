@@ -27,10 +27,11 @@
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/figtree/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/fonts.css?v=f9663c4608">
-<link rel="stylesheet" href="/assets/css/site.css?v=b99d1b46a0">
+<link rel="stylesheet" href="/assets/css/site.css?v=920c032354">
 <script>try{var s=localStorage.getItem('soloprimus-theme');document.documentElement.dataset.theme=s==='dark'||s==='light'?s:matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}catch(e){}</script>
 <script src="/assets/js/site.js?v=38fe3046df" defer></script>
 <script src="/assets/js/visitor-globe.js?v=1c2261a818" defer></script>
+<script src="/assets/js/article-reading.js?v=e0802a7a24" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"股市不是赚钱的地方，是财富的放大器","description":"对年轻人而言，最值得投入的资产往往是自己。先提升赚钱能力，再用储蓄与长期投资放大积累，别把顺序倒过来。","datePublished":"2026-10-02","dateModified":"2026-10-02","inLanguage":"zh-CN","author":{"@id":"https://soloprimus.com/#person"},"publisher":{"@id":"https://soloprimus.com/#person"},"mainEntityOfPage":"https://soloprimus.com/zh/essays/the-stock-market-is-a-wealth-amplifier/","url":"https://soloprimus.com/zh/essays/the-stock-market-is-a-wealth-amplifier/","image":"https://soloprimus.com/assets/og/zh-the-stock-market-is-a-wealth-amplifier.png?v=2f242f47c0"},{"@type":"Person","@id":"https://soloprimus.com/#person","name":"Solo Primus","alternateName":["SOLO PRIMUS","凌霄"],"url":"https://soloprimus.com/about/","jobTitle":"Assistant Professor","description":"I’m Dr. Solo Primus, Assistant Professor.","knowsAbout":["Economics","Investing","Artificial intelligence","Self-improvement"],"sameAs":["https://x.com/thesoloprimus","https://substack.com/@soloprimus","https://github.com/soloprimus","https://www.youtube.com/@SoloPrimus"]}]}</script>
 </head>
 <body>
@@ -53,12 +54,18 @@
 </header>
 <main id="main">
 <div class="wrap article-layout">
-  <article class="article">
+  <article class="article" data-reading-article="the-stock-market-is-a-wealth-amplifier" data-reading-lang="zh">
     <header class="article-head">
       <a class="topic-tag" href="/zh/essays/#investing">投资</a>
       <h1>股市不是赚钱的地方，是财富的放大器</h1>
       <p class="article-dek">对年轻人而言，最值得投入的资产往往是自己。先提升赚钱能力，再用储蓄与长期投资放大积累，别把顺序倒过来。</p>
       <p class="byline"><span>作者 <a href="/zh/about/">凌霄</a></span><span aria-hidden="true">·</span><time datetime="2026-10-02">2026年10月2日</time><span aria-hidden="true">·</span><span>阅读约 8 分钟</span><span aria-hidden="true">·</span><a href="/essays/the-stock-market-is-a-wealth-amplifier/?lang=en" hreflang="en">阅读英文版</a></p>
+      <div class="reading-tools" hidden>
+        <span class="reading-presence" title="中英文版合并统计，每 20 秒更新；离开后约一分钟内移出统计。同一浏览器多标签只计一人。"><span class="reading-dot" aria-hidden="true"></span><span data-reading-count>正在连接实时人数…</span></span>
+        <span class="reading-hint">选中文字，可划线留存</span>
+        <button class="reading-clear" type="button" hidden>清除本文划线</button>
+      </div>
+      <p class="reading-status sr-only" role="status" aria-live="polite"></p>
     </header>
     <nav class="toc" aria-labelledby="toc-title">
       <p id="toc-title">本文目录</p>
@@ -71,7 +78,7 @@
         <li><a href="#ai">六、AI 时代：把研究股票的时间，拿去研究自己</a></li>
       </ol>
     </nav>
-    <div class="prose">
+    <div class="prose" data-reading-prose>
 <blockquote><p>给年轻人的第一条投资建议：不要学习投资。</p></blockquote>
 <p>我给年轻人的第一条投资建议，可能和你预期的不太一样：不要学习投资。</p>
 <p>这句话不是说投资不重要，更不是说股市没有价值。我反对的是一种资源错配：一个月薪八千的年轻人，花几百个小时研读财报、追踪行情、研究"下一个十倍股"，最后收益常常还不如把这些时间用在一次升职加薪上。</p>
@@ -133,6 +140,11 @@
 <p><strong>股市不会奖励那个最努力研究它的人，但它会慷慨地放大那个先把自己经营好的人。</strong></p>
 <hr>
 <p>风险提示：本文仅为个人观点与思路分享，不构成任何投资建议或收益承诺。文中算例均为示意性假设，引用研究的具体数据请以原始文献和最新报告为准。投资有风险，决策需结合自身情况。</p>
+    </div>
+    <div class="reading-toolbar" role="toolbar" aria-label="文字划线" hidden>
+      <button type="button" data-underline-add>划线</button>
+      <button type="button" data-underline-remove hidden>取消划线</button>
+      <span>仅存于此浏览器</span>
     </div>
     <aside class="author-box" aria-labelledby="author-title">
       <div class="avatar"><svg class="avatar-mark" viewBox="0 0 100 80" aria-hidden="true" focusable="false"><path fill="currentColor" d="M50 6 63.8 24C63 28.5 52 32 43 39C34 46 37 51.5 45 59C55 69 51 74 36 74H4Z M66.5 27.5 96 74H81C76 64 66 57.5 56 51C45 44 46 40 53 35.5C59 32 63.5 31 66.5 27.5Z"/></svg></div>

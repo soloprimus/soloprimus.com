@@ -25,10 +25,11 @@
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/figtree/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/fonts.css?v=f9663c4608">
-<link rel="stylesheet" href="/assets/css/site.css?v=b99d1b46a0">
+<link rel="stylesheet" href="/assets/css/site.css?v=920c032354">
 <script>try{var s=localStorage.getItem('soloprimus-theme');document.documentElement.dataset.theme=s==='dark'||s==='light'?s:matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}catch(e){}</script>
 <script src="/assets/js/site.js?v=38fe3046df" defer></script>
 <script src="/assets/js/visitor-globe.js?v=1c2261a818" defer></script>
+<script src="/assets/js/article-reading.js?v=e0802a7a24" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"一个人对价值的理解，是怎样长出来的","description":"有些判断，要放进生活里用过，才知道自己懂了多少。一次租房，就能看出经历如何补上被漏算的成本。","datePublished":"2026-09-05","dateModified":"2026-09-05","inLanguage":"zh-CN","author":{"@id":"https://soloprimus.com/#person"},"publisher":{"@id":"https://soloprimus.com/#person"},"mainEntityOfPage":"https://soloprimus.com/zh/essays/how-understanding-of-value-grows/","url":"https://soloprimus.com/zh/essays/how-understanding-of-value-grows/","image":"https://soloprimus.com/assets/og/zh-how-understanding-of-value-grows.png?v=2c0199271d"},{"@type":"Person","@id":"https://soloprimus.com/#person","name":"Solo Primus","alternateName":["SOLO PRIMUS","凌霄"],"url":"https://soloprimus.com/about/","jobTitle":"Assistant Professor","description":"I’m Dr. Solo Primus, Assistant Professor.","knowsAbout":["Economics","Investing","Artificial intelligence","Self-improvement"],"sameAs":["https://x.com/thesoloprimus","https://substack.com/@soloprimus","https://github.com/soloprimus","https://www.youtube.com/@SoloPrimus"]}]}</script>
 </head>
 <body>
@@ -51,14 +52,20 @@
 </header>
 <main id="main">
 <div class="wrap article-layout">
-  <article class="article">
+  <article class="article" data-reading-article="how-understanding-of-value-grows" data-reading-lang="zh">
     <header class="article-head">
       <a class="topic-tag" href="/zh/essays/#growth">自我提升</a>
       <h1>一个人对价值的理解，是怎样长出来的</h1>
       <p class="article-dek">有些判断，要放进生活里用过，才知道自己懂了多少。一次租房，就能看出经历如何补上被漏算的成本。</p>
       <p class="byline"><span>作者 <a href="/zh/about/">凌霄</a></span><span aria-hidden="true">·</span><time datetime="2026-09-05">2026年9月5日</time><span aria-hidden="true">·</span><span>阅读约 3 分钟</span></p>
+      <div class="reading-tools" hidden>
+        <span class="reading-presence" title="中英文版合并统计，每 20 秒更新；离开后约一分钟内移出统计。同一浏览器多标签只计一人。"><span class="reading-dot" aria-hidden="true"></span><span data-reading-count>正在连接实时人数…</span></span>
+        <span class="reading-hint">选中文字，可划线留存</span>
+        <button class="reading-clear" type="button" hidden>清除本文划线</button>
+      </div>
+      <p class="reading-status sr-only" role="status" aria-live="polite"></p>
     </header>
-    <div class="prose">
+    <div class="prose" data-reading-prose>
 <p>网上流传着一句被归在芒格名下的话：“四十岁之前没有真正的价值投资者。”这句话的一手出处尚待核实，但它留下了一个值得讨论的问题：一个人究竟要经历什么，才能形成自己对价值的理解？（<a href="https://finance.sina.com.cn/stock/stocktalk/2018-04-13/doc-ifzcyxmu1481094.shtml">中文转述示例</a>）</p>
 <p>我愿意把“四十岁”理解为一种提醒：有些判断，需要放进生活里用过，才知道自己究竟懂了多少。我们可以很早就知道时间宝贵、健康重要、做人要靠谱，却未必知道，在具体的选择里，应该给它们多大的分量。</p>
 <p>一次租房，就能让这种差别显现出来。设想一个刚工作的人，在两套房子之间选择：一套每月便宜一千元，每天多通勤两小时；另一套贵一些，离公司很近。他算了算，一年能省一万二，便选了远的那套。在他当时的账本里，省下的钱最容易看见。</p>
@@ -73,6 +80,11 @@
 <p>四十岁因此只能是一种修辞。年轻人可以通过阅读、观察和小规模尝试，提前发现判断中的漏洞；年长者也可能一直拒绝修改自己的答案。我们无需把所有弯路亲自走完，但需要认真理解别人的遭遇与自己的处境有哪些异同。</p>
 <p>形成自己的价值尺度，可以从一次具体的回看开始：当初想得到什么，实际付出了什么，哪些代价原先没有算进去，下一次准备怎样调整。当一段经历能够改变你的下一次选择，它才开始成为你的理解。</p>
 <p>有了这样的尺度，面对一个人人称好的机会，你才有依据决定要不要接受。你知道它能带来什么，也知道它会占掉什么。别人可以告诉你这件事有多好，最后那笔账，仍然要由你自己的生活来结。</p>
+    </div>
+    <div class="reading-toolbar" role="toolbar" aria-label="文字划线" hidden>
+      <button type="button" data-underline-add>划线</button>
+      <button type="button" data-underline-remove hidden>取消划线</button>
+      <span>仅存于此浏览器</span>
     </div>
     <p class="article-note">本文为个人研究与思考，不构成任何投资建议。</p>
     <aside class="author-box" aria-labelledby="author-title">

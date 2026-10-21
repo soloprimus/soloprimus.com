@@ -25,10 +25,11 @@
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/figtree/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/fonts.css?v=f9663c4608">
-<link rel="stylesheet" href="/assets/css/site.css?v=b99d1b46a0">
+<link rel="stylesheet" href="/assets/css/site.css?v=920c032354">
 <script>try{var s=localStorage.getItem('soloprimus-theme');document.documentElement.dataset.theme=s==='dark'||s==='light'?s:matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}catch(e){}</script>
 <script src="/assets/js/site.js?v=38fe3046df" defer></script>
 <script src="/assets/js/visitor-globe.js?v=1c2261a818" defer></script>
+<script src="/assets/js/article-reading.js?v=e0802a7a24" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"投资一定要有升维思维","description":"2007 年买中石油和 2014 年买茅台的人，下单时回答的不是同一个问题。从时间、概率、结构、收益来源到你自己，一层层往上看。","datePublished":"2026-09-08","dateModified":"2026-09-08","inLanguage":"zh-CN","author":{"@id":"https://soloprimus.com/#person"},"publisher":{"@id":"https://soloprimus.com/#person"},"mainEntityOfPage":"https://soloprimus.com/zh/essays/thinking-one-level-up/","url":"https://soloprimus.com/zh/essays/thinking-one-level-up/","image":"https://soloprimus.com/assets/og/zh-thinking-one-level-up.png?v=45cb9c6d45"},{"@type":"Person","@id":"https://soloprimus.com/#person","name":"Solo Primus","alternateName":["SOLO PRIMUS","凌霄"],"url":"https://soloprimus.com/about/","jobTitle":"Assistant Professor","description":"I’m Dr. Solo Primus, Assistant Professor.","knowsAbout":["Economics","Investing","Artificial intelligence","Self-improvement"],"sameAs":["https://x.com/thesoloprimus","https://substack.com/@soloprimus","https://github.com/soloprimus","https://www.youtube.com/@SoloPrimus"]}]}</script>
 </head>
 <body>
@@ -51,14 +52,20 @@
 </header>
 <main id="main">
 <div class="wrap article-layout">
-  <article class="article">
+  <article class="article" data-reading-article="thinking-one-level-up" data-reading-lang="zh">
     <header class="article-head">
       <a class="topic-tag" href="/zh/essays/#investing">投资</a>
       <h1>投资一定要有升维思维</h1>
       <p class="article-dek">2007 年买中石油和 2014 年买茅台的人，下单时回答的不是同一个问题。从时间、概率、结构、收益来源到你自己，一层层往上看。</p>
       <p class="byline"><span>作者 <a href="/zh/about/">凌霄</a></span><span aria-hidden="true">·</span><time datetime="2026-09-08">2026年9月8日</time><span aria-hidden="true">·</span><span>阅读约 6 分钟</span></p>
+      <div class="reading-tools" hidden>
+        <span class="reading-presence" title="中英文版合并统计，每 20 秒更新；离开后约一分钟内移出统计。同一浏览器多标签只计一人。"><span class="reading-dot" aria-hidden="true"></span><span data-reading-count>正在连接实时人数…</span></span>
+        <span class="reading-hint">选中文字，可划线留存</span>
+        <button class="reading-clear" type="button" hidden>清除本文划线</button>
+      </div>
+      <p class="reading-status sr-only" role="status" aria-live="polite"></p>
     </header>
-    <div class="prose">
+    <div class="prose" data-reading-prose>
 <p>2007年11月5日，中石油A股上市，开盘48.62元。那天证券营业部门口是排队的，媒体的说法是“亚洲最赚钱的公司”，买它等于分享国家的能源命脉。结果一年之后它跌到9块7，之后的十几年，大部分时间在7块到10块之间待着。从上市第一天买进去、一直没舍得卖的那批人，最后是靠段子出名的。</p>
 <p>差不多同一段时间，2014年1月，也有人在118块附近买了贵州茅台。当时的气氛跟中石油上市那会儿正好相反：塑化剂事件过去没多久，八项规定下来，团购渠道基本断了，一批经销商在亏钱抛货，市盈率跌到八倍多。那时候看空白酒是主流意见，不是少数意见，券商研报里“渠道崩塌”“价格倒挂”这类词随处可见。</p>
 <p>这两拨人的差别，通常被解释成眼光好不好。我觉得不是。他们真正的差别在于，下单那一刻，脑子里在回答的根本不是同一个问题。买中石油的人在回答“这家公司好不好、大不大、赚不赚钱”，买茅台的人在回答“现在这个价格，有没有已经把未来几年的坏消息都算进去了”。第二个问题比第一个问题高一层，而你在第一个问题上再怎么用功，也答不出第二个问题。这就是我想说的升维。</p>
@@ -75,6 +82,11 @@
 <p>升维不保证你这一次赚钱。它保证的是，你不会因为一次判断错误就永久离开这个市场。市场里活得久的人，靠的从来不是判断更准，而是在自己想不明白的时候，损失是有上限的。</p>
 <hr>
 <p><em>本文只是个人思考记录，提到的公司仅用于说明问题，不构成任何投资建议。市场有风险，决策请自己负责。</em></p>
+    </div>
+    <div class="reading-toolbar" role="toolbar" aria-label="文字划线" hidden>
+      <button type="button" data-underline-add>划线</button>
+      <button type="button" data-underline-remove hidden>取消划线</button>
+      <span>仅存于此浏览器</span>
     </div>
     <aside class="author-box" aria-labelledby="author-title">
       <div class="avatar"><svg class="avatar-mark" viewBox="0 0 100 80" aria-hidden="true" focusable="false"><path fill="currentColor" d="M50 6 63.8 24C63 28.5 52 32 43 39C34 46 37 51.5 45 59C55 69 51 74 36 74H4Z M66.5 27.5 96 74H81C76 64 66 57.5 56 51C45 44 46 40 53 35.5C59 32 63.5 31 66.5 27.5Z"/></svg></div>

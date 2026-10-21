@@ -27,10 +27,11 @@
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/figtree/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/fonts.css?v=f9663c4608">
-<link rel="stylesheet" href="/assets/css/site.css?v=b99d1b46a0">
+<link rel="stylesheet" href="/assets/css/site.css?v=920c032354">
 <script>try{var s=localStorage.getItem('soloprimus-theme');document.documentElement.dataset.theme=s==='dark'||s==='light'?s:matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}catch(e){}</script>
 <script src="/assets/js/site.js?v=38fe3046df" defer></script>
 <script src="/assets/js/visitor-globe.js?v=1c2261a818" defer></script>
+<script src="/assets/js/article-reading.js?v=e0802a7a24" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"69岁的红杉传奇说：我这一生，都是被恐惧推着走的","description":"恐惧可以是燃料，也可能成为消耗。借道格·莱昂内的经历，讨论如何把具体的不安转化为行动，以及这套方法的边界。","datePublished":"2026-10-02","dateModified":"2026-10-02","inLanguage":"zh-CN","author":{"@id":"https://soloprimus.com/#person"},"publisher":{"@id":"https://soloprimus.com/#person"},"mainEntityOfPage":"https://soloprimus.com/zh/essays/give-fear-a-job/","url":"https://soloprimus.com/zh/essays/give-fear-a-job/","image":"https://soloprimus.com/assets/og/zh-give-fear-a-job.png?v=c28dee262b"},{"@type":"Person","@id":"https://soloprimus.com/#person","name":"Solo Primus","alternateName":["SOLO PRIMUS","凌霄"],"url":"https://soloprimus.com/about/","jobTitle":"Assistant Professor","description":"I’m Dr. Solo Primus, Assistant Professor.","knowsAbout":["Economics","Investing","Artificial intelligence","Self-improvement"],"sameAs":["https://x.com/thesoloprimus","https://substack.com/@soloprimus","https://github.com/soloprimus","https://www.youtube.com/@SoloPrimus"]}]}</script>
 </head>
 <body>
@@ -53,12 +54,18 @@
 </header>
 <main id="main">
 <div class="wrap article-layout">
-  <article class="article">
+  <article class="article" data-reading-article="give-fear-a-job" data-reading-lang="zh">
     <header class="article-head">
       <a class="topic-tag" href="/zh/essays/#growth">自我提升</a>
       <h1>69岁的红杉传奇说：我这一生，都是被恐惧推着走的</h1>
       <p class="article-dek">恐惧可以是燃料，也可能成为消耗。借道格·莱昂内的经历，讨论如何把具体的不安转化为行动，以及这套方法的边界。</p>
       <p class="byline"><span>作者 <a href="/zh/about/">凌霄</a></span><span aria-hidden="true">·</span><time datetime="2026-10-02">2026年10月2日</time><span aria-hidden="true">·</span><span>阅读约 9 分钟</span><span aria-hidden="true">·</span><a href="/essays/give-fear-a-job/?lang=en" hreflang="en">阅读英文版</a></p>
+      <div class="reading-tools" hidden>
+        <span class="reading-presence" title="中英文版合并统计，每 20 秒更新；离开后约一分钟内移出统计。同一浏览器多标签只计一人。"><span class="reading-dot" aria-hidden="true"></span><span data-reading-count>正在连接实时人数…</span></span>
+        <span class="reading-hint">选中文字，可划线留存</span>
+        <button class="reading-clear" type="button" hidden>清除本文划线</button>
+      </div>
+      <p class="reading-status sr-only" role="status" aria-live="polite"></p>
     </header>
     <nav class="toc" aria-labelledby="toc-title">
       <p id="toc-title">本文目录</p>
@@ -72,7 +79,7 @@
         <li><a href="#section-7">结语</a></li>
       </ol>
     </nav>
-    <div class="prose">
+    <div class="prose" data-reading-prose>
 <p>一个执掌红杉资本26年、押中过思科、谷歌、苹果、英伟达的人，在69岁那年说了一句话：</p>
 <p>"我每次重塑自己，都不是出于对伟大的浪漫憧憬，而是出于害怕被时代淘汰的恐惧。"</p>
 <p>你以为他在谦虚。其实，他泄露了一个极端成功者几乎都守口如瓶的秘密。</p>
@@ -142,6 +149,11 @@
 <p>AI时代的壁垒，不在于你现在会什么，而在于你是否还愿意害怕、是否还愿意因为害怕而动起来。</p>
 <p>所以，今天不妨做一件很小的事：<strong>写下一件你最该害怕的事。要具体，要有对象。然后，只做一个最小的动作。就一个。</strong></p>
 <p><strong>在这个时代，不害怕的人，才是最该害怕的人。</strong></p>
+    </div>
+    <div class="reading-toolbar" role="toolbar" aria-label="文字划线" hidden>
+      <button type="button" data-underline-add>划线</button>
+      <button type="button" data-underline-remove hidden>取消划线</button>
+      <span>仅存于此浏览器</span>
     </div>
     <aside class="author-box" aria-labelledby="author-title">
       <div class="avatar"><svg class="avatar-mark" viewBox="0 0 100 80" aria-hidden="true" focusable="false"><path fill="currentColor" d="M50 6 63.8 24C63 28.5 52 32 43 39C34 46 37 51.5 45 59C55 69 51 74 36 74H4Z M66.5 27.5 96 74H81C76 64 66 57.5 56 51C45 44 46 40 53 35.5C59 32 63.5 31 66.5 27.5Z"/></svg></div>

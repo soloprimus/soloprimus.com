@@ -27,10 +27,11 @@
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/figtree/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/fonts.css?v=f9663c4608">
-<link rel="stylesheet" href="/assets/css/site.css?v=b99d1b46a0">
+<link rel="stylesheet" href="/assets/css/site.css?v=920c032354">
 <script>try{var s=localStorage.getItem('soloprimus-theme');document.documentElement.dataset.theme=s==='dark'||s==='light'?s:matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}catch(e){}</script>
 <script src="/assets/js/site.js?v=38fe3046df" defer></script>
 <script src="/assets/js/visitor-globe.js?v=1c2261a818" defer></script>
+<script src="/assets/js/article-reading.js?v=e0802a7a24" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"什么是真正的知识？","description":"AI 让答案变得廉价，可靠的判断却更稀缺。真正的知识，要能在真实约束下经得起检验。","datePublished":"2026-10-11","dateModified":"2026-10-11","inLanguage":"zh-CN","author":{"@id":"https://soloprimus.com/#person"},"publisher":{"@id":"https://soloprimus.com/#person"},"mainEntityOfPage":"https://soloprimus.com/zh/essays/what-counts-as-knowledge/","url":"https://soloprimus.com/zh/essays/what-counts-as-knowledge/","image":"https://soloprimus.com/assets/og/zh-what-counts-as-knowledge.png?v=44149dce43"},{"@type":"Person","@id":"https://soloprimus.com/#person","name":"Solo Primus","alternateName":["SOLO PRIMUS","凌霄"],"url":"https://soloprimus.com/about/","jobTitle":"Assistant Professor","description":"I’m Dr. Solo Primus, Assistant Professor.","knowsAbout":["Economics","Investing","Artificial intelligence","Self-improvement"],"sameAs":["https://x.com/thesoloprimus","https://substack.com/@soloprimus","https://github.com/soloprimus","https://www.youtube.com/@SoloPrimus"]}]}</script>
 </head>
 <body>
@@ -53,12 +54,18 @@
 </header>
 <main id="main">
 <div class="wrap article-layout">
-  <article class="article">
+  <article class="article" data-reading-article="what-counts-as-knowledge" data-reading-lang="zh">
     <header class="article-head">
       <a class="topic-tag" href="/zh/essays/#ai">AI</a>
       <h1>什么是真正的知识？</h1>
       <p class="article-dek">AI 让答案变得廉价，可靠的判断却更稀缺。真正的知识，要能在真实约束下经得起检验。</p>
       <p class="byline"><span>作者 <a href="/zh/about/">凌霄</a></span><span aria-hidden="true">·</span><time datetime="2026-10-11">2026年10月11日</time><span aria-hidden="true">·</span><span>阅读约 10 分钟</span><span aria-hidden="true">·</span><a href="/essays/what-counts-as-knowledge/?lang=en" hreflang="en">阅读英文版</a></p>
+      <div class="reading-tools" hidden>
+        <span class="reading-presence" title="中英文版合并统计，每 20 秒更新；离开后约一分钟内移出统计。同一浏览器多标签只计一人。"><span class="reading-dot" aria-hidden="true"></span><span data-reading-count>正在连接实时人数…</span></span>
+        <span class="reading-hint">选中文字，可划线留存</span>
+        <button class="reading-clear" type="button" hidden>清除本文划线</button>
+      </div>
+      <p class="reading-status sr-only" role="status" aria-live="polite"></p>
     </header>
     <nav class="toc" aria-labelledby="toc-title">
       <p id="toc-title">本文目录</p>
@@ -71,7 +78,7 @@
         <li><a href="#section-6">回到那两个年轻人</a></li>
       </ol>
     </nav>
-    <div class="prose">
+    <div class="prose" data-reading-prose>
 <p>我最近见了两个年轻人，都是今年刚毕业。</p>
 <p>一个是名校计算机专业的硕士，绩点很高，算法题刷得比我见过的大多数人都熟。另一个是普通学校的本科生，专业甚至不太对口。两人去同一家公司面试同一个岗位，那家公司让他们各做一件小事：给一个真实的业务需求，限时两天，交一个能跑起来的东西。</p>
 <p>结果是第二个人拿了 offer。</p>
@@ -133,6 +140,11 @@
 <p>对年轻人来说，我的建议很具体：不要再用“我学了多少”来衡量自己，找一个真实的小目标，把它做出来，交出去，让别人来用。做的过程中你会发现，自己哪些地方是真懂，哪些地方只是以为懂。这种发现，比一百张试卷都有价值。</p>
 <p>对关注投资和 AI 的读者，我想请你做一个小小的盘点：你脑子里的知识，哪些是“答题型”的，哪些是“交付型”的？比如，你知道市盈率的定义，这是答题型的；你能拿一家具体的公司，说清楚它的盈利为什么可持续，或者为什么不可持续，并且愿意用真金白银为这个判断负责，这是交付型的。</p>
 <p>前者 AI 可以帮你，后者必须是你自己的。这周就挑一件你一直想弄明白的事，把它做成一个能拿给别人看的东西，一份分析、一个小工具、一篇能被反驳的文章，都可以。</p>
+    </div>
+    <div class="reading-toolbar" role="toolbar" aria-label="文字划线" hidden>
+      <button type="button" data-underline-add>划线</button>
+      <button type="button" data-underline-remove hidden>取消划线</button>
+      <span>仅存于此浏览器</span>
     </div>
     <aside class="author-box" aria-labelledby="author-title">
       <div class="avatar"><svg class="avatar-mark" viewBox="0 0 100 80" aria-hidden="true" focusable="false"><path fill="currentColor" d="M50 6 63.8 24C63 28.5 52 32 43 39C34 46 37 51.5 45 59C55 69 51 74 36 74H4Z M66.5 27.5 96 74H81C76 64 66 57.5 56 51C45 44 46 40 53 35.5C59 32 63.5 31 66.5 27.5Z"/></svg></div>

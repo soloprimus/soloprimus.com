@@ -29,6 +29,7 @@ const other = (lang) => (lang === 'en' ? 'zh' : 'en');
 const fileHash = (file) => createHash('sha1').update(readFileSync(join(ROOT, file))).digest('hex').slice(0, 10);
 const V = { css: fileHash('assets/css/site.css'), fonts: fileHash('assets/css/fonts.css'), js: fileHash('assets/js/site.js') };
 const VISITOR_ASSETS = { js: fileHash('assets/js/visitor-globe.js'), land: fileHash('assets/data/globe-land.json') };
+const READING_JS = fileHash('assets/js/article-reading.js');
 
 const ogImage = (name) => {
   const file = `/assets/og/${name}.png`;
@@ -146,7 +147,7 @@ ${preloads}
 <link rel="stylesheet" href="/assets/css/site.css?v=${V.css}">
 <script>try{var s=localStorage.getItem('soloprimus-theme');document.documentElement.dataset.theme=s==='dark'||s==='light'?s:matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}catch(e){}</script>
 <script src="/assets/js/site.js?v=${V.js}" defer></script>
-${!noindex ? `<script src="/assets/js/visitor-globe.js?v=${VISITOR_ASSETS.js}" defer></script>\n` : ''}${graph}</head>
+${!noindex ? `<script src="/assets/js/visitor-globe.js?v=${VISITOR_ASSETS.js}" defer></script>\n` : ''}${type === 'article' ? `<script src="/assets/js/article-reading.js?v=${READING_JS}" defer></script>\n` : ''}${graph}</head>
 <body>
 <a class="skip-link" href="#main">${esc(t.skip)}</a>
 <header class="site-header">
@@ -480,12 +481,18 @@ function essayPage(e, essays) {
   const next = [...same.filter((x) => x.topic === e.topic), ...same.filter((x) => x.topic !== e.topic)].slice(0, 3);
   const image = ogImage(`${lang}-${e.slug}`);
   const main = `<div class="wrap article-layout">
-  <article class="article">
+  <article class="article" data-reading-article="${escAttr(e.slug)}" data-reading-lang="${lang}">
     <header class="article-head">
       <a class="topic-tag" href="${P.essays(lang)}#${e.topic}">${esc(t.topics[e.topic])}</a>
       <h1>${esc(e.title)}</h1>
       <p class="article-dek">${esc(e.summary)}</p>
       <p class="byline"><span>${esc(A.by)} <a href="${P.about(lang)}">${lang === 'zh' ? `${NAME.zh}` : NAME.en}</a></span><span aria-hidden="true">·</span><time datetime="${iso(e.date)}">${esc(t.date(e.date))}</time><span aria-hidden="true">·</span><span>${esc(t.minRead(e.minutes))}</span>${altPath ? `<span aria-hidden="true">·</span><a href="${altPath}?lang=${other(lang)}" hreflang="${SITE.langs[other(lang)].hreflang}">${esc(A.alternate)}</a>` : ''}</p>
+      <div class="reading-tools" hidden>
+        <span class="reading-presence" title="${escAttr(lang === 'zh' ? '中英文版合并统计，每 20 秒更新；离开后约一分钟内移出统计。同一浏览器多标签只计一人。' : 'Both language editions combined. Updates every 20 seconds; inactive readers expire within about a minute. Tabs in one browser count once.')}"><span class="reading-dot" aria-hidden="true"></span><span data-reading-count>${lang === 'zh' ? '正在连接实时人数…' : 'Connecting to live readers…'}</span></span>
+        <span class="reading-hint">${lang === 'zh' ? '选中文字，可划线留存' : 'Select a passage to underline it'}</span>
+        <button class="reading-clear" type="button" hidden>${lang === 'zh' ? '清除本文划线' : 'Clear underlines'}</button>
+      </div>
+      <p class="reading-status sr-only" role="status" aria-live="polite"></p>
     </header>
 ${toc.length >= 3 ? `    <nav class="toc" aria-labelledby="toc-title">
       <p id="toc-title">${esc(A.onThisPage)}</p>
@@ -493,8 +500,13 @@ ${toc.length >= 3 ? `    <nav class="toc" aria-labelledby="toc-title">
 ${toc.map((h) => `        <li><a href="#${h.id}">${esc(h.text)}</a></li>`).join('\n')}
       </ol>
     </nav>
-` : ''}    <div class="prose">
+` : ''}    <div class="prose" data-reading-prose>
 ${e.html}
+    </div>
+    <div class="reading-toolbar" role="toolbar" aria-label="${lang === 'zh' ? '文字划线' : 'Passage underlining'}" hidden>
+      <button type="button" data-underline-add>${lang === 'zh' ? '划线' : 'Underline'}</button>
+      <button type="button" data-underline-remove hidden>${lang === 'zh' ? '取消划线' : 'Remove underline'}</button>
+      <span>${lang === 'zh' ? '仅存于此浏览器' : 'Saved in this browser'}</span>
     </div>
 ${e.note ? `    <p class="article-note">${esc(e.note)}</p>\n` : ''}    <aside class="author-box" aria-labelledby="author-title">
       <div class="avatar">${mark('avatar-mark')}</div>

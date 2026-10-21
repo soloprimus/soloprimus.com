@@ -27,10 +27,11 @@
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/figtree/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/fonts.css?v=f9663c4608">
-<link rel="stylesheet" href="/assets/css/site.css?v=b99d1b46a0">
+<link rel="stylesheet" href="/assets/css/site.css?v=920c032354">
 <script>try{var s=localStorage.getItem('soloprimus-theme');document.documentElement.dataset.theme=s==='dark'||s==='light'?s:matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}catch(e){}</script>
 <script src="/assets/js/site.js?v=38fe3046df" defer></script>
 <script src="/assets/js/visitor-globe.js?v=1c2261a818" defer></script>
+<script src="/assets/js/article-reading.js?v=e0802a7a24" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"多年以后，你会后悔：为什么当初没有把一件事做十年？","description":"长期投入改变的，不只是坚持多久，而是衡量行动的尺度。把未来的遗憾、复利与机会成本，纳入今天的选择。","datePublished":"2026-10-02","dateModified":"2026-10-02","inLanguage":"zh-CN","author":{"@id":"https://soloprimus.com/#person"},"publisher":{"@id":"https://soloprimus.com/#person"},"mainEntityOfPage":"https://soloprimus.com/zh/essays/give-one-thing-ten-years/","url":"https://soloprimus.com/zh/essays/give-one-thing-ten-years/","image":"https://soloprimus.com/assets/og/zh-give-one-thing-ten-years.png?v=f204fa577b"},{"@type":"Person","@id":"https://soloprimus.com/#person","name":"Solo Primus","alternateName":["SOLO PRIMUS","凌霄"],"url":"https://soloprimus.com/about/","jobTitle":"Assistant Professor","description":"I’m Dr. Solo Primus, Assistant Professor.","knowsAbout":["Economics","Investing","Artificial intelligence","Self-improvement"],"sameAs":["https://x.com/thesoloprimus","https://substack.com/@soloprimus","https://github.com/soloprimus","https://www.youtube.com/@SoloPrimus"]}]}</script>
 </head>
 <body>
@@ -53,12 +54,18 @@
 </header>
 <main id="main">
 <div class="wrap article-layout">
-  <article class="article">
+  <article class="article" data-reading-article="give-one-thing-ten-years" data-reading-lang="zh">
     <header class="article-head">
       <a class="topic-tag" href="/zh/essays/#growth">自我提升</a>
       <h1>多年以后，你会后悔：为什么当初没有把一件事做十年？</h1>
       <p class="article-dek">长期投入改变的，不只是坚持多久，而是衡量行动的尺度。把未来的遗憾、复利与机会成本，纳入今天的选择。</p>
       <p class="byline"><span>作者 <a href="/zh/about/">凌霄</a></span><span aria-hidden="true">·</span><time datetime="2026-10-02">2026年10月2日</time><span aria-hidden="true">·</span><span>阅读约 11 分钟</span><span aria-hidden="true">·</span><a href="/essays/give-one-thing-ten-years/?lang=en" hreflang="en">阅读英文版</a></p>
+      <div class="reading-tools" hidden>
+        <span class="reading-presence" title="中英文版合并统计，每 20 秒更新；离开后约一分钟内移出统计。同一浏览器多标签只计一人。"><span class="reading-dot" aria-hidden="true"></span><span data-reading-count>正在连接实时人数…</span></span>
+        <span class="reading-hint">选中文字，可划线留存</span>
+        <button class="reading-clear" type="button" hidden>清除本文划线</button>
+      </div>
+      <p class="reading-status sr-only" role="status" aria-live="polite"></p>
     </header>
     <nav class="toc" aria-labelledby="toc-title">
       <p id="toc-title">本文目录</p>
@@ -72,7 +79,7 @@
         <li><a href="#section-7">结尾：回到"未来的你"</a></li>
       </ol>
     </nav>
-    <div class="prose">
+    <div class="prose" data-reading-prose>
 <p>十年后的某个夜晚，你翻出一份旧文件，可能是一份没写完的研究笔记，一个中途清仓的账户，一门学到一半的技能，或一个做了一年就放下的项目。</p>
 <p>你会怎么看当年的自己？</p>
 <p>我可以大致预测你不会想的是："幸好当年放弃了。"你更可能想的是："如果当时再多做几年，现在会是什么样子。"</p>
@@ -161,6 +168,11 @@
 <p>最后留给你三个问题。不用马上回答，但请认真带走：</p>
 <ol><li>你现在手上，哪一件事如果做满十年，十年后的你会感谢今天的自己？它现在有没有被你当成"短期版本"在做？</li><li>你正在重复开始的是什么？每一次重新开始，你清零的是哪一部分基数？</li><li>如果今天从零开始，你还会选现在这条路吗？如果会，那你今天还缺的，就只有时间了。</li></ol>
 <p>短期版本从不便宜，它只是把账单寄给了未来的你。而你今天做的每一个决定，都是在替未来的你，提前付款，还是继续赊账。</p>
+    </div>
+    <div class="reading-toolbar" role="toolbar" aria-label="文字划线" hidden>
+      <button type="button" data-underline-add>划线</button>
+      <button type="button" data-underline-remove hidden>取消划线</button>
+      <span>仅存于此浏览器</span>
     </div>
     <aside class="author-box" aria-labelledby="author-title">
       <div class="avatar"><svg class="avatar-mark" viewBox="0 0 100 80" aria-hidden="true" focusable="false"><path fill="currentColor" d="M50 6 63.8 24C63 28.5 52 32 43 39C34 46 37 51.5 45 59C55 69 51 74 36 74H4Z M66.5 27.5 96 74H81C76 64 66 57.5 56 51C45 44 46 40 53 35.5C59 32 63.5 31 66.5 27.5Z"/></svg></div>

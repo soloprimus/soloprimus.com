@@ -29,6 +29,60 @@ const visit = (counter, ip, location = { country: 'CN', lat: 32, lon: 122 }) => 
   method: 'POST', body: JSON.stringify({ ip, location }),
 }));
 
+test('Article readers deduplicate tabs, isolate articles, expire and survive object restarts', async t => {
+  t.mock.timers.enable({ apis: ['Date'], now: new Date('2026-10-21T00:00:00Z') });
+  const storage = sqliteStorage();
+  let instance = new VisitorCounter({ storage }, {});
+  const a = '00000000-0000-4000-8000-000000000001';
+  const b = '00000000-0000-4000-8000-000000000002';
+  const pulse = async (reader, article = 'what-counts-as-knowledge') => {
+    const response = await instance.fetch(new Request('https://internal/reading', {
+      method: 'POST', body: JSON.stringify({ article, reader }),
+    }));
+    assert.equal(response.status, 200);
+    assert.equal(response.headers.get('Cache-Control'), 'no-store');
+    return (await response.json()).active;
+  };
+  assert.equal(await pulse(a), 1);
+  assert.equal(await pulse(a), 1);
+  assert.equal(await pulse(b), 2);
+  assert.equal(await pulse(b, 'substance-over-status'), 1);
+  instance = new VisitorCounter({ storage }, {});
+  assert.equal(await pulse(a), 2);
+  t.mock.timers.tick(40000);
+  assert.equal(await pulse(a), 2);
+  t.mock.timers.tick(25000);
+  assert.equal(await pulse(a), 1);
+  assert.equal(storage.sql.exec('SELECT COUNT(*) AS total FROM active_readers').one().total, 1);
+  assert.equal(instance.snapshot().total, 0, 'Presence must not change historical visitor totals');
+  assert.equal(instance.snapshot().today, 0);
+  storage.db.close();
+});
+
+test('Reading endpoint requires same-origin JSON and rejects bots and invalid identities', async () => {
+  let writes = 0;
+  const env = { VISITORS: { idFromName: value => value, get: () => ({ fetch: async request => {
+    writes++;
+    assert.equal(new URL(request.url).pathname, '/reading');
+    return Response.json({ active: 1 });
+  } }) } };
+  const body = { article: 'what-counts-as-knowledge', reader: '00000000-0000-4000-8000-000000000001' };
+  const call = (value = body, headers = {}, method = 'POST') => worker.fetch(new Request('https://soloprimus.com/api/reading', {
+    method, headers: { Origin: 'https://soloprimus.com', 'Content-Type': 'application/json', 'User-Agent': 'Mozilla/5.0', ...headers },
+    ...(method === 'POST' ? { body: typeof value === 'string' ? value : JSON.stringify(value) } : {}),
+  }), env, {});
+  assert.equal((await call()).status, 200);
+  assert.equal((await call(body, { Origin: 'https://other.example' })).status, 403);
+  assert.equal((await call(body, { 'Content-Type': 'text/plain' })).status, 403);
+  assert.equal((await call(body, { 'User-Agent': 'Googlebot' })).status, 403);
+  assert.equal((await call({ ...body, article: '../../other' })).status, 400);
+  assert.equal((await call({ ...body, reader: 'invalid' })).status, 400);
+  assert.equal((await call('a'.repeat(513))).status, 400);
+  assert.equal((await call('{broken json')).status, 400);
+  assert.equal((await call(body, {}, 'GET')).status, 405);
+  assert.equal(writes, 1);
+});
+
 test('Homepage language uses mainland IP, with stable deep links and uncached redirects', async () => {
   let assetCalls = 0;
   const env = { ASSETS: { fetch: async () => {

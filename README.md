@@ -91,6 +91,12 @@ The native Canvas globe loads its local Natural Earth geometry near the viewport
 
 Run `npm ci`, `npm test`, `npm run build`, and `npm run dev` to verify locally. Local development uses a separate storage namespace and may have placeholder edge geolocation; never seed production with local test visits.
 
+## Article reading tools
+
+Every English and Chinese essay includes a live reading label. Visible pages send a heartbeat to `/api/reading` every 20 seconds. An anonymous browser ID deduplicates tabs and both editions of the same essay; different essays count independently. Leases expire after 65 seconds without a heartbeat, so the label estimates concurrent readers rather than cumulative page views. Hidden pages stop sending heartbeats. SQLite stores these short-lived leases separately from historical visitor totals, and expired leases are removed on the next heartbeat. The API is same-origin, uncached, and excludes recognized bots. A failure displays an unavailable state rather than inventing a number.
+
+Selecting article text reveals an underline toolbar, including across paragraphs, links and emphasis. Readers can remove a selected underline, clear all underlines in the current article, or undo a clear. Underlines are private to the current browser, saved per language and article in local storage; they are never sent to the server and do not sync between devices. Text quotes validate saved positions after article edits, and unique matching passages can be reattached. Storage failures keep underlines for the current visit and announce that saving was unavailable. `assets/js/article-reading.js` loads only on article pages.
+
 ## Layout
 
 - `content/site.mjs`: pen names, links, and all interface copy in English and Chinese. Change a pen name here and rebuild.

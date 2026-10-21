@@ -27,10 +27,11 @@
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/figtree/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/fonts.css?v=f9663c4608">
-<link rel="stylesheet" href="/assets/css/site.css?v=b99d1b46a0">
+<link rel="stylesheet" href="/assets/css/site.css?v=920c032354">
 <script>try{var s=localStorage.getItem('soloprimus-theme');document.documentElement.dataset.theme=s==='dark'||s==='light'?s:matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}catch(e){}</script>
 <script src="/assets/js/site.js?v=38fe3046df" defer></script>
 <script src="/assets/js/visitor-globe.js?v=1c2261a818" defer></script>
+<script src="/assets/js/article-reading.js?v=e0802a7a24" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"\"长期主义\"最大的误区：把永远等待，当成了永远复利","description":"长期持有不等于长期复利。从耐克的转型、成本节约与收入压力，重新审视资本配置的机会成本，以及坚持与止损的条件。","datePublished":"2026-10-02","dateModified":"2026-10-02","inLanguage":"zh-CN","author":{"@id":"https://soloprimus.com/#person"},"publisher":{"@id":"https://soloprimus.com/#person"},"mainEntityOfPage":"https://soloprimus.com/zh/essays/waiting-is-not-compounding/","url":"https://soloprimus.com/zh/essays/waiting-is-not-compounding/","image":"https://soloprimus.com/assets/og/zh-waiting-is-not-compounding.png?v=b0f69138fe"},{"@type":"Person","@id":"https://soloprimus.com/#person","name":"Solo Primus","alternateName":["SOLO PRIMUS","凌霄"],"url":"https://soloprimus.com/about/","jobTitle":"Assistant Professor","description":"I’m Dr. Solo Primus, Assistant Professor.","knowsAbout":["Economics","Investing","Artificial intelligence","Self-improvement"],"sameAs":["https://x.com/thesoloprimus","https://substack.com/@soloprimus","https://github.com/soloprimus","https://www.youtube.com/@SoloPrimus"]}]}</script>
 </head>
 <body>
@@ -53,12 +54,18 @@
 </header>
 <main id="main">
 <div class="wrap article-layout">
-  <article class="article">
+  <article class="article" data-reading-article="waiting-is-not-compounding" data-reading-lang="zh">
     <header class="article-head">
       <a class="topic-tag" href="/zh/essays/#investing">投资</a>
       <h1>"长期主义"最大的误区：把永远等待，当成了永远复利</h1>
       <p class="article-dek">长期持有不等于长期复利。从耐克的转型、成本节约与收入压力，重新审视资本配置的机会成本，以及坚持与止损的条件。</p>
       <p class="byline"><span>作者 <a href="/zh/about/">凌霄</a></span><span aria-hidden="true">·</span><time datetime="2026-10-02">2026年10月2日</time><span aria-hidden="true">·</span><span>阅读约 11 分钟</span><span aria-hidden="true">·</span><a href="/essays/waiting-is-not-compounding/?lang=en" hreflang="en">阅读英文版</a></p>
+      <div class="reading-tools" hidden>
+        <span class="reading-presence" title="中英文版合并统计，每 20 秒更新；离开后约一分钟内移出统计。同一浏览器多标签只计一人。"><span class="reading-dot" aria-hidden="true"></span><span data-reading-count>正在连接实时人数…</span></span>
+        <span class="reading-hint">选中文字，可划线留存</span>
+        <button class="reading-clear" type="button" hidden>清除本文划线</button>
+      </div>
+      <p class="reading-status sr-only" role="status" aria-live="polite"></p>
     </header>
     <nav class="toc" aria-labelledby="toc-title">
       <p id="toc-title">本文目录</p>
@@ -71,7 +78,7 @@
         <li><a href="#nike">六、个人版 Nike：你最危险的利润，是透支自己</a></li>
       </ol>
     </nav>
-    <div class="prose">
+    <div class="prose" data-reading-prose>
 <h2 id="section-1">一、一份"超预期"的财报，为什么换来十年新低</h2>
 <p>10 月 1 日盘后，耐克公布 <a href="https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2026/NIKE-Inc--Reports-Fiscal-2027-First-Quarter-Results/default.aspx">2027 财年第一季度财报</a>。</p>
 <p>先看好消息。每股收益 0.48 美元，高于市场预期的 0.44 美元；毛利率 42.8%，同比提升 60 个基点。放在任何一家教科书公司身上，这都是"利润改善、经营稳健"的样本。</p>
@@ -140,6 +147,11 @@
 <p>耐克也许会重新被喜欢，也许不会，这是公司质量的问题，由时间和执行来回答。而你要回答的问题只有一个：你的下一份资本、下一小时、下一年，放在了哪里？</p>
 <p>别在自己的"品牌资产"上收割。</p>
 <p><em>数据来源说明：财报数据来自公司公告；股价、市场预期和分析师观点对应 2026 年 10 月 1 日至 2 日的市场报道，空头数据来自 S3 Partners 9 月 29 日报告。第四节的毛利损失测算为示意性算例，非公司预测。本文仅为个人观点，不构成任何投资建议。</em></p>
+    </div>
+    <div class="reading-toolbar" role="toolbar" aria-label="文字划线" hidden>
+      <button type="button" data-underline-add>划线</button>
+      <button type="button" data-underline-remove hidden>取消划线</button>
+      <span>仅存于此浏览器</span>
     </div>
     <p class="article-note">文中市场价格、预期与分析师观点对应 2026 年 10 月 1 日至 2 日的写作时点，空头数据对应 S3 Partners 9 月 29 日报告；均非实时行情。情景测算用于说明数量级，不是公司盈利预测。</p>
     <aside class="author-box" aria-labelledby="author-title">

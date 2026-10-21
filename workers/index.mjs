@@ -54,6 +54,28 @@ function languageHeaders(response, explicit) {
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
+    if (url.pathname === '/api/reading') {
+      if (request.method !== 'POST') return json({ error: 'method_not_allowed' }, 405);
+      if (request.headers.get('Origin') !== url.origin ||
+        !request.headers.get('Content-Type')?.startsWith('application/json') ||
+        BOT.test(request.headers.get('User-Agent') || '') || request.cf?.botManagement?.verifiedBot) {
+        return json({ error: 'forbidden' }, 403);
+      }
+      try {
+        const body = await request.text();
+        if (body.length > 512) return json({ error: 'invalid_reading' }, 400);
+        let data;
+        try { data = JSON.parse(body); } catch { return json({ error: 'invalid_reading' }, 400); }
+        const { article, reader } = data || {};
+        if (typeof article !== 'string' || !/^[a-z0-9][a-z0-9-]{0,99}$/.test(article) ||
+          typeof reader !== 'string' || !/^[a-f0-9-]{36}$/.test(reader)) return json({ error: 'invalid_reading' }, 400);
+        return await counter(env).fetch(new Request('https://counter.internal/reading', {
+          method: 'POST', body: JSON.stringify({ article, reader }),
+        }));
+      } catch {
+        return json({ error: 'reading_unavailable' }, 503);
+      }
+    }
     if (url.pathname === '/api/visitors') {
       if (request.method !== 'GET') return json({ error: 'method_not_allowed' }, 405);
       try {
@@ -106,6 +128,8 @@ export class VisitorCounter extends DurableObject {
     this.sql = ctx.storage.sql;
     this.sql.exec(`
       CREATE TABLE IF NOT EXISTS metadata (key TEXT PRIMARY KEY, value TEXT NOT NULL);
+      CREATE TABLE IF NOT EXISTS active_readers (article TEXT NOT NULL, reader TEXT NOT NULL, expires INTEGER NOT NULL, PRIMARY KEY(article, reader));
+      CREATE INDEX IF NOT EXISTS active_readers_expiry ON active_readers(expires);
       CREATE TABLE IF NOT EXISTS counters (key TEXT PRIMARY KEY, value INTEGER NOT NULL);
       CREATE TABLE IF NOT EXISTS visitors (visitor_hash TEXT PRIMARY KEY);
       CREATE TABLE IF NOT EXISTS daily_visitors (day TEXT NOT NULL, visitor_hash TEXT NOT NULL, PRIMARY KEY(day, visitor_hash));
@@ -127,6 +151,20 @@ export class VisitorCounter extends DurableObject {
 
   async fetch(request) {
     const path = new URL(request.url).pathname;
+    if (path === '/reading' && request.method === 'POST') {
+      const { article, reader } = await request.json();
+      if (typeof article !== 'string' || !/^[a-z0-9][a-z0-9-]{0,99}$/.test(article) ||
+        typeof reader !== 'string' || !/^[a-f0-9-]{36}$/.test(reader)) return json({ error: 'invalid_reading' }, 400);
+      const now = Date.now();
+      let active;
+      this.storage.transactionSync(() => {
+        this.sql.exec('DELETE FROM active_readers WHERE expires <= ?', now);
+        // A browser's tabs and both language editions share one short-lived lease.
+        this.sql.exec('INSERT INTO active_readers VALUES (?, ?, ?) ON CONFLICT(article, reader) DO UPDATE SET expires = excluded.expires', article, reader, now + 65000);
+        active = this.sql.exec('SELECT COUNT(*) AS active FROM active_readers WHERE article = ? AND expires > ?', article, now).one().active;
+      });
+      return json({ active, generatedAt: new Date(now).toISOString() });
+    }
     if (path === '/stats' && request.method === 'GET') return json(this.snapshot());
     if (path !== '/visit' || request.method !== 'POST') return json({ error: 'not_found' }, 404);
     const { ip, location } = await request.json();

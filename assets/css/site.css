@@ -555,6 +555,28 @@ html:lang(zh-CN) .article-dek { font-size: 1.18rem; line-height: 1.85; }
 }
 .byline a { color: var(--ink); font-weight: 600; }
 
+/* Reader tools sit with the byline; saved passages retain the reading typography. */
+.reading-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 22px; margin-top: 18px; font: 400 12.5px/1.6 var(--sans); color: var(--muted); }
+.reading-tools[hidden], .reading-toolbar[hidden], .reading-clear[hidden], .reading-toolbar button[hidden] { display: none; }
+.reading-presence { display: inline-flex; align-items: center; gap: 7px; font-variant-numeric: tabular-nums; cursor: help; }
+.reading-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--line-2); flex: none; }
+.reading-presence[data-state="live"] .reading-dot { background: var(--accent); }
+.reading-hint { color: var(--muted); }
+.reading-status:not(.sr-only) { margin-top: 10px; font: 400 12px/1.6 var(--sans); color: var(--accent-ink); }
+.reading-clear { padding: 4px 0; border: 0; border-bottom: 1px solid var(--line-2); background: none; color: var(--muted); font: inherit; cursor: pointer; }
+.reading-clear:hover { color: var(--accent-ink); border-color: currentColor; }
+.reading-toolbar { position: fixed; z-index: 80; display: flex; align-items: center; gap: 3px; max-width: calc(100vw - 16px); padding: 5px; border: 1px solid var(--line-2); border-radius: 5px; background: var(--card); box-shadow: 0 4px 18px #00000012; font: 500 13px/1.4 var(--sans); color: var(--ink); }
+.reading-toolbar button { min-height: 36px; padding: 8px 12px; border: 0; border-radius: 2px; background: var(--band); color: var(--ink); font: inherit; cursor: pointer; white-space: nowrap; }
+.reading-toolbar button:hover { background: var(--accent-soft); color: var(--accent-ink); }
+.reading-toolbar span { padding: 0 8px; font-size: 11px; font-weight: 400; color: var(--muted); }
+.prose mark.reader-underline { background: none; color: inherit; text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 1.5px; text-underline-offset: .23em; text-decoration-skip-ink: none; cursor: pointer; }
+.prose mark.reader-underline:hover { background: var(--accent-soft); }
+@media (max-width: 480px) {
+  .reading-tools { gap: 8px 16px; }
+  .reading-toolbar span { max-width: 105px; font-size: 10px; }
+}
+@media print { .reading-tools, .reading-toolbar { display: none; } }
+
 .toc { margin: 32px 0 0; padding: 20px 22px; background: var(--band); border-radius: 6px; font-family: var(--sans); }
 .toc p { margin-bottom: 10px; font: 700 12px/1.4 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
 html:lang(zh-CN) .toc p { font-size: 13px; letter-spacing: .1em; }

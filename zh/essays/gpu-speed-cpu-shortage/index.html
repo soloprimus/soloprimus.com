@@ -27,10 +27,11 @@
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/figtree/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/fonts.css?v=f9663c4608">
-<link rel="stylesheet" href="/assets/css/site.css?v=b99d1b46a0">
+<link rel="stylesheet" href="/assets/css/site.css?v=920c032354">
 <script>try{var s=localStorage.getItem('soloprimus-theme');document.documentElement.dataset.theme=s==='dark'||s==='light'?s:matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}catch(e){}</script>
 <script src="/assets/js/site.js?v=38fe3046df" defer></script>
 <script src="/assets/js/visitor-globe.js?v=1c2261a818" defer></script>
+<script src="/assets/js/article-reading.js?v=e0802a7a24" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"都在抢GPU，为什么CPU也不够用了？","description":"当 AI 从生成答案走向执行任务，算力瓶颈也在移动。沿着智能体的工作链条，看 CPU 需求为何上升，以及短缺能否持续。","datePublished":"2026-10-01","dateModified":"2026-10-01","inLanguage":"zh-CN","author":{"@id":"https://soloprimus.com/#person"},"publisher":{"@id":"https://soloprimus.com/#person"},"mainEntityOfPage":"https://soloprimus.com/zh/essays/gpu-speed-cpu-shortage/","url":"https://soloprimus.com/zh/essays/gpu-speed-cpu-shortage/","image":"https://soloprimus.com/assets/og/zh-gpu-speed-cpu-shortage.png?v=6dc97461df"},{"@type":"Person","@id":"https://soloprimus.com/#person","name":"Solo Primus","alternateName":["SOLO PRIMUS","凌霄"],"url":"https://soloprimus.com/about/","jobTitle":"Assistant Professor","description":"I’m Dr. Solo Primus, Assistant Professor.","knowsAbout":["Economics","Investing","Artificial intelligence","Self-improvement"],"sameAs":["https://x.com/thesoloprimus","https://substack.com/@soloprimus","https://github.com/soloprimus","https://www.youtube.com/@SoloPrimus"]}]}</script>
 </head>
 <body>
@@ -53,12 +54,18 @@
 </header>
 <main id="main">
 <div class="wrap article-layout">
-  <article class="article">
+  <article class="article" data-reading-article="gpu-speed-cpu-shortage" data-reading-lang="zh">
     <header class="article-head">
       <a class="topic-tag" href="/zh/essays/#ai">AI</a>
       <h1>都在抢GPU，为什么CPU也不够用了？</h1>
       <p class="article-dek">当 AI 从生成答案走向执行任务，算力瓶颈也在移动。沿着智能体的工作链条，看 CPU 需求为何上升，以及短缺能否持续。</p>
       <p class="byline"><span>作者 <a href="/zh/about/">凌霄</a></span><span aria-hidden="true">·</span><time datetime="2026-10-01">2026年10月1日</time><span aria-hidden="true">·</span><span>阅读约 7 分钟</span><span aria-hidden="true">·</span><a href="/essays/gpu-speed-cpu-shortage/?lang=en" hreflang="en">阅读英文版</a></p>
+      <div class="reading-tools" hidden>
+        <span class="reading-presence" title="中英文版合并统计，每 20 秒更新；离开后约一分钟内移出统计。同一浏览器多标签只计一人。"><span class="reading-dot" aria-hidden="true"></span><span data-reading-count>正在连接实时人数…</span></span>
+        <span class="reading-hint">选中文字，可划线留存</span>
+        <button class="reading-clear" type="button" hidden>清除本文划线</button>
+      </div>
+      <p class="reading-status sr-only" role="status" aria-live="polite"></p>
     </header>
     <nav class="toc" aria-labelledby="toc-title">
       <p id="toc-title">本文目录</p>
@@ -70,7 +77,7 @@
         <li><a href="#ai">五、短缺能持续多久，要看AI接到了多少真活</a></li>
       </ol>
     </nav>
-    <div class="prose">
+    <div class="prose" data-reading-prose>
 <p>AI算力的抢购清单上，CPU正变得越来越显眼。</p>
 <p>9月底，渠道消息称，AMD第六代EPYC处理器Venice的2027年产能已被预订，订单开始排向2028年。这一说法尚未获得AMD官方确认，但服务器CPU的供给压力已经引起关注。<a href="https://www.techtimes.com/articles/328325/20260930/amd-epyc-venice-supply-exhausted-2027-agentic-ai-drives-server-cpu-crunch.htm">消息来源</a></p>
 <p>英特尔也发出了紧缺信号。据媒体对Splunk .conf26的报道，公司CEO表示，目前只能满足客户约一半的CPU需求。这一数字不能直接换算成全球缺口，但英特尔二季度正式披露已确认需求超过可供给数量，并预计基板、内存等关键部件的行业性短缺将持续至2027年。<a href="https://www.trendforce.com/news/2026/09/16/news-intel-ceo-flags-ai-supply-squeeze-memory-prices-up-5-7x-its-cpus-meet-just-50-of-demand/">发言报道</a>；<a href="https://www.sec.gov/Archives/edgar/data/50863/000005086326000157/intc-20260627.htm">英特尔季度报告</a></p>
@@ -128,6 +135,11 @@
 <p>量价尤其容易被混淆。英特尔二季度服务器平均售价同比提高48%，出货量提高9%，并披露售价增长主要来自高端产品占比提升。收入增长很快，未必意味着卖出的CPU同样多，更不能直接换算成市场缺口。<a href="https://www.sec.gov/Archives/edgar/data/50863/000005086326000157/intc-20260627.htm">英特尔季度报告</a></p>
 <p>CPU重新受到关注，背后是AI工作范围的扩大。模型能够提出更多方案之后，还需要系统执行代码、调用工具、读取数据、检查结果。企业真正购买的，是这些环节共同交付的一项工作。</p>
 <p><strong>CPU短缺能否持续，最终取决于企业愿意付钱交给AI完成的工作，能否增长得比整套基础设施更快。</strong></p>
+    </div>
+    <div class="reading-toolbar" role="toolbar" aria-label="文字划线" hidden>
+      <button type="button" data-underline-add>划线</button>
+      <button type="button" data-underline-remove hidden>取消划线</button>
+      <span>仅存于此浏览器</span>
     </div>
     <aside class="author-box" aria-labelledby="author-title">
       <div class="avatar"><svg class="avatar-mark" viewBox="0 0 100 80" aria-hidden="true" focusable="false"><path fill="currentColor" d="M50 6 63.8 24C63 28.5 52 32 43 39C34 46 37 51.5 45 59C55 69 51 74 36 74H4Z M66.5 27.5 96 74H81C76 64 66 57.5 56 51C45 44 46 40 53 35.5C59 32 63.5 31 66.5 27.5Z"/></svg></div>

@@ -25,10 +25,11 @@
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/figtree/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/fonts.css?v=f9663c4608">
-<link rel="stylesheet" href="/assets/css/site.css?v=b99d1b46a0">
+<link rel="stylesheet" href="/assets/css/site.css?v=920c032354">
 <script>try{var s=localStorage.getItem('soloprimus-theme');document.documentElement.dataset.theme=s==='dark'||s==='light'?s:matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}catch(e){}</script>
 <script src="/assets/js/site.js?v=38fe3046df" defer></script>
 <script src="/assets/js/visitor-globe.js?v=1c2261a818" defer></script>
+<script src="/assets/js/article-reading.js?v=e0802a7a24" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"消费的本质","description":"同一瓶酒，换一张标签，味道就变了。对做服务的人来说，交付之前的一切，都是客户判断你的证据。","datePublished":"2026-09-23","dateModified":"2026-09-23","inLanguage":"zh-CN","author":{"@id":"https://soloprimus.com/#person"},"publisher":{"@id":"https://soloprimus.com/#person"},"mainEntityOfPage":"https://soloprimus.com/zh/essays/the-nature-of-consumption/","url":"https://soloprimus.com/zh/essays/the-nature-of-consumption/","image":"https://soloprimus.com/assets/og/zh-the-nature-of-consumption.png?v=7be18d43b8"},{"@type":"Person","@id":"https://soloprimus.com/#person","name":"Solo Primus","alternateName":["SOLO PRIMUS","凌霄"],"url":"https://soloprimus.com/about/","jobTitle":"Assistant Professor","description":"I’m Dr. Solo Primus, Assistant Professor.","knowsAbout":["Economics","Investing","Artificial intelligence","Self-improvement"],"sameAs":["https://x.com/thesoloprimus","https://substack.com/@soloprimus","https://github.com/soloprimus","https://www.youtube.com/@SoloPrimus"]}]}</script>
 </head>
 <body>
@@ -51,12 +52,18 @@
 </header>
 <main id="main">
 <div class="wrap article-layout">
-  <article class="article">
+  <article class="article" data-reading-article="the-nature-of-consumption" data-reading-lang="zh">
     <header class="article-head">
       <a class="topic-tag" href="/zh/essays/#growth">自我提升</a>
       <h1>消费的本质</h1>
       <p class="article-dek">同一瓶酒，换一张标签，味道就变了。对做服务的人来说，交付之前的一切，都是客户判断你的证据。</p>
       <p class="byline"><span>作者 <a href="/zh/about/">凌霄</a></span><span aria-hidden="true">·</span><time datetime="2026-09-23">2026年9月23日</time><span aria-hidden="true">·</span><span>阅读约 7 分钟</span></p>
+      <div class="reading-tools" hidden>
+        <span class="reading-presence" title="中英文版合并统计，每 20 秒更新；离开后约一分钟内移出统计。同一浏览器多标签只计一人。"><span class="reading-dot" aria-hidden="true"></span><span data-reading-count>正在连接实时人数…</span></span>
+        <span class="reading-hint">选中文字，可划线留存</span>
+        <button class="reading-clear" type="button" hidden>清除本文划线</button>
+      </div>
+      <p class="reading-status sr-only" role="status" aria-live="polite"></p>
     </header>
     <nav class="toc" aria-labelledby="toc-title">
       <p id="toc-title">本文目录</p>
@@ -69,7 +76,7 @@
         <li><a href="#section-6">六、回到那杯酒</a></li>
       </ol>
     </nav>
-    <div class="prose">
+    <div class="prose" data-reading-prose>
 <p>2008年，加州理工和斯坦福的几位研究者做过一个实验。他们请了二十来个受试者躺进核磁共振仪，用细管往嘴里滴葡萄酒，告诉他们这是几款价格不同的酒，其实其中有一款酒出现了两次，一次说是10美元，一次说是90美元。结果受试者普遍觉得90美元那杯更好喝。这部分不算意外，谁都有被价格牌影响的时候。意外的是扫描结果：喝“90美元”那杯时，他们大脑里跟愉悦感直接相关的那块区域，活跃程度确实更高。也就是说，他们不是嘴上客气，也不是怕显得自己不懂酒，是真的更享受了。</p>
 <p>同一瓶酒，换一张标签，味道就变了。这个实验我每次想起来都有点不舒服，因为它戳破了一个我们很习惯的分法：产品是实的，感觉是虚的，好东西靠前者，后者属于营销的小伎俩。实验说的是另一回事。<mark class="key">感觉并没有贴在产品外面，它直接参与了“这杯酒好不好喝”这件事本身。</mark>消费者掏钱买的是产品和服务，这是表面上能看到的部分；他最后真正得到、并且记住的，是一种感觉。</p>
 <h2 id="section-1">一、付钱之前，客户只能靠感觉判断</h2>
@@ -90,6 +97,11 @@
 <p>做这张表的时候，<mark class="key">一致性比精致更要紧，所有触点要指向同一种感觉。</mark>你要是卖严谨，报价单上就不能出现错别字；你要是卖轻松，官网就不该是那种板着脸的企业腔。东一块西一块地混着来，客户得到的不是两种优点，而是“我看不出你是谁”。还有一件事，是把抽象的能力变成摸得着的东西。“我们很专业”这句话几乎没有信息量，家家都这么说；换成“这是我们的项目流程文档”“这是上一个同类项目的复盘”，客户手里就有东西可以判断了。<mark class="key">能力本身是看不见的，能力留下的痕迹可以被看见。</mark></p>
 <h2 id="section-6">六、回到那杯酒</h2>
 <p>那些受试者并不笨，他们在一个信息有限的情境里，用手边唯一能用的线索做了判断，然后他们的身体配合了这个判断。消费者大多是这样。说消费者买的是感觉，不等于说他们肤浅，他们只能根据你给出的东西来判断你。你递过去一份潦草的报价单，他判断你潦草，在他的信息条件下，这个判断没有错。<mark class="key">与其抱怨客户看不懂你的专业，不如先让你的专业能被看懂。</mark></p>
+    </div>
+    <div class="reading-toolbar" role="toolbar" aria-label="文字划线" hidden>
+      <button type="button" data-underline-add>划线</button>
+      <button type="button" data-underline-remove hidden>取消划线</button>
+      <span>仅存于此浏览器</span>
     </div>
     <aside class="author-box" aria-labelledby="author-title">
       <div class="avatar"><svg class="avatar-mark" viewBox="0 0 100 80" aria-hidden="true" focusable="false"><path fill="currentColor" d="M50 6 63.8 24C63 28.5 52 32 43 39C34 46 37 51.5 45 59C55 69 51 74 36 74H4Z M66.5 27.5 96 74H81C76 64 66 57.5 56 51C45 44 46 40 53 35.5C59 32 63.5 31 66.5 27.5Z"/></svg></div>

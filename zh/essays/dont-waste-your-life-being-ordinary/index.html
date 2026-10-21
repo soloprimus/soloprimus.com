@@ -27,10 +27,11 @@
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/figtree/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/fonts.css?v=f9663c4608">
-<link rel="stylesheet" href="/assets/css/site.css?v=b99d1b46a0">
+<link rel="stylesheet" href="/assets/css/site.css?v=920c032354">
 <script>try{var s=localStorage.getItem('soloprimus-theme');document.documentElement.dataset.theme=s==='dark'||s==='light'?s:matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}catch(e){}</script>
 <script src="/assets/js/site.js?v=38fe3046df" defer></script>
 <script src="/assets/js/visitor-globe.js?v=1c2261a818" defer></script>
+<script src="/assets/js/article-reading.js?v=e0802a7a24" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"不要浪费时间做一个普通人","description":"时间是不能回购的本金。让每年的投入沉淀为判断力、作品、信誉与健康，给未来留下资产和选择，而不只是忙碌。","datePublished":"2026-10-06","dateModified":"2026-10-06","inLanguage":"zh-CN","author":{"@id":"https://soloprimus.com/#person"},"publisher":{"@id":"https://soloprimus.com/#person"},"mainEntityOfPage":"https://soloprimus.com/zh/essays/dont-waste-your-life-being-ordinary/","url":"https://soloprimus.com/zh/essays/dont-waste-your-life-being-ordinary/","image":"https://soloprimus.com/assets/og/zh-dont-waste-your-life-being-ordinary.png?v=faa20ce61d"},{"@type":"Person","@id":"https://soloprimus.com/#person","name":"Solo Primus","alternateName":["SOLO PRIMUS","凌霄"],"url":"https://soloprimus.com/about/","jobTitle":"Assistant Professor","description":"I’m Dr. Solo Primus, Assistant Professor.","knowsAbout":["Economics","Investing","Artificial intelligence","Self-improvement"],"sameAs":["https://x.com/thesoloprimus","https://substack.com/@soloprimus","https://github.com/soloprimus","https://www.youtube.com/@SoloPrimus"]}]}</script>
 </head>
 <body>
@@ -53,12 +54,18 @@
 </header>
 <main id="main">
 <div class="wrap article-layout">
-  <article class="article">
+  <article class="article" data-reading-article="dont-waste-your-life-being-ordinary" data-reading-lang="zh">
     <header class="article-head">
       <a class="topic-tag" href="/zh/essays/#growth">自我提升</a>
       <h1>不要浪费时间做一个普通人</h1>
       <p class="article-dek">时间是不能回购的本金。让每年的投入沉淀为判断力、作品、信誉与健康，给未来留下资产和选择，而不只是忙碌。</p>
       <p class="byline"><span>作者 <a href="/zh/about/">凌霄</a></span><span aria-hidden="true">·</span><time datetime="2026-10-06">2026年10月6日</time><span aria-hidden="true">·</span><span>阅读约 13 分钟</span><span aria-hidden="true">·</span><a href="/essays/dont-waste-your-life-being-ordinary/?lang=en" hreflang="en">阅读英文版</a></p>
+      <div class="reading-tools" hidden>
+        <span class="reading-presence" title="中英文版合并统计，每 20 秒更新；离开后约一分钟内移出统计。同一浏览器多标签只计一人。"><span class="reading-dot" aria-hidden="true"></span><span data-reading-count>正在连接实时人数…</span></span>
+        <span class="reading-hint">选中文字，可划线留存</span>
+        <button class="reading-clear" type="button" hidden>清除本文划线</button>
+      </div>
+      <p class="reading-status sr-only" role="status" aria-live="polite"></p>
     </header>
     <nav class="toc" aria-labelledby="toc-title">
       <p id="toc-title">本文目录</p>
@@ -71,7 +78,7 @@
         <li><a href="#section-6">六、自我投资的纪律</a></li>
       </ol>
     </nav>
-    <div class="prose">
+    <div class="prose" data-reading-prose>
 <h2 id="section-1">一、平庸的价格</h2>
 <p>先做一道很朴素的算术题。</p>
 <p>假设你从二十五岁工作到六十岁，大约三十五年。扣掉睡眠、吃饭、通勤、必要的家务，真正能自由支配、能用来做事的清醒时间，每年大概在三千个小时上下。这是个示意数字，每个人不同，但量级不会差太多。三十五年下来，十万小时出头。这就是一个人一生能拿出来配置的总资本。</p>
@@ -159,6 +166,11 @@
 <p>时间不能回购。一年过去了，就是过去了，没有谁能把它退回给你。你能做的，只是在每年年底，诚实地看一眼账本：这一年的时间，变成了什么。</p>
 <p>如果多了一些东西，哪怕很少，下一年就有了更好的起点。如果什么都没多，那就把原因找出来，明年换一种配置的方式。</p>
 <p>仅此而已。</p>
+    </div>
+    <div class="reading-toolbar" role="toolbar" aria-label="文字划线" hidden>
+      <button type="button" data-underline-add>划线</button>
+      <button type="button" data-underline-remove hidden>取消划线</button>
+      <span>仅存于此浏览器</span>
     </div>
     <aside class="author-box" aria-labelledby="author-title">
       <div class="avatar"><svg class="avatar-mark" viewBox="0 0 100 80" aria-hidden="true" focusable="false"><path fill="currentColor" d="M50 6 63.8 24C63 28.5 52 32 43 39C34 46 37 51.5 45 59C55 69 51 74 36 74H4Z M66.5 27.5 96 74H81C76 64 66 57.5 56 51C45 44 46 40 53 35.5C59 32 63.5 31 66.5 27.5Z"/></svg></div>

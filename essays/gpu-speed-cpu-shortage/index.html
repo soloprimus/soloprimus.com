@@ -28,10 +28,11 @@
 <link rel="preload" href="/assets/fonts/figtree/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/crimson-pro/crimson-pro-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/fonts.css?v=f9663c4608">
-<link rel="stylesheet" href="/assets/css/site.css?v=b99d1b46a0">
+<link rel="stylesheet" href="/assets/css/site.css?v=920c032354">
 <script>try{var s=localStorage.getItem('soloprimus-theme');document.documentElement.dataset.theme=s==='dark'||s==='light'?s:matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}catch(e){}</script>
 <script src="/assets/js/site.js?v=38fe3046df" defer></script>
 <script src="/assets/js/visitor-globe.js?v=1c2261a818" defer></script>
+<script src="/assets/js/article-reading.js?v=e0802a7a24" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"Everyone wants GPUs. Why are CPUs running short?","description":"As AI moves from producing answers to completing tasks, its bottlenecks shift. Follow an agent's workflow to understand rising CPU demand—and what would make the shortage last.","datePublished":"2026-10-01","dateModified":"2026-10-01","inLanguage":"en","author":{"@id":"https://soloprimus.com/#person"},"publisher":{"@id":"https://soloprimus.com/#person"},"mainEntityOfPage":"https://soloprimus.com/essays/gpu-speed-cpu-shortage/","url":"https://soloprimus.com/essays/gpu-speed-cpu-shortage/","image":"https://soloprimus.com/assets/og/en-gpu-speed-cpu-shortage.png?v=d484d1498d"},{"@type":"Person","@id":"https://soloprimus.com/#person","name":"Solo Primus","alternateName":["SOLO PRIMUS","凌霄"],"url":"https://soloprimus.com/about/","jobTitle":"Assistant Professor","description":"I’m Dr. Solo Primus, Assistant Professor.","knowsAbout":["Economics","Investing","Artificial intelligence","Self-improvement"],"sameAs":["https://x.com/thesoloprimus","https://substack.com/@soloprimus","https://github.com/soloprimus","https://www.youtube.com/@SoloPrimus"]}]}</script>
 </head>
 <body>
@@ -54,12 +55,18 @@
 </header>
 <main id="main">
 <div class="wrap article-layout">
-  <article class="article">
+  <article class="article" data-reading-article="gpu-speed-cpu-shortage" data-reading-lang="en">
     <header class="article-head">
       <a class="topic-tag" href="/essays/#ai">AI</a>
       <h1>Everyone wants GPUs. Why are CPUs running short?</h1>
       <p class="article-dek">As AI moves from producing answers to completing tasks, its bottlenecks shift. Follow an agent's workflow to understand rising CPU demand—and what would make the shortage last.</p>
       <p class="byline"><span>By <a href="/about/">Solo Primus</a></span><span aria-hidden="true">·</span><time datetime="2026-10-01">October 1, 2026</time><span aria-hidden="true">·</span><span>7 min read</span><span aria-hidden="true">·</span><a href="/zh/essays/gpu-speed-cpu-shortage/?lang=zh" hreflang="zh-CN">Read in Chinese</a></p>
+      <div class="reading-tools" hidden>
+        <span class="reading-presence" title="Both language editions combined. Updates every 20 seconds; inactive readers expire within about a minute. Tabs in one browser count once."><span class="reading-dot" aria-hidden="true"></span><span data-reading-count>Connecting to live readers…</span></span>
+        <span class="reading-hint">Select a passage to underline it</span>
+        <button class="reading-clear" type="button" hidden>Clear underlines</button>
+      </div>
+      <p class="reading-status sr-only" role="status" aria-live="polite"></p>
     </header>
     <nav class="toc" aria-labelledby="toc-title">
       <p id="toc-title">On this page</p>
@@ -71,7 +78,7 @@
         <li><a href="#5-a-lasting-shortage-needs-real-work-for-ai-to-do">5. A lasting shortage needs real work for AI to do</a></li>
       </ol>
     </nav>
-    <div class="prose">
+    <div class="prose" data-reading-prose>
 <p>CPUs are becoming increasingly prominent on AI infrastructure shopping lists.</p>
 <p>In late September, reports from industry channels suggested that 2027 production of AMD's sixth-generation EPYC processor, Venice, was already booked, with orders spilling into 2028. AMD has not officially confirmed the claim. Even so, pressure on server CPU supply is attracting attention. <a href="https://www.techtimes.com/articles/328325/20260930/amd-epyc-venice-supply-exhausted-2027-agentic-ai-drives-server-cpu-crunch.htm">Reported supply constraints</a></p>
 <p>Intel has also signaled a shortage. According to coverage of Splunk .conf26, its CEO said the company could currently meet only about half of customers' CPU demand. That figure cannot be translated directly into a global supply gap. Intel's formal second-quarter disclosure, however, confirmed that demand exceeded available supply and that industry-wide shortages of critical components, including substrates and memory, were expected to persist into 2027. <a href="https://www.trendforce.com/news/2026/09/16/news-intel-ceo-flags-ai-supply-squeeze-memory-prices-up-5-7x-its-cpus-meet-just-50-of-demand/">Coverage of the remarks</a>; <a href="https://www.sec.gov/Archives/edgar/data/50863/000005086326000157/intc-20260627.htm">Intel quarterly filing</a></p>
@@ -128,6 +135,11 @@
 <p>Volume and price are particularly easy to confuse. Intel's second-quarter server average selling price rose 48% year over year, while shipments rose 9%. The company attributed the price increase primarily to a higher-end product mix. Rapid revenue growth need not mean equally rapid growth in CPU units sold, and cannot be converted directly into a market shortfall. <a href="https://www.sec.gov/Archives/edgar/data/50863/000005086326000157/intc-20260627.htm">Intel quarterly filing</a></p>
 <p>The renewed attention to CPUs reflects AI's expanding scope. Once a model can propose more solutions, a system still has to execute code, call tools, read data, and check results. What companies actually buy is a completed job, delivered by all these stages together.</p>
 <p><strong>Whether the CPU shortage lasts ultimately depends on whether the work companies will pay AI to do grows faster than the infrastructure required to deliver it.</strong></p>
+    </div>
+    <div class="reading-toolbar" role="toolbar" aria-label="Passage underlining" hidden>
+      <button type="button" data-underline-add>Underline</button>
+      <button type="button" data-underline-remove hidden>Remove underline</button>
+      <span>Saved in this browser</span>
     </div>
     <aside class="author-box" aria-labelledby="author-title">
       <div class="avatar"><svg class="avatar-mark" viewBox="0 0 100 80" aria-hidden="true" focusable="false"><path fill="currentColor" d="M50 6 63.8 24C63 28.5 52 32 43 39C34 46 37 51.5 45 59C55 69 51 74 36 74H4Z M66.5 27.5 96 74H81C76 64 66 57.5 56 51C45 44 46 40 53 35.5C59 32 63.5 31 66.5 27.5Z"/></svg></div>

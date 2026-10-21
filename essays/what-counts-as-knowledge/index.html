@@ -28,10 +28,11 @@
 <link rel="preload" href="/assets/fonts/figtree/figtree-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/crimson-pro/crimson-pro-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/fonts.css?v=f9663c4608">
-<link rel="stylesheet" href="/assets/css/site.css?v=b99d1b46a0">
+<link rel="stylesheet" href="/assets/css/site.css?v=920c032354">
 <script>try{var s=localStorage.getItem('soloprimus-theme');document.documentElement.dataset.theme=s==='dark'||s==='light'?s:matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}catch(e){}</script>
 <script src="/assets/js/site.js?v=38fe3046df" defer></script>
 <script src="/assets/js/visitor-globe.js?v=1c2261a818" defer></script>
+<script src="/assets/js/article-reading.js?v=e0802a7a24" defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"What Counts as Knowledge?","description":"AI has made answers cheap. Sound judgment still depends on knowledge—and on whether you can use it when real constraints apply.","datePublished":"2026-10-11","dateModified":"2026-10-11","inLanguage":"en","author":{"@id":"https://soloprimus.com/#person"},"publisher":{"@id":"https://soloprimus.com/#person"},"mainEntityOfPage":"https://soloprimus.com/essays/what-counts-as-knowledge/","url":"https://soloprimus.com/essays/what-counts-as-knowledge/","image":"https://soloprimus.com/assets/og/en-what-counts-as-knowledge.png?v=82440bdc8f"},{"@type":"Person","@id":"https://soloprimus.com/#person","name":"Solo Primus","alternateName":["SOLO PRIMUS","凌霄"],"url":"https://soloprimus.com/about/","jobTitle":"Assistant Professor","description":"I’m Dr. Solo Primus, Assistant Professor.","knowsAbout":["Economics","Investing","Artificial intelligence","Self-improvement"],"sameAs":["https://x.com/thesoloprimus","https://substack.com/@soloprimus","https://github.com/soloprimus","https://www.youtube.com/@SoloPrimus"]}]}</script>
 </head>
 <body>
@@ -54,12 +55,18 @@
 </header>
 <main id="main">
 <div class="wrap article-layout">
-  <article class="article">
+  <article class="article" data-reading-article="what-counts-as-knowledge" data-reading-lang="en">
     <header class="article-head">
       <a class="topic-tag" href="/essays/#ai">AI</a>
       <h1>What Counts as Knowledge?</h1>
       <p class="article-dek">AI has made answers cheap. Sound judgment still depends on knowledge—and on whether you can use it when real constraints apply.</p>
       <p class="byline"><span>By <a href="/about/">Solo Primus</a></span><span aria-hidden="true">·</span><time datetime="2026-10-11">October 11, 2026</time><span aria-hidden="true">·</span><span>10 min read</span><span aria-hidden="true">·</span><a href="/zh/essays/what-counts-as-knowledge/?lang=zh" hreflang="zh-CN">Read in Chinese</a></p>
+      <div class="reading-tools" hidden>
+        <span class="reading-presence" title="Both language editions combined. Updates every 20 seconds; inactive readers expire within about a minute. Tabs in one browser count once."><span class="reading-dot" aria-hidden="true"></span><span data-reading-count>Connecting to live readers…</span></span>
+        <span class="reading-hint">Select a passage to underline it</span>
+        <button class="reading-clear" type="button" hidden>Clear underlines</button>
+      </div>
+      <p class="reading-status sr-only" role="status" aria-live="polite"></p>
     </header>
     <nav class="toc" aria-labelledby="toc-title">
       <p id="toc-title">On this page</p>
@@ -72,7 +79,7 @@
         <li><a href="#back-to-the-two-candidates">Back to the two candidates</a></li>
       </ol>
     </nav>
-    <div class="prose">
+    <div class="prose" data-reading-prose>
 <p>I recently met two young people, both fresh out of college.</p>
 <p>One had a master's in computer science from a prestigious university, excellent grades, and more practice with algorithm problems than most people I know. The other had an undergraduate degree from an ordinary school, in a field that wasn't even a close match for the job. They interviewed for the same role. The company gave each a small assignment: take a real business need and, in two days, deliver something that actually worked.</p>
 <p>The second candidate got the offer.</p>
@@ -133,6 +140,11 @@
 <p>For young people, my advice is concrete: stop measuring yourself by how much you've studied. Pick a small, real goal. Make something, hand it over, and let someone use it. You'll discover which parts you understand and which only feel familiar. That discovery can teach you more than a hundred exam papers.</p>
 <p>If you follow investing and AI, take an inventory of what you know. Which parts are "exam knowledge," and which can survive delivery? Knowing what a price-to-earnings ratio means is exam knowledge. Taking a particular company and explaining why its earnings are, or aren't, durable, then being willing to put real money behind that judgment, is closer to delivery.</p>
 <p>AI can help with the first. The second has to be yours. This week, choose one thing you've wanted to understand and turn it into something you can show someone else: an analysis, a small tool, or an essay someone could challenge.</p>
+    </div>
+    <div class="reading-toolbar" role="toolbar" aria-label="Passage underlining" hidden>
+      <button type="button" data-underline-add>Underline</button>
+      <button type="button" data-underline-remove hidden>Remove underline</button>
+      <span>Saved in this browser</span>
     </div>
     <aside class="author-box" aria-labelledby="author-title">
       <div class="avatar"><svg class="avatar-mark" viewBox="0 0 100 80" aria-hidden="true" focusable="false"><path fill="currentColor" d="M50 6 63.8 24C63 28.5 52 32 43 39C34 46 37 51.5 45 59C55 69 51 74 36 74H4Z M66.5 27.5 96 74H81C76 64 66 57.5 56 51C45 44 46 40 53 35.5C59 32 63.5 31 66.5 27.5Z"/></svg></div>
