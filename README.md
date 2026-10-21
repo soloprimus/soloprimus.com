@@ -79,6 +79,12 @@ The October 10 essay on Peter Thiel and the October 11 essay on knowledge were i
 
 All eleven website English editions were reviewed using [sloptrim](https://github.com/seyedehsanhadi/sloptrim/blob/38dbb7cb4e97de0b9bf157903c95bdcab016dda2/SKILL.md), version 0.9.4. Its detector placed them in the clean band; edits addressed flagged typography and specific wording while retaining factual caveats, technical terms, and intentional uses of domain language. Detector findings were treated as editing prompts, not evidence of authorship.
 
+### We-media import: October 21, 2026
+
+Three new manuscripts were imported from `soloprimus/we-media` at `fc4e35fb9dc1361418979e34ea1baa37bffb1df2`, with complete English editions, matching language links, and six share images: `what-makes-an-investment-bubble` (October 11; source revision October 12), `finding-your-way-out` (October 16), and `the-power-of-a-believable-story` (October 21). Drafting metadata and private writing-session URLs are excluded from published bodies. All fourteen English editions were reviewed with the pinned Sloptrim 0.9.4 instructions and detector; existing clean copy keeps its voice and intentional technical vocabulary.
+
+The bubble editions correct the source's reversed account of Greenwood, Shleifer and You's crash-risk result, add the original research links, and make the unsupported market snapshot an explicit hypothetical rather than an asserted current diagnosis. They also distinguish earnings yields from realized equity returns, proxies from project returns, and operating-cash-flow funding from immunity to losses. Narrative editions distinguish Anthropic's official May 28 financing valuation from reported investor expectations and identify the Soros passage as interpretation. Hardship editions qualify the scarcity research, avoid implying that company liquidation guarantees protection of a personal home, remove an unsupported numerical comparison of decision accuracy, and fix the contradictory reference to which small experiment succeeded. Author anecdotes remain attributed personal accounts and are not independently verified. Editorial notes disclose substantive changes in both languages; original manuscripts in the source repository are unchanged.
+
 ## Visitor statistics
 
 The visitor section is between the follow band and footer on English and Chinese pages. `assets/js/visitor-globe.js` reads the same-origin `/api/visitors` endpoint; counters are never initialized with fabricated numbers. Unavailable statistics show a clear status message, and missing geolocation produces no invented markers.
@@ -92,6 +98,8 @@ The native Canvas globe loads its local Natural Earth geometry near the viewport
 Run `npm ci`, `npm test`, `npm run build`, and `npm run dev` to verify locally. Local development uses a separate storage namespace and may have placeholder edge geolocation; never seed production with local test visits.
 
 ## Article reading tools
+
+Each essay also shows a cumulative unique-browser reader total, collected starting with the October 21, 2026 release. The existing heartbeat records a browser once per essay in `article_readers` and increments `article_read_totals` transactionally. Refreshes, repeat visits and language switches do not add readers; different browsers/devices or cleared browser storage may count again. This estimates people who opened an essay, not confirmed completions. Historical per-essay traffic is unavailable and is not invented or backfilled. These totals survive live-lease expiry and Worker redeployments and remain separate from site-wide IP-based visitor statistics.
 
 Every English and Chinese essay includes a live reading label. Visible pages send a heartbeat to `/api/reading` every 20 seconds. An anonymous browser ID deduplicates tabs and both editions of the same essay; different essays count independently. Leases expire after 65 seconds without a heartbeat, so the label estimates concurrent readers rather than cumulative page views. Hidden pages stop sending heartbeats. SQLite stores these short-lived leases separately from historical visitor totals, and expired leases are removed on the next heartbeat. The API is same-origin, uncached, and excludes recognized bots. A failure displays an unavailable state rather than inventing a number.
 

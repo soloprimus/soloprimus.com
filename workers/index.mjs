@@ -130,6 +130,8 @@ export class VisitorCounter extends DurableObject {
       CREATE TABLE IF NOT EXISTS metadata (key TEXT PRIMARY KEY, value TEXT NOT NULL);
       CREATE TABLE IF NOT EXISTS active_readers (article TEXT NOT NULL, reader TEXT NOT NULL, expires INTEGER NOT NULL, PRIMARY KEY(article, reader));
       CREATE INDEX IF NOT EXISTS active_readers_expiry ON active_readers(expires);
+      CREATE TABLE IF NOT EXISTS article_readers (article TEXT NOT NULL, reader TEXT NOT NULL, PRIMARY KEY(article, reader));
+      CREATE TABLE IF NOT EXISTS article_read_totals (article TEXT PRIMARY KEY, readers INTEGER NOT NULL);
       CREATE TABLE IF NOT EXISTS counters (key TEXT PRIMARY KEY, value INTEGER NOT NULL);
       CREATE TABLE IF NOT EXISTS visitors (visitor_hash TEXT PRIMARY KEY);
       CREATE TABLE IF NOT EXISTS daily_visitors (day TEXT NOT NULL, visitor_hash TEXT NOT NULL, PRIMARY KEY(day, visitor_hash));
@@ -156,14 +158,17 @@ export class VisitorCounter extends DurableObject {
       if (typeof article !== 'string' || !/^[a-z0-9][a-z0-9-]{0,99}$/.test(article) ||
         typeof reader !== 'string' || !/^[a-f0-9-]{36}$/.test(reader)) return json({ error: 'invalid_reading' }, 400);
       const now = Date.now();
-      let active;
+      let active, total;
       this.storage.transactionSync(() => {
+        const first = this.sql.exec('INSERT OR IGNORE INTO article_readers VALUES (?, ?) RETURNING reader', article, reader).toArray().length;
+        if (first) this.sql.exec('INSERT INTO article_read_totals VALUES (?, 1) ON CONFLICT(article) DO UPDATE SET readers = readers + 1', article);
         this.sql.exec('DELETE FROM active_readers WHERE expires <= ?', now);
         // A browser's tabs and both language editions share one short-lived lease.
         this.sql.exec('INSERT INTO active_readers VALUES (?, ?, ?) ON CONFLICT(article, reader) DO UPDATE SET expires = excluded.expires', article, reader, now + 65000);
         active = this.sql.exec('SELECT COUNT(*) AS active FROM active_readers WHERE article = ? AND expires > ?', article, now).one().active;
+        total = this.sql.exec('SELECT readers FROM article_read_totals WHERE article = ?', article).one().readers;
       });
-      return json({ active, generatedAt: new Date(now).toISOString() });
+      return json({ active, total, generatedAt: new Date(now).toISOString() });
     }
     if (path === '/stats' && request.method === 'GET') return json(this.snapshot());
     if (path !== '/visit' || request.method !== 'POST') return json({ error: 'not_found' }, 404);

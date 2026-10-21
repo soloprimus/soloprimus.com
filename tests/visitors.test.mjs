@@ -35,24 +35,33 @@ test('Article readers deduplicate tabs, isolate articles, expire and survive obj
   let instance = new VisitorCounter({ storage }, {});
   const a = '00000000-0000-4000-8000-000000000001';
   const b = '00000000-0000-4000-8000-000000000002';
+  let lastTotal;
   const pulse = async (reader, article = 'what-counts-as-knowledge') => {
     const response = await instance.fetch(new Request('https://internal/reading', {
       method: 'POST', body: JSON.stringify({ article, reader }),
     }));
     assert.equal(response.status, 200);
     assert.equal(response.headers.get('Cache-Control'), 'no-store');
-    return (await response.json()).active;
+    const data = await response.json();
+    lastTotal = data.total;
+    return data.active;
   };
   assert.equal(await pulse(a), 1);
+  assert.equal(lastTotal, 1);
   assert.equal(await pulse(a), 1);
+  assert.equal(lastTotal, 1, 'Reloads must not increase cumulative readers');
   assert.equal(await pulse(b), 2);
+  assert.equal(lastTotal, 2);
   assert.equal(await pulse(b, 'substance-over-status'), 1);
+  assert.equal(lastTotal, 1, 'Each essay has its own cumulative total');
   instance = new VisitorCounter({ storage }, {});
   assert.equal(await pulse(a), 2);
+  assert.equal(lastTotal, 2, 'Cumulative readers survive object restarts');
   t.mock.timers.tick(40000);
   assert.equal(await pulse(a), 2);
   t.mock.timers.tick(25000);
   assert.equal(await pulse(a), 1);
+  assert.equal(lastTotal, 2, 'Cumulative readers persist after live leases expire');
   assert.equal(storage.sql.exec('SELECT COUNT(*) AS total FROM active_readers').one().total, 1);
   assert.equal(instance.snapshot().total, 0, 'Presence must not change historical visitor totals');
   assert.equal(instance.snapshot().today, 0);

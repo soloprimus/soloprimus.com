@@ -6,6 +6,7 @@
   const prose = article.querySelector('[data-reading-prose]');
   const tools = article.querySelector('.reading-tools');
   const count = article.querySelector('[data-reading-count]');
+  const totalCount = article.querySelector('[data-reading-total]');
   const presence = article.querySelector('.reading-presence');
   const toolbar = article.querySelector('.reading-toolbar');
   const add = toolbar.querySelector('[data-underline-add]');
@@ -30,6 +31,7 @@
   const unavailable = () => {
     presence.dataset.state = 'unavailable';
     count.textContent = zh ? '实时人数暂不可用' : 'Live readers unavailable';
+    totalCount.textContent = zh ? '累计人数暂不可用' : 'Reader total unavailable';
   };
   async function heartbeat() {
     clearTimeout(timer);
@@ -46,9 +48,12 @@
       if (!response.ok) throw new Error('Reading service unavailable');
       const data = await response.json();
       if (!Number.isSafeInteger(data.active) || data.active < 1) throw new Error('Invalid reader count');
+      if (!Number.isSafeInteger(data.total) || data.total < 1) throw new Error('Invalid reader total');
       presence.dataset.state = 'live';
       const number = new Intl.NumberFormat(zh ? 'zh-CN' : 'en').format(data.active);
       count.textContent = zh ? `${number} 人正在阅读` : `${number} ${data.active === 1 ? 'person' : 'people'} reading now`;
+      const total = new Intl.NumberFormat(zh ? 'zh-CN' : 'en').format(data.total);
+      totalCount.textContent = zh ? `${total} 人已读` : `${total} ${data.total === 1 ? 'reader' : 'readers'}`;
     } catch {
       if (!document.hidden && !stopped) unavailable();
     } finally {

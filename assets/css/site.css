@@ -562,6 +562,7 @@ html:lang(zh-CN) .article-dek { font-size: 1.18rem; line-height: 1.85; }
 .reading-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--line-2); flex: none; }
 .reading-presence[data-state="live"] .reading-dot { background: var(--accent); }
 .reading-hint { color: var(--muted); }
+.reading-total { font-variant-numeric: tabular-nums; cursor: help; }
 .reading-status:not(.sr-only) { margin-top: 10px; font: 400 12px/1.6 var(--sans); color: var(--accent-ink); }
 .reading-clear { padding: 4px 0; border: 0; border-bottom: 1px solid var(--line-2); background: none; color: var(--muted); font: inherit; cursor: pointer; }
 .reading-clear:hover { color: var(--accent-ink); border-color: currentColor; }
