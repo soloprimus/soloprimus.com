@@ -1,0 +1,33 @@
+---
+title: Respect the bubble
+summary: Between judging that valuations are too high and judging when prices will fall lie shifts in capital, interests, and expectations. An industry that adjusts on its own makes short sellers pay for the wait.
+topic: ai
+date: 2026-09-05
+note: Personal research and reflection. The companies mentioned are for illustration only and nothing here constitutes investment advice.
+---
+
+The gap between recognizing that an industry is overvalued and knowing when it will fall is filled by changes in capital, interests, and expectations. That gap is where short sellers are most likely to pay a price. Especially when an industry has already attracted enormous amounts of capital and built an extensive network of vested interests, any prediction of an imminent collapse must account for how its participants will respond to adversity.
+
+The network of interests surrounding AI has grown far beyond a handful of model companies. In its March 2026 funding announcement, OpenAI listed participants including Amazon, Nvidia, and Microsoft. Anthropic's May 2026 funding announcement named Micron, Samsung, and SK Hynix as strategic infrastructure partners. Capital investment and computing-power purchases are linking different parts of the industry. [OpenAI funding announcement](https://openai.com/index/accelerating-the-next-phase-ai/) [Anthropic funding announcement](https://www.anthropic.com/news/series-h)
+
+These connections mean that a model company's progress toward commercialization affects investor returns, cloud providers' revenue, and equipment suppliers' orders. Under pressure from slower-than-expected revenue realization, participants have incentives to raise additional capital, adjust their products, and seek new use cases for which customers will pay. As long as further investment is still considered worthwhile and funding remains available, the industry has room to keep experimenting.
+
+That is why a bearish view on AI must consider how the industry will respond to difficulties. Following the existing pricing model to the conclusion that "token prices fall, revenue comes under pressure, and valuations collapse" risks overlooking the room companies have to adapt. They can shift what they sell from model calls to the delivery of an entire piece of work. Intercom's Fin already charges by what it defines as an "outcome," showing that this approach has entered commercial practice. [Intercom pricing](https://www.intercom.com/pricing)
+
+A different pricing model can change the benchmark customers use to compare prices. Suppose a task previously cost a business $50 in labor, while the inference cost for AI to complete it is $1. If the AI can deliver reliably and actually reduce the business's expenses, the service provider may have an opportunity to charge $5 or $10. The customer cares about the total cost of getting the job done. Inference cost is only one component.
+
+Whether this works depends on whether the product genuinely delivers the promised outcome. Human review, system integration, and error handling all incur costs. Saving an hour of work does not necessarily translate into one fewer hour of wages paid. Switching from token-based pricing to task-based pricing does not automatically confer pricing power. The new model only makes commercial sense when customers recognize the savings, are willing to keep paying, and the provider can retain a profit amid competition.
+
+Yet the market's observation period may already have lengthened before the results are fully tested. The debate, previously centered on the price per call and revenue growth, now has new questions to contend with: Can tasks be completed consistently? Are customers expanding their usage? Do pilot projects lead to renewals? These questions require new data. A single round of product adjustments may be enough to buy companies more time to secure financing and validate their business models.
+
+Time matters especially in a technology industry that is still evolving. If task success rates improve and delivery costs fall during that period, applications that were previously uneconomical may become viable. New customer demand may then generate revenue to fund the next round of investment. Financing can therefore change the eventual outcome. Expectations that investors consider impossible to realize today may gain some support in the future as products and costs evolve.
+
+Short sellers are up against an industry that actively adapts. Business models, product boundaries, and sources of funding can all change. Even when the profitability problems identified at the outset are real, they may not trigger a decline along the expected path or within the expected timeframe.
+
+This ability to adapt is still constrained by cash flow. Expanding the addressable market from software budgets to white-collar wages does not directly generate more revenue. The tasks that can be automated, the cost savings that can actually be realized, and the share ultimately captured by service providers all determine the market that can be monetized. If only the valuation framework expands while customer spending and operating efficiency fail to improve, the extra time may simply allow losses and capacity pressures to accumulate.
+
+The interests of industry participants will not remain aligned forever, either. Cloud providers want to reduce computing costs. Chip suppliers want to preserve their margins. Model companies compete for customers, while enterprise customers demand lower prices. Shared expectations of growth can sustain cooperation, but conflicts over how profits are distributed can also drive substitution and competition. The AI cycle can continue without every company in the value chain maintaining its current revenue and valuation.
+
+Respecting the bubble means tracking the conditions that sustain valuations: who can still obtain funding, who is improving actual returns, and who is merely postponing problems. For short sellers, a change in pricing models alone is not enough to invalidate a bearish thesis. But when that change genuinely extends a company's financing runway and improves customers' willingness to pay, the original catalysts for a decline and the cost of maintaining the position deserve to be reassessed.
+
+Every trade must ultimately stand the test of the price path it takes. How much time an industry can buy and how long investors can afford to wait will both change the outcome. Seeing the exaggeration in market expectations is only part of the task; one must also understand the forces sustaining those expectations. The market does not spare anyone the cost of waiting simply because they spotted the problem early.
