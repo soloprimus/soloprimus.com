@@ -296,7 +296,7 @@ function essayRow(e, lang, heading = 'h3') {
   const title = cross ? e.title_en || e.title : e.title;
   const summary = cross ? e.summary_en || e.summary : e.summary;
   const hl = cross ? ` hreflang="${SITE.langs[e.lang].hreflang}"` : '';
-  return `<li class="essay-row" data-topic="${e.topic}">
+  return `<li class="essay-row" data-topic="${e.topic}" data-essay-slug="${escAttr(e.slug)}" data-essay-date="${iso(e.date)}">
   <div class="essay-meta"><a class="topic-tag" href="${P.essays(lang)}#${e.topic}">${esc(t.topics[e.topic])}</a><span><time datetime="${iso(e.date)}">${esc(t.shortDate(e.date))}</time> · ${esc(t.minRead(e.minutes))}</span></div>
   <div class="essay-main">
     <${heading}><a href="${P.essay(e.lang, e.slug)}"${hl}>${esc(title)}</a>${cross ? ` <span class="badge" lang="zh-CN">${esc(t.essays.zhBadge)}</span>` : ''}</${heading}>
@@ -396,14 +396,15 @@ ${SITE.topics.map((topic) => {
     <header class="section-head">
       <p class="eyebrow">${esc(h.startEyebrow)}</p>
       <h2 id="start-title">${esc(h.startTitle)}</h2>
+      <p class="list-note" data-reader-ranking-note hidden>${lang === 'zh' ? '按累计已读人数排序' : 'Most read first'}</p>
     </header>
-    <ol class="essay-list">
+    <ol class="essay-list" data-reader-ranking="${lang}">
 ${own.map((e) => essayRow(e, lang)).join('\n')}
     </ol>
 ${cross.length ? `    <div class="also">
       <h3 class="list-subhead">${esc(h.alsoTitle)}</h3>
       <p class="list-note">${esc(h.alsoNote)}</p>
-      <ol class="essay-list">
+      <ol class="essay-list" data-reader-ranking="${lang}">
 ${cross.map((e) => essayRow(e, lang, 'h4')).join('\n')}
       </ol>
     </div>

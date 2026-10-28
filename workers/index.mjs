@@ -54,6 +54,14 @@ function languageHeaders(response, explicit) {
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
+    if (url.pathname === '/api/reading-totals') {
+      if (request.method !== 'GET') return json({ error: 'method_not_allowed' }, 405);
+      try {
+        return await counter(env).fetch(new Request('https://counter.internal/reading-totals'));
+      } catch {
+        return json({ error: 'reading_unavailable' }, 503);
+      }
+    }
     if (url.pathname === '/api/reading') {
       if (request.method !== 'POST') return json({ error: 'method_not_allowed' }, 405);
       if (request.headers.get('Origin') !== url.origin ||
@@ -153,6 +161,12 @@ export class VisitorCounter extends DurableObject {
 
   async fetch(request) {
     const path = new URL(request.url).pathname;
+    if (path === '/reading-totals' && request.method === 'GET') {
+      return json({
+        articles: this.sql.exec('SELECT article, readers AS total FROM article_read_totals ORDER BY readers DESC, article ASC').toArray(),
+        generatedAt: new Date().toISOString(),
+      });
+    }
     if (path === '/reading' && request.method === 'POST') {
       const { article, reader } = await request.json();
       if (typeof article !== 'string' || !/^[a-z0-9][a-z0-9-]{0,99}$/.test(article) ||

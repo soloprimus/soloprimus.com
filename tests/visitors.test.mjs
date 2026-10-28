@@ -92,6 +92,39 @@ test('Reading endpoint requires same-origin JSON and rejects bots and invalid id
   assert.equal(writes, 1);
 });
 
+test('Homepage reader rankings expose only aggregates and never record reads or visits', async () => {
+  const storage = sqliteStorage();
+  const instance = new VisitorCounter({ storage }, {});
+  const env = { VISITORS: { idFromName: value => value, get: () => ({ fetch: request => instance.fetch(request) }) } };
+  const request = (method = 'GET') => worker.fetch(new Request('https://soloprimus.com/api/reading-totals', {
+    method, headers: { 'CF-Connecting-IP': '198.51.100.99', Accept: 'text/html' },
+  }), env, { waitUntil() { throw new Error('Ranking reads must not write visitor statistics'); } });
+  assert.deepEqual((await (await request()).json()).articles, []);
+  storage.sql.exec('INSERT INTO article_read_totals VALUES (?, ?)', 'what-counts-as-knowledge', 2);
+  storage.sql.exec('INSERT INTO article_read_totals VALUES (?, ?)', 'substance-over-status', 5);
+  storage.sql.exec('INSERT INTO article_read_totals VALUES (?, ?)', 'finding-your-way-out', 5);
+  storage.sql.exec('INSERT INTO article_readers VALUES (?, ?)', 'finding-your-way-out', 'private-test-identity');
+  const expected = [
+    { article: 'finding-your-way-out', total: 5 },
+    { article: 'substance-over-status', total: 5 },
+    { article: 'what-counts-as-knowledge', total: 2 },
+  ];
+  for (let i = 0; i < 2; i++) {
+    const response = await request();
+    assert.equal(response.status, 200);
+    assert.equal(response.headers.get('Cache-Control'), 'no-store');
+    const body = await response.json();
+    assert.deepEqual(body.articles, expected);
+    assert.ok(!JSON.stringify(body).includes('private-test-identity'));
+  }
+  assert.equal(instance.snapshot().total, 0);
+  assert.equal(instance.snapshot().today, 0);
+  assert.equal((await request('POST')).status, 405);
+  const failure = await worker.fetch(new Request('https://soloprimus.com/api/reading-totals'), {}, {});
+  assert.equal(failure.status, 503);
+  storage.db.close();
+});
+
 test('Homepage language uses mainland IP, with stable deep links and uncached redirects', async () => {
   let assetCalls = 0;
   const env = { ASSETS: { fetch: async () => {

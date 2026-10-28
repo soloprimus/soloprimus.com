@@ -69,6 +69,58 @@
     if (image.complete && image.naturalWidth === 0) showError();
   });
 
+  // Homepage rankings use the same cumulative counts as the article bylines.
+  // Reading this endpoint never records a read of any of the listed articles.
+  const rankedLists = [...document.querySelectorAll('[data-reader-ranking]')];
+  if (rankedLists.length) {
+    let loading = false, updatedAt = 0;
+    const updateRanking = async () => {
+      if (loading || document.hidden) return;
+      loading = true;
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 8000);
+      try {
+        const response = await fetch('/api/reading-totals', { cache: 'no-store', signal: controller.signal });
+        if (!response.ok) throw new Error('Reading totals unavailable');
+        const data = await response.json();
+        if (!Array.isArray(data.articles) || data.articles.some(item =>
+          typeof item.article !== 'string' || !/^[a-z0-9][a-z0-9-]{0,99}$/.test(item.article) ||
+          !Number.isSafeInteger(item.total) || item.total < 0)) throw new Error('Invalid reading totals');
+        const totals = new Map(data.articles.map(item => [item.article, item.total]));
+        for (const list of rankedLists) {
+          const zh = list.dataset.readerRanking === 'zh';
+          const rows = [...list.children];
+          for (const row of rows) {
+            const total = totals.get(row.dataset.essaySlug) || 0;
+            let label = row.querySelector('[data-essay-readers]');
+            if (!label) {
+              label = document.createElement('span');
+              label.dataset.essayReaders = '';
+              row.querySelector('.essay-meta').append(label);
+            }
+            const number = new Intl.NumberFormat(zh ? 'zh-CN' : 'en').format(total);
+            label.textContent = zh ? `${number} 人已读` : `${number} ${total === 1 ? 'reader' : 'readers'}`;
+          }
+          // Leave keyboard focus undisturbed if someone is already in the list.
+          if (list.contains(document.activeElement)) continue;
+          const sorted = [...rows].sort((a, b) =>
+            (totals.get(b.dataset.essaySlug) || 0) - (totals.get(a.dataset.essaySlug) || 0) ||
+            b.dataset.essayDate.localeCompare(a.dataset.essayDate) ||
+            a.dataset.essaySlug.localeCompare(b.dataset.essaySlug));
+          if (sorted.some((row, index) => row !== rows[index])) list.append(...sorted);
+        }
+        document.querySelector('[data-reader-ranking-note]').hidden = false;
+        updatedAt = Date.now();
+      } catch { /* Keep the static list and omit unknown counts if statistics fail. */ }
+      finally { clearTimeout(timeout); loading = false; }
+    };
+    updateRanking();
+    window.addEventListener('pageshow', event => { if (event.persisted) updateRanking(); });
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden && Date.now() - updatedAt > 60000) updateRanking();
+    });
+  }
+
   // Essay filters on the essays page. Without JavaScript every essay stays visible.
   const buttons = [...document.querySelectorAll('[data-filter]')];
   if (buttons.length) {
