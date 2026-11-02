@@ -36,9 +36,8 @@ function card({ lang, kicker, title, sub, lines }) {
   const slogan = zh && lines;
   const titleFont = slogan ? '"Noto Serif SC","Songti SC",serif' : zh ? '"PingFang SC","Microsoft YaHei","Noto Sans CJK SC",sans-serif' : '"Figtree",sans-serif';
   const size = title.length > (zh ? 14 : 34) ? (zh ? 60 : 62) : zh ? 72 : 76;
-  // Break long Chinese titles at the first comma instead of inside a word.
-  const comma = zh ? title.indexOf('，') : -1;
-  const titleHtml = slogan ? lines.map((line) => `<span>${esc(line)}</span>`).join('') : comma > 0 && title.length > 12 ? `${esc(title.slice(0, comma + 1))}<br>${esc(title.slice(comma + 1))}` : esc(title);
+  // Keep long Chinese title clauses together at their natural punctuation.
+  const titleHtml = slogan ? lines.map((line) => `<span>${esc(line)}</span>`).join('') : zh && title.length > 12 ? title.split(/(?<=[：，])/).map(esc).join('<br>') : esc(title);
   return `<!doctype html><html lang="${zh ? 'zh-CN' : 'en'}"><head><meta charset="utf-8">
 <link rel="stylesheet" href="/assets/css/fonts.css">
 <style>

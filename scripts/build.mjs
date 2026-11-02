@@ -344,8 +344,9 @@ function loopDiagram(d) {
 function homePage(lang, essays) {
   const t = T[lang];
   const h = t.home;
-  const own = [...essays[lang]].sort((a, b) => a.featured - b.featured || b.date - a.date);
-  const cross = lang === 'en' ? essays.zh.filter((z) => !z.alt).sort((a, b) => a.featured - b.featured || b.date - a.date) : [];
+  const newestFirst = (a, b) => b.date - a.date || a.slug.localeCompare(b.slug);
+  const own = [...essays[lang]].sort(newestFirst);
+  const cross = lang === 'en' ? essays.zh.filter((z) => !z.alt).sort(newestFirst) : [];
   const diagrams = { investing: frameworkDiagram(h.thesis), ai: frameworkDiagram(h.aiFramework), growth: loopDiagram(h.loop) };
   const main = `<section class="wrap hero">
   <div class="hero-copy">
@@ -396,15 +397,15 @@ ${SITE.topics.map((topic) => {
     <header class="section-head">
       <p class="eyebrow">${esc(h.startEyebrow)}</p>
       <h2 id="start-title">${esc(h.startTitle)}</h2>
-      <p class="list-note" data-reader-ranking-note hidden>${lang === 'zh' ? '按累计已读人数排序' : 'Most read first'}</p>
+      <p class="list-note">${lang === 'zh' ? '最新文章在前' : 'Newest first'}</p>
     </header>
-    <ol class="essay-list" data-reader-ranking="${lang}">
+    <ol class="essay-list" data-reader-totals="${lang}">
 ${own.map((e) => essayRow(e, lang)).join('\n')}
     </ol>
 ${cross.length ? `    <div class="also">
       <h3 class="list-subhead">${esc(h.alsoTitle)}</h3>
       <p class="list-note">${esc(h.alsoNote)}</p>
-      <ol class="essay-list" data-reader-ranking="${lang}">
+      <ol class="essay-list" data-reader-totals="${lang}">
 ${cross.map((e) => essayRow(e, lang, 'h4')).join('\n')}
       </ol>
     </div>
